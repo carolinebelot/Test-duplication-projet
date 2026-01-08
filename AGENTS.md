@@ -135,6 +135,124 @@ Créer à la racine :
      - Les fichiers créés/modifiés
      - Les problèmes rencontrés et solutions
 
+### Phase 6 : Création des corrigés
+
+**IMPORTANT** : Cette phase est cruciale pour les mentors et formateurs. Elle doit être réalisée **après** la génération de la codebase starter.
+
+#### 6.1 Codebase corrigée
+
+Créer un dossier `[projet]-solution/` à la racine qui contient :
+
+1. **Version complète et fonctionnelle du projet** :
+   - Reprendre la structure du starter code
+   - Implémenter toutes les fonctionnalités demandées dans `project.md`
+   - Appliquer toutes les best practices définies dans `stack.md`
+   - Respecter l'architecture et les patterns attendus
+   - Code propre, commenté et professionnel
+
+2. **Points d'attention pour la codebase solution** :
+   - Le code doit représenter une solution **de référence**, pas la seule solution possible
+   - Suivre **exactement** les étapes décrites dans `project.md`
+   - Refléter le niveau de séniorité attendu (ni trop simple, ni trop complexe)
+   - Inclure des commentaires pédagogiques aux endroits clés
+   - S'assurer que le code compile et fonctionne parfaitement
+
+3. **Structure du dossier solution** :
+   ```
+   [projet]-solution/
+   ├── [même structure que le starter]
+   ├── README_SOLUTION.md      # Explication de l'architecture de la solution
+   └── [code complet et fonctionnel]
+   ```
+
+#### 6.2 Guide de correction étape par étape
+
+Créer un fichier `CORRIGE.md` à la racine qui contient :
+
+1. **Introduction** :
+   - Vue d'ensemble de la solution
+   - Compétences validées par cette solution
+   - Architecture générale adoptée
+
+2. **Pour chaque exercice/étape du `project.md`** :
+
+   **Format structuré** :
+   ```markdown
+   ## Exercice [N] : [Titre de l'exercice]
+
+   ### Objectif pédagogique
+   - Compétence(s) travaillée(s)
+   - Ce que l'étudiant doit comprendre
+
+   ### Solution détaillée
+
+   #### Étape [N.1] : [Titre de l'étape]
+
+   **Ce qu'il faut faire** :
+   - Action 1
+   - Action 2
+   - Action 3
+
+   **Explication technique** :
+   - Pourquoi cette approche
+   - Concepts clés à comprendre
+   - Liens avec les best practices
+
+   **Code de référence** :
+   ```[langage]
+   // Code exemple avec commentaires explicatifs
+   ```
+
+   **Points de vigilance** :
+   - Erreurs courantes à éviter
+   - Pièges classiques
+   - Ce que le mentor doit vérifier
+
+   **Fichiers concernés** :
+   - `chemin/vers/fichier1.ext`
+   - `chemin/vers/fichier2.ext`
+
+   #### Étape [N.2] : [Titre de l'étape suivante]
+   [Même structure...]
+   ```
+
+3. **Sections obligatoires du CORRIGE.md** :
+
+   - **Vue d'ensemble** : Architecture globale de la solution
+   - **Prérequis** : Connaissances nécessaires avant de commencer
+   - **Exercice par exercice** : Solution détaillée pour chaque exercice
+   - **Grille d'évaluation** : Critères de validation (ce qui doit être vérifié)
+   - **Erreurs fréquentes** : Liste des erreurs classiques et comment les corriger
+   - **Ressources complémentaires** : Liens vers docs, tutoriels, concepts clés
+   - **FAQ** : Questions fréquentes des étudiants et réponses
+
+4. **Style d'écriture du CORRIGE.md** :
+   - **Pédagogique** : Expliquer le "pourquoi", pas seulement le "comment"
+   - **Progressif** : Suivre l'ordre du `project.md`
+   - **Illustré** : Exemples de code, schémas si nécessaire
+   - **Accessible** : Adapté au niveau de séniorité défini
+   - **Complet mais synthétique** : Ni trop verbose, ni trop succinct
+
+#### 6.3 Validation de la solution
+
+Avant de finaliser :
+
+1. **Tester la codebase solution** :
+   - Lancer avec Docker pour vérifier que tout fonctionne
+   - Tester chaque fonctionnalité demandée
+   - Vérifier qu'il n'y a pas d'erreurs
+
+2. **Relire le CORRIGE.md** :
+   - Vérifier que chaque étape du `project.md` est couverte
+   - S'assurer que les explications sont claires
+   - Valider que le niveau correspond au niveau de séniorité
+
+3. **Documenter dans `rex.md`** :
+   - Le processus de création de la solution
+   - Les choix techniques effectués
+   - Les difficultés rencontrées
+   - Le temps estimé pour un étudiant
+
 ## Instructions spécifiques
 
 ### Comment analyser `project.md`
@@ -186,14 +304,18 @@ Créer à la racine :
 
 ```
 /
-├── project.md          # Instructions du projet pour l'étudiant
-├── stack.md            # Stack technique définie (à créer)
-├── rex.md              # Journal des interactions (à créer/mettre à jour)
-├── README.md           # Documentation du projet (à mettre à jour)
-├── Dockerfile          # Image Docker (à créer)
-├── docker-compose.yml  # Configuration Docker Compose (à créer)
-├── example/            # Projet d'exemple (référence)
-└── [projet]/           # Code du projet à la racine
+├── project.md              # Instructions du projet pour l'étudiant
+├── stack.md                # Stack technique définie (à créer)
+├── rex.md                  # Journal des interactions (à créer/mettre à jour)
+├── README.md               # Documentation du projet (à mettre à jour)
+├── CORRIGE.md              # Guide de correction étape par étape (à créer - Phase 6)
+├── Dockerfile              # Image Docker (à créer)
+├── docker-compose.yml      # Configuration Docker Compose (à créer)
+├── example/                # Projet d'exemple (référence)
+├── [projet]/               # Code starter à la racine (Phase 3)
+└── [projet]-solution/      # Codebase corrigée complète (à créer - Phase 6)
+    ├── README_SOLUTION.md  # Documentation de la solution
+    └── [code complet]      # Version fonctionnelle et commentée
 ```
 
 ## Règles importantes
@@ -205,3 +327,13 @@ Créer à la racine :
 5. **Respecter les best practices** : Suivre les conventions du langage/framework choisi
 6. **Tester la faisabilité** : S'assurer que le projet peut être lancé avec Docker
 7. **Pédagogie avant tout** : Le code doit être pédagogique, pas juste fonctionnel
+8. **Créer les corrigés (Phase 6)** :
+   - Créer systématiquement la codebase solution dans `[projet]-solution/`
+   - Créer systématiquement le fichier `CORRIGE.md` avec le guide de correction détaillé
+   - Les corrigés doivent être aussi pédagogiques que le starter code
+   - La solution doit représenter une implémentation de référence, pas la seule solution possible
+9. **Validation complète** : Avant de finaliser, s'assurer que :
+   - Le starter code fonctionne avec Docker
+   - La solution fonctionne avec Docker
+   - Le `CORRIGE.md` couvre toutes les étapes du `project.md`
+   - Tous les fichiers requis sont présents et documentés
