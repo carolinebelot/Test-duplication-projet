@@ -1,87 +1,39 @@
-# Stack technique du projet
+# TECH SPECS : React 19 + TypeScript + Vite + Tailwind CSS
+> Standard Technique - 2025
 
-## Langage de programmation
+## 1. Stack Technique
+- **Framework / Core :** React 19
+- **Langage :** TypeScript (Strict Mode)
+- **Build / Runtime :** Vite 5+ / Node 22 LTS
+- **Styling / Libs clés :** Tailwind CSS 3.4+, React Router 6+
 
-**TypeScript**
+## 2. Règles d'Implémentation (Do's)
+*Liste des pratiques obligatoires pour un code professionnel.*
+- **Functional Components** uniquement (pas de Classes).
+- Usage intensif des **Hooks** (natifs et custom hooks pour la logique métier).
+- Typage strict avec **TypeScript** (Interfaces ou Types, pas de `any`).
+- **Composition** de composants plutôt que l'héritage.
+- Gestion d'état locale via `useState`/`useReducer` ou globale via Context/Zustand (si nécessaire).
 
-Le projet utilise TypeScript, comme indiqué dans `project.md` : "vous plongez dans le cœur du développement front-end en utilisant le framework Angular et le langage Typescript".
+## 3. Pratiques Interdites (Legacy)
+*Liste des pratiques obsolètes à bannir.*
+- **Class Components** (`class MyComponent extends React.Component`).
+- Utilisation de `var` ou de fonctions non fléchées dans les callbacks.
+- Manipulation directe du DOM (ex: `document.getElementById`).
+- **Prop Drilling** excessif (passer des props sur plus de 2 niveaux sans raison).
+- Mixins ou patterns de type HOC (Higher Order Components) sauf cas spécifiques (préférer les Hooks).
 
-## Framework(s)
+## 4. Mapping de Migration (Angular $\rightarrow$ React)
+*Guide de traduction technique pour le développeur :*
 
-**Angular**
-
-Le framework Angular est explicitement mentionné dans les objectifs pédagogiques. Les étudiants doivent :
-
-- Améliorer un code existant à l'aide des bonnes pratiques Angular
-- Structurer une architecture front-end claire et évolutive
-- Développer une interface professionnelle
-- Gérer la navigation et les erreurs dans une application Angular
-- Préparer le terrain pour l'intégration back-end via une API
-
-## Outils de développement
-
-- **IDE recommandé** : VSCode (mentionné dans `project.md`)
-- **Linters** : À définir (ESLint avec règles TypeScript/Angular recommandées)
-- **Formatters** : À définir (Prettier recommandé)
-- **Versioning** : Git & GitHub (mentionnés comme incontournables dans `project.md`)
-
-## Architecture du projet
-
-**À compléter** - Structure à définir selon les bonnes pratiques Angular :
-
-- Organisation par modules/features
-- Séparation des composants, services, modèles
-- Gestion de la navigation (routing)
-- Gestion des erreurs
-
-## Gestionnaire de dépendances
-
-**npm** (standard pour les projets Angular/TypeScript)
-
-Alternative possible : **yarn** (selon préférence)
-
-## Best practices
-
-À partir de `project.md`, les bonnes pratiques à suivre incluent :
-
-- Utiliser des **design patterns** en JavaScript/TypeScript
-- Structurer le code avec des **composants réutilisables**
-- Respecter les **design patterns** et bonnes pratiques du framework Angular
-- Gérer la **navigation, l'architecture** et la **maintenabilité**
-- Intégrer efficacement les **services** et les **données**
-- Suivre les conventions Angular (style guide)
-
-## Libraries
-
-**À compléter** - Bibliothèques principales à utiliser :
-
-- Angular Core (composants, services, routing)
-- Angular CLI pour le développement
-- Autres bibliothèques selon les besoins fonctionnels (à définir)
-
-## Niveau de séniorité
-
-**Intermédiaire** (débutant avec connaissances basiques)
-
-D'après `project.md` :
-
-- Les étudiants ont déjà des connaissances basiques du développement front-end
-- Ils savent concevoir au moins des interfaces web simples
-- Ils doivent suivre des cours sur les design patterns et les bases d'Angular
-- Le projet implique de la refactorisation et l'implémentation de nouvelles fonctionnalités
-
-**Implications pour le code** :
-
-- Code modérément commenté avec des points clés
-- Structure modulaire mais guidée
-- Bonnes pratiques explicites
-- Architecture claire à comprendre
-
-## Contexte du projet
-
-Application web interactive pour une chaîne de télévision :
-
-- Interface utilisateur complète
-- Navigation entre différentes pages/vues
-- Gestion des erreurs
-- Préparation pour intégration API (projet suivant)
+| Concept [Angular] | Concept [React] | Implémentation / Équivalence |
+| :--- | :--- | :--- |
+| **@Component** (Template + Style + Class) | **Functional Component** (`.tsx`) | Une fonction JS qui retourne du JSX. Logique et vue sont colocalisées. |
+| **Directives** (`*ngIf`, `*ngFor`) | **JavaScript Logic** | `*ngIf` $\rightarrow$ Opérateur ternaire ou `&&`. <br> `*ngFor` $\rightarrow$ `array.map(item => <Component />)`. |
+| **Data Binding** (`{{ value }}`) | **JSX Interpolation** (`{ value }`) | Utilisation des accolades simples `{}` dans le JSX. |
+| **Two-way Binding** (`[(ngModel)]`) | **Controlled Component** | Combinaison de `value={state}` et `onChange={e => setState(e.target.value)}`. |
+| **@Input()** | **Props** | Arguments passés à la fonction du composant. Read-only. |
+| **@Output()** / `EventEmitter` | **Callback Props** | Passer une fonction parent en prop à l'enfant (ex: `onSave={() => handleSave()}`). |
+| **Services / DI** | **Custom Hooks** / **Context** | Extraire la logique dans un fichier `useMyService.ts` ou utiliser `useContext` pour les singletons. |
+| **Lifecycle** (`ngOnInit`, `ngOnDestroy`) | **useEffect** | `useEffect(() => { /* init */ return () => { /* destroy */ }; }, [])`. |
+| **Pipes** | **Utility Functions** | Simples fonctions JS importées et utilisées directement dans le JSX (ex: `formatDate(date)`). |
