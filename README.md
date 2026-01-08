@@ -19,7 +19,7 @@ Avant de commencer, assurez-vous d'avoir les fichiers suivants à la racine du p
 2. **`./example/`** (recommandé) :
    - Dossier contenant un projet d'exemple de référence
    - Montre comment le projet a été implémenté dans un autre langage/framework
-   - Aide à comprendre la structure et l'architecture attendue
+   - Aide à comprendre la structure et l'architecture attendue.
 
 ### Instructions pour l'agent IA
 
