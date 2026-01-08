@@ -2,6 +2,52 @@
 
 Cet espace est créé pour tester les possibilités de traduction de langage.
 
+## Quick Start : Génération du projet avec un agent IA
+
+Pour générer automatiquement la base d'un projet pédagogique, suivez ces étapes :
+
+### Fichiers à fournir
+
+Avant de commencer, assurez-vous d'avoir les fichiers suivants à la racine du projet :
+
+1. **`project.md`** (obligatoire) :
+
+   - Contient les instructions du projet fournies à l'étudiant
+   - Décrit les objectifs pédagogiques, les activités et les compétences à acquérir
+   - Indique les fonctionnalités à implémenter et le niveau de complexité attendu
+
+2. **`./example/`** (recommandé) :
+   - Dossier contenant un projet d'exemple de référence
+   - Montre comment le projet a été implémenté dans un autre langage/framework
+   - Aide à comprendre la structure et l'architecture attendue
+
+### Instructions pour l'agent IA
+
+Pour générer le projet, donnez les instructions suivantes à votre agent IA :
+
+```
+Suis le processus décrit dans le fichier AGENTS.md pour générer la base du projet.
+
+Le fichier AGENTS.md contient toutes les instructions nécessaires :
+- Phase 0 : Vérification des fichiers markdown indispensables
+- Phase 1 : Définition de la stack technique
+- Phase 2 : Analyse des références
+- Phase 3 : Génération de la structure et du code de base
+- Phase 4 : Configuration Docker
+- Phase 5 : Documentation
+
+Commence par la Phase 0 et suis le processus étape par étape.
+```
+
+L'agent IA va alors :
+
+- Vérifier la présence des fichiers indispensables
+- Vous poser des questions pour définir la stack technique (langage, framework, etc.)
+- Analyser `project.md` et `./example` pour comprendre les objectifs
+- Générer la structure du projet et le code de base
+- Créer les fichiers Docker nécessaires
+- Mettre à jour la documentation
+
 ## Structure du repository
 
 Ce repository contient les éléments suivants :
