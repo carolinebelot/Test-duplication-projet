@@ -141,7 +141,7 @@ Créer à la racine :
 
 #### 6.1 Codebase corrigée
 
-Créer un dossier `[projet]-solution/` à la racine qui contient :
+Créer un dossier `[projet]-solution/` qui contient :
 
 1. **Version complète et fonctionnelle du projet** :
    - Reprendre la structure du starter code
@@ -167,7 +167,7 @@ Créer un dossier `[projet]-solution/` à la racine qui contient :
 
 #### 6.2 Guide de correction étape par étape
 
-Créer un fichier `CORRIGE.md` à la racine qui contient :
+Créer un fichier `CORRIGE.md` qui contient :
 
 1. **Introduction** :
    - Vue d'ensemble de la solution
@@ -253,6 +253,155 @@ Avant de finaliser :
    - Les difficultés rencontrées
    - Le temps estimé pour un étudiant
 
+### Phase 7 : Organisation des ressources pédagogiques
+
+**IMPORTANT** : Cette phase organise le repository avec des dossiers explicites à supprimer avant publication aux étudiants.
+
+#### 7.1 Créer les dossiers avec noms explicites
+
+Créer deux dossiers à la racine avec des noms très clairs :
+
+1. **`MENTORS - A SUPPRIMER/`**
+   - Contient : Guides de correction, ressources pédagogiques pour mentors
+   - Fichiers types :
+     - `CORRIGE.md` (guide de correction étape par étape)
+     - `GUIDE_FORMATEUR.md` (guide pédagogique)
+     - `README_FORMATEUR.md` (instructions pour mentors)
+     - `grille-evaluation.md` (critères d'évaluation - optionnel)
+     - Fichiers d'architecture/structure pédagogique
+
+2. **`LEARNING_DESIGNER - A SUPPRIMER/`**
+   - Contient : Fichiers de développement internes
+   - Fichiers types :
+     - `project.md` (instructions projet OpenClassrooms)
+     - `stack.md` (stack technique choisie)
+     - `rex.md` (journal des interactions)
+     - `SUMMARY_SETUP.md` (résumé du setup)
+     - `[projet]-solution/` (codebase corrigée complète)
+
+#### 7.2 Organiser les fichiers selon leur audience
+
+**Structure du repository pendant le développement :**
+```
+/
+├── MENTORS - A SUPPRIMER/
+│   ├── CORRIGE.md
+│   ├── GUIDE_FORMATEUR.md
+│   ├── README_FORMATEUR.md
+│   └── ... (autres ressources mentors)
+│
+├── LEARNING_DESIGNER - A SUPPRIMER/
+│   ├── project.md
+│   ├── stack.md
+│   ├── rex.md
+│   ├── SUMMARY_SETUP.md
+│   └── [projet]-solution/
+│
+├── AVERTISSEMENT.md         # Rappel de suppression (voir 7.3)
+├── README.md                # ✅ Pour étudiants
+├── Dockerfile               # ✅ Pour étudiants
+├── docker-compose.yml       # ✅ Pour étudiants
+└── [projet]/                # ✅ Code starter pour étudiants
+```
+
+**Important** : Ces dossiers peuvent être pushés sur GitHub (pour collaboration/review), mais doivent être supprimés avant de rendre le repository public aux étudiants.
+
+#### 7.3 Créer le fichier AVERTISSEMENT.md
+
+Créer à la racine un fichier `AVERTISSEMENT.md` qui rappelle au Learning Designer :
+
+```markdown
+# ⚠️ AVERTISSEMENT - AVANT PUBLICATION AUX ÉTUDIANTS
+
+Ce repository contient des dossiers à supprimer avant publication.
+
+## À SUPPRIMER OBLIGATOIREMENT :
+
+- ✗ `MENTORS - A SUPPRIMER/` (contient les corrections et guides)
+- ✗ `LEARNING_DESIGNER - A SUPPRIMER/` (fichiers internes de développement)
+- ✗ Ce fichier `AVERTISSEMENT.md`
+
+## Commandes Git pour supprimer :
+
+```bash
+git rm -r "MENTORS - A SUPPRIMER"
+git rm -r "LEARNING_DESIGNER - A SUPPRIMER"
+git rm AVERTISSEMENT.md
+git commit -m "chore: Remove mentor resources before student publication"
+git push
+```
+
+## Checklist avant publication :
+
+- [ ] Dossiers "A SUPPRIMER" supprimés
+- [ ] `AVERTISSEMENT.md` supprimé
+- [ ] `README.md` adapté aux étudiants (pas de références internes)
+- [ ] Tester que l'application se lance : `docker-compose up` ou `npm run dev`
+- [ ] Vérifier sur GitHub que rien de sensible n'apparaît
+- [ ] Rendre le repository public (si nécessaire)
+```
+
+#### 7.4 Instructions pour le README.md étudiant
+
+Le `README.md` à la racine doit être adapté aux étudiants :
+
+**À inclure :**
+- Titre du projet et contexte
+- Prérequis (Node.js, Docker, etc.)
+- Installation : `git clone`, `npm install`, `docker-compose up`
+- Lancement : `npm run dev` ou commandes Docker
+- Structure du projet (arborescence simplifiée)
+- Ressources externes (documentation officielle)
+
+**À NE PAS inclure :**
+- Références aux fichiers internes (`project.md`, `stack.md`)
+- Guide de correction ou solution
+- Instructions pour mentors
+
+#### 7.5 Validation avant publication
+
+**Checklist de publication aux étudiants :**
+
+1. **Vérifier les suppressions** :
+   - [ ] `MENTORS - A SUPPRIMER/` supprimé
+   - [ ] `LEARNING_DESIGNER - A SUPPRIMER/` supprimé
+   - [ ] `AVERTISSEMENT.md` supprimé
+
+2. **Tester en tant qu'étudiant** :
+   ```bash
+   git clone [url] temp-test-etudiant
+   cd temp-test-etudiant
+   docker-compose up  # ou npm install && npm run dev
+   # L'application doit démarrer correctement
+   ```
+
+3. **Vérifier sur GitHub** :
+   - Aller sur le repository en mode anonyme/incognito
+   - Confirmer qu'aucun fichier sensible n'apparaît
+   - Vérifier que seuls les fichiers étudiants sont visibles
+
+4. **Documenter dans rex.md** (sauvegardé localement ou ailleurs) :
+   - Date de publication
+   - Vérifications effectuées
+   - Problèmes rencontrés et solutions
+
+#### 7.6 Sauvegarde des ressources formateurs
+
+**Avant suppression, créer une sauvegarde locale :**
+
+```bash
+# Créer une archive des dossiers formateurs
+zip -r formateurs-backup-$(date +%Y%m%d).zip \
+  "MENTORS - A SUPPRIMER" \
+  "LEARNING_DESIGNER - A SUPPRIMER"
+
+# Ou copier dans un dossier externe
+cp -r "MENTORS - A SUPPRIMER" ~/backups/projet-formateurs/
+cp -r "LEARNING_DESIGNER - A SUPPRIMER" ~/backups/projet-formateurs/
+```
+
+Cette sauvegarde permet de conserver les ressources pédagogiques pour les mentors sans les exposer publiquement.
+
 ## Instructions spécifiques
 
 ### Comment analyser `project.md`
@@ -302,20 +451,42 @@ Avant de finaliser :
 
 ## Structure du repository attendue
 
+### Pendant le développement (Local)
+
 ```
 /
-├── project.md              # Instructions du projet pour l'étudiant
-├── stack.md                # Stack technique définie (à créer)
-├── rex.md                  # Journal des interactions (à créer/mettre à jour)
-├── README.md               # Documentation du projet (à mettre à jour)
-├── CORRIGE.md              # Guide de correction étape par étape (à créer - Phase 6)
-├── Dockerfile              # Image Docker (à créer)
-├── docker-compose.yml      # Configuration Docker Compose (à créer)
-├── example/                # Projet d'exemple (référence)
-├── [projet]/               # Code starter à la racine (Phase 3)
-└── [projet]-solution/      # Codebase corrigée complète (à créer - Phase 6)
-    ├── README_SOLUTION.md  # Documentation de la solution
-    └── [code complet]      # Version fonctionnelle et commentée
+├── MENTORS - A SUPPRIMER/
+│   ├── CORRIGE.md              # Guide de correction étape par étape
+│   ├── GUIDE_FORMATEUR.md      # Guide pédagogique pour mentors
+│   ├── README_FORMATEUR.md     # Instructions pour mentors
+│   └── grille-evaluation.md    # (optionnel) Critères d'évaluation
+│
+├── LEARNING_DESIGNER - A SUPPRIMER/
+│   ├── project.md              # Instructions projet OC (internes)
+│   ├── stack.md                # Stack technique choisie
+│   ├── rex.md                  # Journal des interactions
+│   ├── SUMMARY_SETUP.md        # Résumé du setup
+│   └── [projet]-solution/      # Codebase corrigée complète
+│
+├── AVERTISSEMENT.md            # Rappel de suppression
+├── README.md                   # ✅ Documentation pour étudiants
+├── Dockerfile                  # ✅ Pour étudiants
+├── docker-compose.yml          # ✅ Pour étudiants
+├── example/                    # Projet d'exemple (référence)
+└── [projet]/                   # ✅ Code starter pour étudiants
+```
+
+### Après publication aux étudiants
+
+Après avoir supprimé les dossiers "A SUPPRIMER" et AVERTISSEMENT.md :
+
+```
+/
+├── README.md               # Documentation étudiant
+├── Dockerfile
+├── docker-compose.yml
+├── example/                # (optionnel selon le projet)
+└── [projet]/               # Code starter
 ```
 
 ## Règles importantes
@@ -327,13 +498,6 @@ Avant de finaliser :
 5. **Respecter les best practices** : Suivre les conventions du langage/framework choisi
 6. **Tester la faisabilité** : S'assurer que le projet peut être lancé avec Docker
 7. **Pédagogie avant tout** : Le code doit être pédagogique, pas juste fonctionnel
-8. **Créer les corrigés (Phase 6)** :
-   - Créer systématiquement la codebase solution dans `[projet]-solution/`
-   - Créer systématiquement le fichier `CORRIGE.md` avec le guide de correction détaillé
-   - Les corrigés doivent être aussi pédagogiques que le starter code
-   - La solution doit représenter une implémentation de référence, pas la seule solution possible
-9. **Validation complète** : Avant de finaliser, s'assurer que :
-   - Le starter code fonctionne avec Docker
-   - La solution fonctionne avec Docker
-   - Le `CORRIGE.md` couvre toutes les étapes du `project.md`
-   - Tous les fichiers requis sont présents et documentés
+8. **Créer systématiquement les corrections (Phase 6)** : Toujours créer une solution complète avec codebase corrigée et fichier CORRIGE.md détaillé pour chaque exercice
+9. **Organiser les ressources pédagogiques (Phase 7)** : Utiliser les dossiers explicites `MENTORS - A SUPPRIMER/` et `LEARNING_DESIGNER - A SUPPRIMER/` pour séparer les fichiers formateurs des fichiers étudiants
+10. **Valider avant publication** : Toujours vérifier que seuls les fichiers étudiants sont visibles sur la branche `main` avant de rendre le repository public
