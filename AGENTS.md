@@ -293,7 +293,7 @@ Créer un fichier `CORRIGE.md` qui contient :
 3. Remplacer les exemples de code par des exemples adaptés à la stack du projet
 4. Adapter les erreurs courantes et solutions à la technologie utilisée
 5. Mettre à jour les ressources vers la documentation officielle de la stack
-6. Sauvegarder dans `[PROJECT_NAME]-ressources-mentors-ld/MENTORS/GUIDE_FORMATEUR.md`
+6. Sauvegarder dans `[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/guide-mentor-adapted.md`
 
 **Points d'attention** :
 - Garder le même niveau de détail et de pédagogie
@@ -363,6 +363,7 @@ Le projet utilise **deux branches distinctes** :
     │   ├── stack.md                 # Stack technique (copie)
     │   ├── rex.md                   # Journal des interactions
     │   ├── SUMMARY_SETUP.md         # Résumé du setup
+    │   ├── guide-mentor-adapted.md  # Guide mentor adapté à la stack
     │   └── [projet]-solution/       # Codebase solution complète
     │
     ├── MENTORS/
@@ -612,6 +613,7 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
     ├── LEARNING_DESIGNER/
     │   ├── rex.md                         # Journal des interactions
     │   ├── SUMMARY_SETUP.md               # Résumé du setup
+    │   ├── guide-mentor-adapted.md        # Guide mentor adapté à la stack
     │   └── [PROJECT_NAME]-solution/       # Codebase solution complète
     │
     ├── MENTORS/
