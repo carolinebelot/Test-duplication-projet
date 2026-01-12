@@ -101,9 +101,17 @@ Une fois `stack.md` défini :
    - Respecter les best practices définies dans `stack.md`
    - Adapter la complexité selon le niveau de séniorité
 
-### Phase 4 : Configuration Docker
+### Phase 4 : Configuration Docker (Optionnelle)
 
-Créer à la racine :
+**AVANT de créer les fichiers Docker**, poser la question à l'utilisateur :
+
+> 📦 **Configuration Docker** : Souhaitez-vous que le projet soit lancé via Docker ? Cela facilite l'installation pour les étudiants mais peut ne pas être nécessaire pour tous les projets.
+>
+> Options :
+> - **Oui** : Docker + docker-compose (recommandé pour uniformiser l'environnement)
+> - **Non** : Installation classique avec npm/pip/maven (plus simple, mais dépend de l'environnement local)
+
+**Si l'utilisateur répond OUI**, créer à la racine :
 
 1. **Dockerfile** :
 
@@ -118,12 +126,21 @@ Créer à la racine :
    - Volumes pour le développement
    - Variables d'environnement si nécessaire
 
+**Si l'utilisateur répond NON**, passer directement à la Phase 5 et adapter le README.md avec les instructions d'installation classiques (npm install, pip install, etc.).
+
 ### Phase 5 : Documentation
 
 1. **Mettre à jour `README.md`** :
 
+   **Si Docker est utilisé** :
    - Instructions pour installer Docker Desktop (liens Mac et Windows)
    - Instructions pour lancer le projet avec docker-compose
+   - Structure du repository expliquée
+
+   **Si Docker n'est PAS utilisé** :
+   - Prérequis (Node.js version X, Python version Y, etc.)
+   - Instructions d'installation des dépendances (`npm install`, `pip install -r requirements.txt`, etc.)
+   - Instructions pour lancer le projet (`npm run dev`, `python manage.py runserver`, etc.)
    - Structure du repository expliquée
 
 2. **Créer/Mettre à jour `rex.md`** :
