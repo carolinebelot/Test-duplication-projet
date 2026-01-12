@@ -275,7 +275,33 @@ Créer un fichier `CORRIGE.md` qui contient :
    - **Accessible** : Adapté au niveau de séniorité défini
    - **Complet mais synthétique** : Ni trop verbose, ni trop succinct
 
-#### 6.3 Validation de la solution
+#### 6.3 Génération du guide mentor adapté
+
+**IMPORTANT** : Après avoir créé le CORRIGE.md, générer un guide mentor adapté au projet et à sa stack technique.
+
+**Fichier source** : `guide-mentor.md` à la racine (template générique)
+
+**Objectif** : Adapter le guide mentor en fonction de :
+- La stack technique utilisée (React, Angular, Vue, etc.)
+- Les bonnes pratiques spécifiques au framework
+- Les erreurs courantes liées à la stack
+- Les ressources pertinentes pour cette technologie
+
+**Instructions** :
+1. Lire le fichier `guide-mentor.md` (template générique)
+2. Conserver la structure, le format et le ton pédagogique
+3. Remplacer les exemples de code par des exemples adaptés à la stack du projet
+4. Adapter les erreurs courantes et solutions à la technologie utilisée
+5. Mettre à jour les ressources vers la documentation officielle de la stack
+6. Sauvegarder dans `[PROJECT_NAME]-ressources-mentors-ld/MENTORS/GUIDE_FORMATEUR.md`
+
+**Points d'attention** :
+- Garder le même niveau de détail et de pédagogie
+- Adapter les conseils aux spécificités du framework (hooks React, services Angular, composition API Vue, etc.)
+- Inclure des exemples concrets tirés du projet
+- Référencer les fichiers spécifiques du starter code
+
+#### 6.4 Validation de la solution
 
 Avant de finaliser :
 
@@ -289,7 +315,12 @@ Avant de finaliser :
    - S'assurer que les explications sont claires
    - Valider que le niveau correspond au niveau de séniorité
 
-3. **Documenter dans `rex.md`** :
+3. **Vérifier le guide mentor** :
+   - Confirmer que les exemples correspondent à la stack
+   - Valider que les ressources sont pertinentes
+   - S'assurer de la cohérence avec le CORRIGE.md
+
+4. **Documenter dans `rex.md`** :
    - Le processus de création de la solution
    - Les choix techniques effectués
    - Les difficultés rencontrées
