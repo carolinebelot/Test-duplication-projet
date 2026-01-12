@@ -565,43 +565,57 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
 
 ## Structure du repository attendue
 
-### Pendant le développement (Local)
+**Note** : Ce projet utilise une stratégie de branches Git (voir Phase 7). Voici un résumé des structures :
+
+### Sur la branche actuelle (ex: setup-projetv2) - Ressources formateurs
 
 ```
 /
-├── MENTORS - A SUPPRIMER/
-│   ├── CORRIGE.md              # Guide de correction étape par étape
-│   ├── GUIDE_FORMATEUR.md      # Guide pédagogique pour mentors
-│   ├── README_FORMATEUR.md     # Instructions pour mentors
-│   └── grille-evaluation.md    # (optionnel) Critères d'évaluation
+├── AGENTS.md                              # Workflow générique réutilisable
+├── project.md                             # Template instructions projet
+├── stack.md                               # Template stack technique
+├── assets.md                              # Template spécifications techniques
+├── SETUP-GITHUB.md                        # Instructions setup GitHub
 │
-├── LEARNING_DESIGNER - A SUPPRIMER/
-│   ├── project.md              # Instructions projet OC (internes)
-│   ├── stack.md                # Stack technique choisie
-│   ├── rex.md                  # Journal des interactions
-│   ├── SUMMARY_SETUP.md        # Résumé du setup
-│   └── [projet]-solution/      # Codebase corrigée complète
-│
-├── AVERTISSEMENT.md            # Rappel de suppression
-├── README.md                   # ✅ Documentation pour étudiants
-├── Dockerfile                  # ✅ Pour étudiants
-├── docker-compose.yml          # ✅ Pour étudiants
-├── example/                    # Projet d'exemple (référence)
-└── [projet]/                   # ✅ Code starter pour étudiants
+└── [PROJECT_NAME]-ressources-mentors-ld/  # Archive du projet généré
+    ├── LEARNING_DESIGNER/
+    │   ├── rex.md                         # Journal des interactions
+    │   ├── SUMMARY_SETUP.md               # Résumé du setup
+    │   └── [PROJECT_NAME]-solution/       # Codebase solution complète
+    │
+    ├── MENTORS/
+    │   ├── CORRIGE.md                     # Guide de correction détaillé
+    │   ├── GUIDE_FORMATEUR.md             # Guide d'accompagnement
+    │   └── README_FORMATEUR.md            # Instructions pour mentors
+    │
+    └── instructions/
+        ├── project.md                     # Copie des instructions
+        ├── stack.md                       # Copie stack technique
+        └── assets.md                      # Spécifications techniques
 ```
 
-### Après publication aux étudiants
-
-Après avoir supprimé les dossiers "A SUPPRIMER" et AVERTISSEMENT.md :
+### Sur la branche étudiants ([PROJECT_NAME]-starter-etudiants-openclassrooms)
 
 ```
 /
-├── README.md               # Documentation étudiant
-├── Dockerfile
-├── docker-compose.yml
-├── example/                # (optionnel selon le projet)
-└── [projet]/               # Code starter
+├── README.md                   # Documentation pour étudiants
+├── Dockerfile                  # Configuration Docker (si activé)
+├── docker-compose.yml          # Orchestration Docker (si activé)
+├── package.json                # Dépendances
+├── [fichiers de config]        # tsconfig.json, vite.config.ts, etc.
+└── src/                        # Code starter
+    ├── components/
+    ├── hooks/
+    ├── models/
+    ├── pages/
+    └── ...
 ```
+
+**Avantages de cette approche** :
+- ✅ Séparation claire étudiants/formateurs via branches
+- ✅ Pas de risque de fuite des corrections
+- ✅ Templates génériques réutilisables à la racine
+- ✅ Publication simplifiée (définir branche étudiants comme défaut)
 
 ## Règles importantes
 
@@ -613,5 +627,5 @@ Après avoir supprimé les dossiers "A SUPPRIMER" et AVERTISSEMENT.md :
 6. **Tester la faisabilité** : S'assurer que le projet peut être lancé avec Docker
 7. **Pédagogie avant tout** : Le code doit être pédagogique, pas juste fonctionnel
 8. **Créer systématiquement les corrections (Phase 6)** : Toujours créer une solution complète avec codebase corrigée et fichier CORRIGE.md détaillé pour chaque exercice
-9. **Organiser les ressources pédagogiques (Phase 7)** : Utiliser les dossiers explicites `MENTORS - A SUPPRIMER/` et `LEARNING_DESIGNER - A SUPPRIMER/` pour séparer les fichiers formateurs des fichiers étudiants
-10. **Valider avant publication** : Toujours vérifier que seuls les fichiers étudiants sont visibles sur la branche `main` avant de rendre le repository public
+9. **Organiser les ressources pédagogiques (Phase 7)** : Utiliser la stratégie de branches Git pour séparer les ressources formateurs (branche actuelle) des fichiers étudiants (branche `[PROJECT_NAME]-starter-etudiants-openclassrooms`)
+10. **Valider avant publication** : Toujours vérifier que seuls les fichiers étudiants sont visibles sur la branche étudiants et définir cette branche comme branche par défaut avant de rendre le repository public
