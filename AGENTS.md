@@ -45,7 +45,32 @@ Tu es un assistant spécialisé qui aide un **Learning Designer** (avec très pe
 
 > ⚠️ **Fichier indispensable manquant** : Le fichier `project.md` est requis pour générer le projet. Ce fichier doit contenir les instructions du projet pour l'étudiant. Veuillez le fournir avant de continuer.
 
-**Une fois tous les fichiers vérifiés** : Passer à la Phase 1.
+**Une fois tous les fichiers vérifiés** : Passer à la Phase 0.5.
+
+### Phase 0.5 : Définition du nom du projet
+
+**IMPORTANT** : Avant de commencer la génération, demander à l'utilisateur le nom qu'il souhaite donner au projet.
+
+**Question à poser** :
+> Quel nom voulez-vous donner à ce projet ? (ex: "telesport", "portfolio", "ecommerce")
+>
+> Ce nom sera utilisé pour nommer les dossiers et branches :
+> - `[nom]-starter` : Code starter pour les étudiants
+> - `[nom]-solution` : Codebase solution complète
+> - `[nom]-ressources-mentors-ld` : Ressources pour mentors et LD
+> - `[nom]-starter-etudiants-openclassrooms` : Branche Git étudiants
+
+**Instructions** :
+- Le nom doit être en minuscules, sans espaces (utiliser des tirets si nécessaire)
+- Valider le nom avec l'utilisateur avant de continuer
+- Stocker le nom dans une variable `PROJECT_NAME` pour l'utiliser dans toutes les phases suivantes
+- Documenter le nom choisi dans `rex.md`
+
+**Exemple** :
+- Si l'utilisateur répond "telesport" → créer `telesport-starter`, `telesport-solution`, etc.
+- Si l'utilisateur répond "my-app" → créer `my-app-starter`, `my-app-solution`, etc.
+
+**Une fois le nom défini** : Passer à la Phase 1.
 
 ### Phase 1 : Définition de la stack technique
 
@@ -278,17 +303,17 @@ Avant de finaliser :
 
 Le projet utilise **deux branches distinctes** :
 
-1. **Branche étudiants** : `[nom-projet]-starter-etudiants-openclassrooms`
+1. **Branche étudiants** : `[PROJECT_NAME]-starter-etudiants-openclassrooms`
    - Contient UNIQUEMENT le code starter pour les étudiants
-   - Exemple : `telesport-starter-etudiants-openclassrooms`
+   - Exemple avec PROJECT_NAME="telesport" : `telesport-starter-etudiants-openclassrooms`
    - Cette branche peut être rendue publique directement
 
 2. **Branche actuelle (dev/setup)** : Contient les ressources formateurs
-   - Dossier `[nom-projet]-ressources-mentors-ld/` avec :
+   - Dossier `[PROJECT_NAME]-ressources-mentors-ld/` avec :
      - `LEARNING_DESIGNER/` (fichiers internes)
      - `MENTORS/` (guides de correction)
      - Tous les fichiers d'instructions (project.md, stack.md, rex.md, etc.)
-   - Exemple : `telesport-ressources-mentors-ld/`
+   - Exemple avec PROJECT_NAME="telesport" : `telesport-ressources-mentors-ld/`
 
 #### 7.2 Structure du repository sur la branche actuelle (formateurs)
 
@@ -324,7 +349,7 @@ Le projet utilise **deux branches distinctes** :
 
 #### 7.3 Structure sur la branche étudiants
 
-**Branche `[nom-projet]-starter-etudiants-openclassrooms` :**
+**Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` :**
 ```
 /
 ├── README.md                # Documentation pour étudiants
@@ -355,45 +380,54 @@ Le projet utilise **deux branches distinctes** :
 Sur la branche actuelle (ex: `setup-projetv2`) :
 
 ```bash
-# Créer le dossier ressources
-mkdir -p [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER
-mkdir -p [nom-projet]-ressources-mentors-ld/MENTORS
-mkdir -p [nom-projet]-ressources-mentors-ld/instructions
+# Créer le dossier ressources (utiliser PROJECT_NAME)
+mkdir -p [PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER
+mkdir -p [PROJECT_NAME]-ressources-mentors-ld/MENTORS
+mkdir -p [PROJECT_NAME]-ressources-mentors-ld/instructions
 
 # Copier les fichiers templates vers le dossier instructions
-cp project.md stack.md assets.md [nom-projet]-ressources-mentors-ld/instructions/
+cp project.md stack.md assets.md [PROJECT_NAME]-ressources-mentors-ld/instructions/
 
-# Déplacer les fichiers générés spécifiques au projet
-mv rex.md SUMMARY_SETUP.md [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER/
-mv [projet]-solution/ [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER/
-mv CORRIGE.md GUIDE_FORMATEUR.md [nom-projet]-ressources-mentors-ld/MENTORS/
+# Copier les fichiers générés dans LEARNING_DESIGNER
+cp -r [PROJECT_NAME]-solution/ [PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
+cp rex.md [PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
+
+# Copier CORRIGE.md dans MENTORS
+cp CORRIGE.md [PROJECT_NAME]-ressources-mentors-ld/MENTORS/
+
+# Créer SUMMARY_SETUP.md, GUIDE_FORMATEUR.md, README_FORMATEUR.md dans leurs dossiers respectifs
 
 # Commit sur la branche actuelle
-git add [nom-projet]-ressources-mentors-ld/
-git commit -m "feat: Add mentor and LD resources for [nom-projet]"
+git add [PROJECT_NAME]-ressources-mentors-ld/
+git commit -m "feat: Add mentor and LD resources for [PROJECT_NAME]"
 git push origin [branche-actuelle]
 ```
 
-**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md` et `AGENTS.md` restent à la racine car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[nom-projet]-ressources-mentors-ld/instructions/` pour archiver le projet.
+**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md` et `AGENTS.md` restent à la racine car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-ressources-mentors-ld/instructions/` pour archiver le projet.
 
 **Étape 2 : Créer la branche étudiants**
 
 ```bash
 # Créer une nouvelle branche orpheline (sans historique)
-git checkout --orphan [nom-projet]-starter-etudiants-openclassrooms
+git checkout --orphan [PROJECT_NAME]-starter-etudiants-openclassrooms
 
 # Supprimer tous les fichiers de staging
 git rm -rf .
 
-# Copier uniquement le code starter
-cp -r [nom-projet]-starter/* .
+# Récupérer le code starter depuis la branche actuelle
+git checkout [branche-actuelle] -- [PROJECT_NAME]-starter
+
+# Déplacer les fichiers du dossier à la racine
+mv [PROJECT_NAME]-starter/* .
+mv [PROJECT_NAME]-starter/.* . 2>/dev/null || true
+rm -rf [PROJECT_NAME]-starter
 
 # Ajouter et commiter
 git add .
 git commit -m "feat: Initial starter code for students"
 
 # Push de la nouvelle branche
-git push origin [nom-projet]-starter-etudiants-openclassrooms
+git push origin [PROJECT_NAME]-starter-etudiants-openclassrooms
 ```
 
 **Étape 3 : Retour à la branche de développement**
@@ -446,27 +480,27 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
 **Checklist de publication aux étudiants :**
 
 1. **Vérifier la branche étudiants** :
-   - [ ] Branche `[nom-projet]-starter-etudiants-openclassrooms` créée
+   - [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` créée
    - [ ] Code starter copié dans la branche
    - [ ] Aucune référence aux corrections ou ressources formateurs
    - [ ] README.md adapté aux étudiants
 
 2. **Vérifier la branche ressources** :
-   - [ ] Dossier `[nom-projet]-ressources-mentors-ld/` créé sur branche actuelle
+   - [ ] Dossier `[PROJECT_NAME]-ressources-mentors-ld/` créé sur branche actuelle
    - [ ] Tous les fichiers formateurs dans `LEARNING_DESIGNER/`
    - [ ] Tous les guides dans `MENTORS/`
    - [ ] Fichiers d'instructions dans `instructions/`
 
 3. **Tester en tant qu'étudiant** :
    ```bash
-   git clone -b [nom-projet]-starter-etudiants-openclassrooms [url] temp-test-etudiant
+   git clone -b [PROJECT_NAME]-starter-etudiants-openclassrooms [url] temp-test-etudiant
    cd temp-test-etudiant
    docker-compose up  # ou npm install && npm run dev
    # L'application doit démarrer correctement
    ```
 
 4. **Vérifier sur GitHub** :
-   - Configurer `[nom-projet]-starter-etudiants-openclassrooms` comme branche par défaut
+   - Configurer `[PROJECT_NAME]-starter-etudiants-openclassrooms` comme branche par défaut
    - Aller sur le repository en mode anonyme/incognito
    - Confirmer qu'aucun fichier sensible n'apparaît
    - Vérifier que seuls les fichiers étudiants sont visibles
