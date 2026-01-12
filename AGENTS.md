@@ -295,26 +295,32 @@ Le projet utilise **deux branches distinctes** :
 **Branche actuelle (ex: setup-projetv2) :**
 ```
 /
-├── [nom-projet]-ressources-mentors-ld/
-│   ├── LEARNING_DESIGNER/
-│   │   ├── project.md              # Instructions projet OC
-│   │   ├── stack.md                # Stack technique
-│   │   ├── rex.md                  # Journal des interactions
-│   │   ├── SUMMARY_SETUP.md        # Résumé du setup
-│   │   └── [projet]-solution/      # Codebase solution complète
-│   │
-│   ├── MENTORS/
-│   │   ├── CORRIGE.md              # Guide de correction détaillé
-│   │   ├── GUIDE_FORMATEUR.md      # Guide d'accompagnement
-│   │   └── README_FORMATEUR.md     # Instructions pour mentors
-│   │
-│   └── instructions/
-│       ├── project.md              # Copie des instructions
-│       ├── assets.md               # Spécifications techniques
-│       └── README_SETUP.md         # Guide de setup
+├── AGENTS.md                        # Workflow générique réutilisable
+├── project.md                       # Template instructions projet
+├── stack.md                         # Template stack technique
+├── assets.md                        # Template spécifications techniques
+├── SETUP-GITHUB.md                  # Instructions setup GitHub
 │
-└── [autres fichiers du repo existant]
+└── [nom-projet]-ressources-mentors-ld/    # Archive du projet généré
+    ├── LEARNING_DESIGNER/
+    │   ├── project.md               # Instructions projet OC (copie)
+    │   ├── stack.md                 # Stack technique (copie)
+    │   ├── rex.md                   # Journal des interactions
+    │   ├── SUMMARY_SETUP.md         # Résumé du setup
+    │   └── [projet]-solution/       # Codebase solution complète
+    │
+    ├── MENTORS/
+    │   ├── CORRIGE.md               # Guide de correction détaillé
+    │   ├── GUIDE_FORMATEUR.md       # Guide d'accompagnement
+    │   └── README_FORMATEUR.md      # Instructions pour mentors
+    │
+    └── instructions/
+        ├── project.md               # Copie des instructions
+        ├── assets.md                # Spécifications techniques
+        └── README_SETUP.md          # Guide de setup
 ```
+
+**Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-ressources-mentors-ld/` qui archive les ressources spécifiques à ce projet.
 
 #### 7.3 Structure sur la branche étudiants
 
@@ -354,16 +360,21 @@ mkdir -p [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER
 mkdir -p [nom-projet]-ressources-mentors-ld/MENTORS
 mkdir -p [nom-projet]-ressources-mentors-ld/instructions
 
-# Déplacer les fichiers
-mv "LEARNING_DESIGNER - A SUPPRIMER"/* [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER/
-mv "MENTORS - A SUPPRIMER"/* [nom-projet]-ressources-mentors-ld/MENTORS/
-mv project.md stack.md assets.md [nom-projet]-ressources-mentors-ld/instructions/
+# Copier les fichiers templates vers le dossier instructions
+cp project.md stack.md assets.md [nom-projet]-ressources-mentors-ld/instructions/
+
+# Déplacer les fichiers générés spécifiques au projet
+mv rex.md SUMMARY_SETUP.md [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER/
+mv [projet]-solution/ [nom-projet]-ressources-mentors-ld/LEARNING_DESIGNER/
+mv CORRIGE.md GUIDE_FORMATEUR.md [nom-projet]-ressources-mentors-ld/MENTORS/
 
 # Commit sur la branche actuelle
 git add [nom-projet]-ressources-mentors-ld/
 git commit -m "feat: Add mentor and LD resources for [nom-projet]"
 git push origin [branche-actuelle]
 ```
+
+**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md` et `AGENTS.md` restent à la racine car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[nom-projet]-ressources-mentors-ld/instructions/` pour archiver le projet.
 
 **Étape 2 : Créer la branche étudiants**
 
