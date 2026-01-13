@@ -1,14 +1,55 @@
-# Projet TéléSport - P2 DFSJS
+# CodebaseFactory - Générateur de Projets Pédagogiques
 
-Application web React pour visualiser les performances olympiques des pays.
-
-**Contexte** : Projet pédagogique OpenClassrooms - Parcours Développeur Full-Stack JavaScript
+Factory pour générer des projets pédagogiques complets selon le workflow AGENTS.md.
 
 ---
 
-## 📚 Structure du projet
+## 📚 Structure du repository
 
-Ce repository contient **3 espaces distincts** pour organiser le projet TéléSport :
+```
+CodebaseFactory/
+│
+├── README.md                    # Ce fichier
+├── AGENTS.md                    # Workflow de génération
+├── SETUP-GITHUB.md              # Guide GitHub
+├── guide-mentor.md              # Template guide mentor
+│
+├── project.md                   # Specs pédagogiques (template/actuel)
+├── stack.md                     # Stack technique (template/actuel)
+├── assets.md                    # Assets (template/actuel)
+│
+└── [nom-projet]-archive/        # Archives des projets générés
+    ├── README.md
+    ├── instructions/            # Configuration du projet
+    ├── [nom-projet]-starter/    # Code starter
+    ├── [nom-projet]-solution/   # Code solution
+    └── [nom-projet]-ressources-mentors-ld/
+```
+
+---
+
+## 🎯 Projets générés
+
+### ✅ P2 - DFSJS - TéléSport
+
+**Archive** : [p2-dfsjs-telesport-archive/](./p2-dfsjs-telesport-archive/)
+
+Application React 19 + TypeScript pour visualiser les performances olympiques.
+
+**Approche pédagogique** : Refactorisation de code intentionnellement mal structuré.
+
+**Contenu** :
+- Code starter avec 8 anti-patterns pédagogiques
+- Solution avec architecture professionnelle
+- CORRIGE.md (1400+ lignes), GUIDE_FORMATEUR.md (1200+ lignes), REX.md (800+ lignes)
+
+**Voir** : [p2-dfsjs-telesport-archive/README.md](./p2-dfsjs-telesport-archive/README.md)
+
+---
+
+## 📦 Accès rapide TéléSport
+
+Ce repository contient **3 espaces distincts** pour le projet TéléSport :
 
 ### 1. 👨‍🎓 Espace Étudiants
 **Branche** : `p2-dfsjs-telesport-starter-etudiants-openclassrooms`
@@ -31,17 +72,17 @@ Ressources pour accompagner les étudiants :
 - **GUIDE_FORMATEUR.md** : Conseils pédagogiques et FAQ
 - **README_FORMATEUR.md** : Guide d'utilisation
 
-**Pour les mentors** : Consultez [README_FORMATEUR.md](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/README_FORMATEUR.md)
+**Pour les mentors** : Consultez [p2-dfsjs-telesport-archive/](./p2-dfsjs-telesport-archive/)
 
 ### 3. 🎨 Espace Learning Designer
-**Dossier** : `p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/`
+**Archive complète** : [p2-dfsjs-telesport-archive/](./p2-dfsjs-telesport-archive/)
 
 Référence technique et documentation :
 - **telesport-solution/** : Code professionnel de référence
 - **REX.md** : Retour d'expérience complet
 - **SUMMARY_SETUP.md** : Résumé du setup
 
-**Pour les LD** : Consultez [SUMMARY_SETUP.md](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/SUMMARY_SETUP.md)
+**Pour les LD** : Consultez [p2-dfsjs-telesport-archive/README.md](./p2-dfsjs-telesport-archive/README.md)
 
 ---
 
