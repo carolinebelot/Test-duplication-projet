@@ -618,10 +618,10 @@ Avant de passer à la Phase 7, vérifier que **TOUTE** la Phase 6 est complète 
 
 **ERREURS FRÉQUENTES À ÉVITER** :
 ❌ Créer les fichiers à la racine au lieu de dans `[nom-projet]-archive/`
-❌ Oublier de créer le dossier `instructions/` avec les copies de configuration
-❌ Ne pas créer les sous-dossiers `LEARNING_DESIGNER/` et `MENTORS/`
-❌ Oublier de copier la solution dans `LEARNING_DESIGNER/`
-❌ Ne pas créer les fichiers SUMMARY_SETUP.md et README_FORMATEUR.md
+❌ Oublier de créer le dossier `fichiers-de-configuration/` avec les copies de configuration
+❌ Ne pas créer le dossier unifié `ressources-mentors-learning-designers/`
+❌ **ERREUR CRITIQUE** : Créer la branche étudiants avec `git checkout -b` au lieu de `git checkout --orphan` → résultat: TOUS les fichiers du repository sont copiés dans la branche étudiants (AGENTS.md, project.md, guide-mentor.md, etc.)
+❌ Ne pas vérifier le contenu de la branche étudiants après création
 
 **STRUCTURE OBLIGATOIRE À RESPECTER** : Voir sections 7.2 et 7.3 ci-dessous.
 
@@ -838,27 +838,62 @@ MIT License
 
 **Étape 2 : Créer la branche étudiants**
 
+**🔴 ATTENTION CRITIQUE** : Cette étape doit créer une branche **orpheline** (sans historique) contenant UNIQUEMENT le code starter. Ne JAMAIS utiliser `git checkout -b` qui copierait TOUS les fichiers du repository.
+
+**⚠️ ERREUR FRÉQUENTE** : Utiliser `git checkout -b` au lieu de `git checkout --orphan` → résultat: la branche étudiants contiendra AGENTS.md, project.md, stack.md, guide-mentor.md, etc. C'est une FUITE MAJEURE de ressources formateurs.
+
+**Commandes à exécuter** :
+
 ```bash
-# Créer une nouvelle branche orpheline (sans historique)
+# 1. Créer une branche orpheline (sans historique, sans fichiers)
 git checkout --orphan [PROJECT_NAME]-starter-etudiants-openclassrooms
 
-# Supprimer tous les fichiers de staging
+# 2. Supprimer TOUS les fichiers du staging (critical!)
 git rm -rf .
 
-# Récupérer le code starter depuis la branche actuelle
-git checkout [branche-actuelle] -- [PROJECT_NAME]-starter
+# 3. Copier UNIQUEMENT le dossier starter depuis la branche formateurs
+git checkout [branche-actuelle] -- [PROJECT_NAME]-archive/[PROJECT_NAME]-starter
 
-# Déplacer les fichiers du dossier à la racine
-mv [PROJECT_NAME]-starter/* .
-mv [PROJECT_NAME]-starter/.* . 2>/dev/null || true
-rm -rf [PROJECT_NAME]-starter
+# 4. Déplacer le contenu du starter à la racine
+mv [PROJECT_NAME]-archive/[PROJECT_NAME]-starter/* .
+mv [PROJECT_NAME]-archive/[PROJECT_NAME]-starter/.* . 2>/dev/null || true
+rm -rf [PROJECT_NAME]-archive
 
-# Ajouter et commiter
+# 5. VÉRIFICATION OBLIGATOIRE : Lister les fichiers présents
+ls -la
+
+# 6. VALIDATION : Vérifier qu'il n'y a QUE les fichiers du starter
+# ✅ Fichiers attendus : README.md, package.json, src/, vite.config.ts, etc.
+# ❌ Fichiers interdits : AGENTS.md, project.md, stack.md, guide-mentor.md, [PROJECT_NAME]-archive/
+
+# 7. Si tout est OK, ajouter et commiter
 git add .
-git commit -m "feat: Initial starter code for students"
+git commit -m "feat: Initialize [PROJECT_NAME] starter code with professional README
 
-# Push de la nouvelle branche
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+# 8. Push de la nouvelle branche
 git push origin [PROJECT_NAME]-starter-etudiants-openclassrooms
+```
+
+**🔴 VÉRIFICATION OBLIGATOIRE APRÈS PUSH** :
+```bash
+# Cloner la branche étudiants dans un dossier temporaire pour vérifier
+cd /tmp
+git clone -b [PROJECT_NAME]-starter-etudiants-openclassrooms [url-repo] test-branch-etudiants
+cd test-branch-etudiants
+ls -la
+
+# Vérifier qu'il n'y a PAS ces fichiers :
+# - AGENTS.md
+# - project.md
+# - stack.md
+# - assets.md
+# - guide-mentor.md
+# - SETUP-GITHUB.md
+# - [PROJECT_NAME]-archive/
+
+# Si ces fichiers sont présents : ERREUR CRITIQUE, recommencer l'Étape 2
 ```
 
 **Étape 3 : Retour à la branche de développement**
@@ -884,11 +919,14 @@ Avant de passer à la section 7.5, vérifier que :
 
 **Branche étudiants créée** :
 - [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` existe
+- [ ] Branche créée avec `git checkout --orphan` (PAS `git checkout -b`)
 - [ ] Code starter copié à la racine de cette branche
-- [ ] Aucun fichier de correction ou ressource mentor présent
+- [ ] **VÉRIFICATION CRITIQUE** : `ls -la` sur la branche étudiants ne montre QUE les fichiers du starter
+- [ ] **AUCUN de ces fichiers interdits présents** : AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, SETUP-GITHUB.md, [PROJECT_NAME]-archive/
 - [ ] README.md professionnel présent (SANS références pédagogiques/étudiants)
 - [ ] README vérifié : aucune mention "étudiant", "exercice", "projet pédagogique", etc.
 - [ ] Branche pushée sur le remote
+- [ ] **TEST FINAL** : Clone de la branche en /tmp et vérification `ls -la` (aucun fichier interdit)
 
 **Commits et historique** :
 - [ ] Commit de l'archive sur la branche actuelle
