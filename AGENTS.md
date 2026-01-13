@@ -766,6 +766,76 @@ git push origin [branche-actuelle]
 
 **Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md`, `guide-mentor.md` et `AGENTS.md` restent à la racine du repository car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-archive/fichiers-de-configuration/` ou `ressources-mentors-learning-designers/` pour archiver le projet.
 
+**Étape 1.5 : Créer un README professionnel pour la branche étudiants**
+
+**🔴 IMPORTANT CRITIQUE** : Le README de la branche étudiants doit avoir l'air d'un projet professionnel normal. Il ne doit PAS contenir :
+- ❌ Le mot "étudiant", "projet pédagogique", "OpenClassrooms", "parcours"
+- ❌ Des mentions "exercices", "objectifs pédagogiques", "livrables attendus"
+- ❌ Des critères de validation, grilles d'évaluation
+- ❌ Des instructions de clonage spécifiques à une branche
+- ❌ Des références au contexte pédagogique
+
+**Ce qu'il DOIT contenir** :
+✅ Nom du projet simple et professionnel
+✅ Description technique brève
+✅ Instructions d'installation standards (npm install, npm run dev)
+✅ Stack technique
+✅ Fonctionnalités principales
+✅ Structure du projet
+✅ Documentation et ressources officielles
+✅ Licence (MIT ou autre licence standard)
+
+**Template à suivre** :
+```markdown
+# [Nom du Projet] - [Tagline court]
+
+[Description technique du projet en 1-2 phrases]
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+### Available Commands
+\`\`\`bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run lint     # Run code quality checks
+\`\`\`
+
+## 🛠️ Tech Stack
+[Liste des technologies]
+
+## 📋 Features
+[Fonctionnalités principales]
+
+## 🏗️ Project Structure
+[Structure des dossiers]
+
+## 📚 Documentation
+[Liens vers docs officielles]
+
+## 📝 License
+MIT License
+
+---
+**Built with [Stack principale]**
+```
+
+**Actions à effectuer** :
+1. Créer ce README professionnel dans `[PROJECT_NAME]-starter/README.md`
+2. Remplacer complètement le README existant s'il contient des références pédagogiques
+3. Vérifier qu'aucune référence au contexte éducatif n'apparaît
+
 **Étape 2 : Créer la branche étudiants**
 
 ```bash
@@ -816,7 +886,8 @@ Avant de passer à la section 7.5, vérifier que :
 - [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` existe
 - [ ] Code starter copié à la racine de cette branche
 - [ ] Aucun fichier de correction ou ressource mentor présent
-- [ ] README.md adapté aux étudiants présent
+- [ ] README.md professionnel présent (SANS références pédagogiques/étudiants)
+- [ ] README vérifié : aucune mention "étudiant", "exercice", "projet pédagogique", etc.
 - [ ] Branche pushée sur le remote
 
 **Commits et historique** :
@@ -875,7 +946,7 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
    - [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` créée
    - [ ] Code starter copié dans la branche
    - [ ] Aucune référence aux corrections ou ressources formateurs
-   - [ ] README.md adapté aux étudiants
+   - [ ] README.md professionnel SANS mentions pédagogiques (vérifier : pas de "étudiant", "exercice", "objectifs", etc.)
 
 2. **Vérifier la branche ressources (archive)** :
    - [ ] Dossier `[PROJECT_NAME]-archive/` créé sur branche actuelle
