@@ -20,10 +20,10 @@ CodebaseFactory/
 │
 └── [nom-projet]-archive/        # Archives des projets générés
     ├── README.md
-    ├── instructions/            # Configuration du projet
-    ├── [nom-projet]-starter/    # Code starter
-    ├── [nom-projet]-solution/   # Code solution
-    └── [nom-projet]-ressources-mentors-ld/
+    ├── fichiers-de-configuration/         # Configuration du projet
+    ├── [nom-projet]-starter/              # Code starter
+    ├── [nom-projet]-solution/             # Code solution
+    └── ressources-mentors-learning-designers/  # Ressources pédagogiques
 ```
 
 ---
@@ -41,7 +41,7 @@ Application React 19 + TypeScript pour visualiser les performances olympiques.
 **Contenu** :
 - Code starter avec 8 anti-patterns pédagogiques
 - Solution avec architecture professionnelle
-- CORRIGE.md (1400+ lignes), GUIDE_FORMATEUR.md (1200+ lignes), REX.md (800+ lignes)
+- corrige.md (1400+ lignes), guide-mentor.md (1200+ lignes), REX.md (800+ lignes)
 
 **Voir** : [p2-dfsjs-telesport-archive/README.md](./p2-dfsjs-telesport-archive/README.md)
 
@@ -49,14 +49,13 @@ Application React 19 + TypeScript pour visualiser les performances olympiques.
 
 ## 📦 Accès rapide TéléSport
 
-Ce repository contient **3 espaces distincts** pour le projet TéléSport :
+Ce repository utilise **deux espaces Git distincts** pour séparer étudiants et formateurs :
 
-### 1. 👨‍🎓 Espace Étudiants
+### 1. 👨‍🎓 Pour les étudiants
 **Branche** : `p2-dfsjs-telesport-starter-etudiants-openclassrooms`
 
 Code starter (intentionnellement mal structuré) que les étudiants doivent refactoriser.
 
-**Pour les étudiants** : Clonez cette branche pour commencer le projet
 ```bash
 git clone <url-repo> -b p2-dfsjs-telesport-starter-etudiants-openclassrooms
 cd p2-dfsjs-telesport-starter
@@ -64,25 +63,17 @@ npm install
 npm run dev
 ```
 
-### 2. 👨‍🏫 Espace Mentors
-**Dossier** : `p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/`
-
-Ressources pour accompagner les étudiants :
-- **CORRIGE.md** : Corrections exhaustives (1400+ lignes)
-- **GUIDE_FORMATEUR.md** : Conseils pédagogiques et FAQ
-- **README_FORMATEUR.md** : Guide d'utilisation
-
-**Pour les mentors** : Consultez [p2-dfsjs-telesport-archive/](./p2-dfsjs-telesport-archive/)
-
-### 3. 🎨 Espace Learning Designer
+### 2. 👨‍🏫 Pour les mentors et Learning Designers
 **Archive complète** : [p2-dfsjs-telesport-archive/](./p2-dfsjs-telesport-archive/)
 
-Référence technique et documentation :
-- **telesport-solution/** : Code professionnel de référence
-- **REX.md** : Retour d'expérience complet
-- **SUMMARY_SETUP.md** : Résumé du setup
-
-**Pour les LD** : Consultez [p2-dfsjs-telesport-archive/README.md](./p2-dfsjs-telesport-archive/README.md)
+Accessible sur la branche `setup-projetv2`, contient :
+- **Code starter et solution**
+- **Ressources pédagogiques** :
+  - [guide-mentor.md](./p2-dfsjs-telesport-archive/ressources-mentors-learning-designers/guide-mentor.md) - Guide formateurs (1200+ lignes)
+  - [corrige.md](./p2-dfsjs-telesport-archive/ressources-mentors-learning-designers/corrige.md) - Corrections détaillées (1400+ lignes)
+- **Documentation technique** :
+  - [REX.md](./p2-dfsjs-telesport-archive/fichiers-de-configuration/REX.md) - Retour d'expérience (800+ lignes)
+  - [SUMMARY_SETUP.md](./p2-dfsjs-telesport-archive/fichiers-de-configuration/SUMMARY_SETUP.md) - Résumé du setup
 
 ---
 
@@ -148,39 +139,58 @@ Cette approche simule une situation d'entreprise réelle et développe l'œil cr
 
 ## 🗂️ Organisation du repository
 
+### Branche `setup-projetv2` (formateurs)
+
 ```
 CodebaseFactory/
 │
 ├── README.md                                    # Ce fichier
-├── project.md                                   # Spécifications pédagogiques
-├── stack.md                                     # Stack technique
-├── assets.md                                    # Données et maquettes
+├── project.md                                   # Spécifications pédagogiques (template)
+├── stack.md                                     # Stack technique (template)
+├── assets.md                                    # Données et maquettes (template)
 ├── AGENTS.md                                    # Workflow de génération
+├── SETUP-GITHUB.md                              # Guide configuration GitHub
+├── guide-mentor.md                              # Template guide mentor (générique)
 │
-├── p2-dfsjs-telesport-starter/                  # Code starter (à copier en branche)
-│   ├── src/App.tsx                              # Tout le code (mauvais)
-│   ├── package.json
-│   └── README.md                                # Instructions pour étudiants
-│
-├── p2-dfsjs-telesport-solution/                 # Code solution (référence)
-│   ├── src/
-│   │   ├── components/                          # Composants réutilisables
-│   │   ├── pages/                               # Pages de l'application
-│   │   ├── hooks/                               # Custom Hooks
-│   │   └── models/                              # Interfaces TypeScript
-│   └── README_SOLUTION.md
-│
-└── p2-dfsjs-telesport-ressources-mentors-ld/
+└── p2-dfsjs-telesport-archive/                  # Archive du projet TéléSport
+    ├── README.md                                # Navigation de l'archive
     │
-    ├── MENTORS/                                 # Ressources formateurs
-    │   ├── CORRIGE.md                           # Corrections exhaustives
-    │   ├── GUIDE_FORMATEUR.md                   # Guide pédagogique
-    │   └── README_FORMATEUR.md                  # Guide d'utilisation
+    ├── fichiers-de-configuration/               # Configuration du projet
+    │   ├── project.md
+    │   ├── stack.md
+    │   ├── assets.md
+    │   ├── REX.md
+    │   └── SUMMARY_SETUP.md
     │
-    └── LEARNING_DESIGNER/                       # Référence technique
-        ├── telesport-solution/                  # Copie solution
-        ├── REX.md                               # Retour d'expérience
-        └── SUMMARY_SETUP.md                     # Résumé du setup
+    ├── p2-dfsjs-telesport-starter/              # Code starter
+    │   ├── src/App.tsx
+    │   ├── package.json
+    │   └── README.md
+    │
+    ├── p2-dfsjs-telesport-solution/             # Code solution
+    │   ├── src/
+    │   │   ├── components/
+    │   │   ├── pages/
+    │   │   ├── hooks/
+    │   │   └── models/
+    │   └── README_SOLUTION.md
+    │
+    └── ressources-mentors-learning-designers/   # Ressources pédagogiques
+        ├── guide-mentor.md                      # Guide formateurs adapté
+        └── corrige.md                           # Corrections détaillées
+```
+
+### Branche `p2-dfsjs-telesport-starter-etudiants-openclassrooms` (étudiants)
+
+```
+/
+├── README.md              # Instructions étudiants
+├── package.json
+├── vite.config.ts
+└── src/
+    ├── App.tsx           # Code intentionnellement mal structuré
+    ├── main.tsx
+    └── index.css
 ```
 
 ---
@@ -192,43 +202,47 @@ CodebaseFactory/
 1. Clonez la branche starter :
    ```bash
    git clone <url-repo> -b p2-dfsjs-telesport-starter-etudiants-openclassrooms
-   cd p2-dfsjs-telesport-starter
    ```
 
-2. Installez les dépendances :
+2. Installez et lancez :
    ```bash
    npm install
-   ```
-
-3. Lancez le projet :
-   ```bash
    npm run dev
    ```
 
-4. Lisez le README et identifiez les problèmes du code
+3. Lisez le README et identifiez les problèmes du code
 
-### Pour les mentors
+### Pour les mentors et formateurs
 
-1. Lisez d'abord le [GUIDE_FORMATEUR.md](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/GUIDE_FORMATEUR.md)
-
-2. Consultez le [CORRIGE.md](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/CORRIGE.md) pour voir les solutions
-
-3. Clonez le starter pour le tester :
+1. Clonez la branche complète :
    ```bash
-   git clone <url-repo> -b p2-dfsjs-telesport-starter-etudiants-openclassrooms
-   cd p2-dfsjs-telesport-starter
+   git clone <url-repo>
+   cd CodebaseFactory
+   ```
+
+2. Consultez l'archive du projet :
+   - [guide-mentor.md](./p2-dfsjs-telesport-archive/ressources-mentors-learning-designers/guide-mentor.md) - Conseils pédagogiques et FAQ
+   - [corrige.md](./p2-dfsjs-telesport-archive/ressources-mentors-learning-designers/corrige.md) - Corrections détaillées
+
+3. Testez le starter :
+   ```bash
+   cd p2-dfsjs-telesport-archive/p2-dfsjs-telesport-starter
    npm install && npm run dev
    ```
 
-4. Consultez la solution dans `p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/telesport-solution/`
+4. Explorez la solution :
+   ```bash
+   cd ../p2-dfsjs-telesport-solution
+   npm install && npm run dev
+   ```
 
 ### Pour les Learning Designers
 
-1. Consultez le [SUMMARY_SETUP.md](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/SUMMARY_SETUP.md) pour le setup complet
+1. Consultez la documentation technique :
+   - [REX.md](./p2-dfsjs-telesport-archive/fichiers-de-configuration/REX.md) - Retour d'expérience complet
+   - [SUMMARY_SETUP.md](./p2-dfsjs-telesport-archive/fichiers-de-configuration/SUMMARY_SETUP.md) - Résumé du setup
 
-2. Lisez le [REX.md](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/REX.md) pour le retour d'expérience
-
-3. Explorez la solution dans `LEARNING_DESIGNER/telesport-solution/`
+2. Analysez l'architecture de la solution dans [p2-dfsjs-telesport-solution/](./p2-dfsjs-telesport-archive/p2-dfsjs-telesport-solution/)
 
 ---
 
@@ -361,13 +375,13 @@ Projet pédagogique OpenClassrooms - Parcours Développeur Full-Stack JavaScript
 - 🛠️ Refactorisez selon les bonnes pratiques React 19
 
 **Pour les mentors** :
-- 👉 Consultez [GUIDE_FORMATEUR.md](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/GUIDE_FORMATEUR.md)
-- 📖 Utilisez [CORRIGE.md](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/CORRIGE.md) pour corriger
+- 👉 Consultez [guide-mentor.md](./p2-dfsjs-telesport-archive/ressources-mentors-learning-designers/guide-mentor.md)
+- 📖 Utilisez [corrige.md](./p2-dfsjs-telesport-archive/ressources-mentors-learning-designers/corrige.md) pour corriger
 - ✅ Validez avec la grille d'évaluation
 
 **Pour les Learning Designers** :
-- 👉 Consultez [SUMMARY_SETUP.md](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/SUMMARY_SETUP.md)
-- 📖 Lisez [REX.md](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/REX.md)
+- 👉 Consultez [SUMMARY_SETUP.md](./p2-dfsjs-telesport-archive/fichiers-de-configuration/SUMMARY_SETUP.md)
+- 📖 Lisez [REX.md](./p2-dfsjs-telesport-archive/fichiers-de-configuration/REX.md)
 - 🎨 Explorez la solution de référence
 
 ---
