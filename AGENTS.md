@@ -534,18 +534,19 @@ Avant de passer à la Phase 6.3, vérifier que :
 - Les ressources pertinentes pour cette technologie
 
 **Instructions** :
-1. Lire le fichier `guide-mentor.md` (template générique)
+1. Lire le fichier `guide-mentor.md` (template générique à la racine)
 2. Conserver la structure, le format et le ton pédagogique
 3. Remplacer les exemples de code par des exemples adaptés à la stack du projet
 4. Adapter les erreurs courantes et solutions à la technologie utilisée
 5. Mettre à jour les ressources vers la documentation officielle de la stack
-6. Sauvegarder dans `[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/guide-mentor-adapted.md`
+6. Sauvegarder sous le nom `GUIDE_FORMATEUR.md` à la racine (sera renommé en guide-mentor.md lors de l'archivage Phase 7)
 
 **Points d'attention** :
 - Garder le même niveau de détail et de pédagogie
 - Adapter les conseils aux spécificités du framework (hooks React, services Angular, composition API Vue, etc.)
 - Inclure des exemples concrets tirés du projet
 - Référencer les fichiers spécifiques du starter code
+- Ce fichier sera automatiquement renommé en `guide-mentor.md` et placé dans `ressources-mentors-learning-designers/` lors de la Phase 7
 
 ---
 
@@ -647,56 +648,49 @@ Le projet utilise **deux branches distinctes** :
 **Branche actuelle (ex: setup-projetv2) :**
 ```
 /
-├── AGENTS.md                        # Workflow générique réutilisable
-├── project.md                       # Template instructions projet
-├── stack.md                         # Template stack technique
-├── assets.md                        # Template spécifications techniques
-├── SETUP-GITHUB.md                  # Instructions setup GitHub
-├── README.md                        # Documentation du repository factory
+├── AGENTS.md                                # Workflow générique réutilisable
+├── project.md                               # Template instructions projet
+├── stack.md                                 # Template stack technique
+├── assets.md                                # Template spécifications techniques
+├── SETUP-GITHUB.md                          # Instructions setup GitHub
+├── guide-mentor.md                          # Template guide mentor générique
+├── README.md                                # Documentation du repository factory
 │
-└── [nom-projet]-archive/            # ⚠️ IMPORTANT: Archive du projet généré
-    ├── README.md                    # Documentation de l'archive
+└── [nom-projet]-archive/                    # ⚠️ IMPORTANT: Archive du projet généré
+    ├── README.md                            # ⚠️ OBLIGATOIRE: Documentation de l'archive
     │
-    ├── instructions/                # ⚠️ OBLIGATOIRE: Copies des configs
-    │   ├── project.md               # Copie de project.md
-    │   ├── stack.md                 # Copie de stack.md
-    │   └── assets.md                # Copie de assets.md
+    ├── fichiers-de-configuration/           # ⚠️ Configuration et documentation
+    │   ├── project.md                       # Copie de project.md
+    │   ├── stack.md                         # Copie de stack.md
+    │   ├── assets.md                        # Copie de assets.md
+    │   ├── REX.md                           # ⚠️ Retour d'expérience
+    │   └── SUMMARY_SETUP.md                 # ⚠️ OBLIGATOIRE: Résumé du setup
     │
-    ├── [nom-projet]-starter/        # ⚠️ Code starter pour étudiants
+    ├── [nom-projet]-starter/                # ⚠️ Code starter pour étudiants
     │   ├── src/
     │   ├── package.json
     │   └── README.md
     │
-    ├── [nom-projet]-solution/       # ⚠️ Code solution de référence
+    ├── [nom-projet]-solution/               # ⚠️ Code solution de référence
     │   ├── src/
     │   ├── package.json
     │   └── README_SOLUTION.md
     │
-    ├── [nom-projet]-ressources-mentors-ld/
-    │   ├── LEARNING_DESIGNER/       # ⚠️ Ressources internes LD
-    │   │   ├── [projet]-solution/   # Copie de la solution
-    │   │   ├── rex.md               # Journal complet
-    │   │   ├── SUMMARY_SETUP.md     # ⚠️ OBLIGATOIRE: Résumé
-    │   │   └── guide-mentor-adapted.md  # Guide adapté
-    │   │
-    │   └── MENTORS/                 # ⚠️ Ressources formateurs
-    │       ├── CORRIGE.md           # Corrections détaillées
-    │       ├── GUIDE_FORMATEUR.md   # Guide pédagogique
-    │       └── README_FORMATEUR.md  # ⚠️ OBLIGATOIRE: Instructions
-    │
-    ├── CORRIGE.md                   # ⚠️ Copie racine pour accès rapide
-    ├── GUIDE_FORMATEUR.md           # ⚠️ Copie racine pour accès rapide
-    └── REX.md                       # ⚠️ Copie racine pour accès rapide
+    └── ressources-mentors-learning-designers/  # ⚠️ Ressources pédagogiques unifiées
+        ├── guide-mentor.md                  # ⚠️ OBLIGATOIRE: Guide pour mentors/formateurs
+        └── corrige.md                       # ⚠️ OBLIGATOIRE: Corrections détaillées
 ```
 
 **⚠️ POINTS CRITIQUES À VÉRIFIER** :
 1. Le dossier s'appelle `[nom-projet]-archive/`, PAS `[nom-projet]-ressources-mentors-ld/` à la racine
-2. Les fichiers de configuration (project.md, stack.md, assets.md) restent à la racine ET sont copiés dans `instructions/`
-3. Le starter ET la solution sont dans l'archive
-4. Les fichiers CORRIGE.md, GUIDE_FORMATEUR.md, REX.md sont à la fois dans `MENTORS/` ET à la racine de l'archive
-5. SUMMARY_SETUP.md et README_FORMATEUR.md sont OBLIGATOIRES
+2. Les fichiers de configuration (project.md, stack.md, assets.md) restent à la racine ET sont copiés dans `fichiers-de-configuration/`
+3. REX.md et SUMMARY_SETUP.md sont dans `fichiers-de-configuration/`, PAS à la racine
+4. Le starter ET la solution sont directement dans l'archive (pas dans des sous-dossiers)
+5. Un SEUL dossier `ressources-mentors-learning-designers/` unifié (plus de séparation MENTORS/LEARNING_DESIGNER)
+6. guide-mentor.md et corrige.md UNIQUEMENT dans `ressources-mentors-learning-designers/`, PAS de doublons à la racine
+7. README.md UNIQUEMENT à la racine de l'archive pour la navigation
 
-**Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-archive/` qui archive TOUTES les ressources de ce projet.
+**Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md, guide-mentor.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-archive/` qui archive TOUTES les ressources de ce projet.
 
 #### 7.3 Structure sur la branche étudiants
 
@@ -734,37 +728,28 @@ Sur la branche actuelle (ex: `setup-projetv2`) :
 
 ```bash
 # 1. Créer la structure complète de l'archive
-mkdir -p [PROJECT_NAME]-archive/instructions
-mkdir -p [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER
-mkdir -p [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS
+mkdir -p [PROJECT_NAME]-archive/fichiers-de-configuration
+mkdir -p [PROJECT_NAME]-archive/ressources-mentors-learning-designers
 
-# 2. Copier les fichiers de configuration dans instructions/
-cp project.md stack.md assets.md [PROJECT_NAME]-archive/instructions/
+# 2. Copier les fichiers de configuration dans fichiers-de-configuration/
+cp project.md stack.md assets.md [PROJECT_NAME]-archive/fichiers-de-configuration/
 
 # 3. Déplacer le starter et la solution dans l'archive
 mv [PROJECT_NAME]-starter/ [PROJECT_NAME]-archive/
 mv [PROJECT_NAME]-solution/ [PROJECT_NAME]-archive/
 
-# 4. Copier la solution dans LEARNING_DESIGNER/
-cp -r [PROJECT_NAME]-archive/[PROJECT_NAME]-solution/ [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
+# 4. Déplacer REX.md et SUMMARY_SETUP.md dans fichiers-de-configuration/
+mv rex.md [PROJECT_NAME]-archive/fichiers-de-configuration/REX.md
+mv SUMMARY_SETUP.md [PROJECT_NAME]-archive/fichiers-de-configuration/
 
-# 5. Déplacer/Copier les fichiers dans les bons dossiers
-mv rex.md [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
-mv CORRIGE.md [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/
-mv GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/
+# 5. Déplacer et renommer les fichiers pédagogiques
+mv GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/guide-mentor.md
+mv CORRIGE.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/corrige.md
 
-# 6. Créer les fichiers obligatoires
-# SUMMARY_SETUP.md dans LEARNING_DESIGNER/
-# README_FORMATEUR.md dans MENTORS/
+# 6. Créer README.md de l'archive (obligatoire)
+# Utiliser le template adapté au projet
 
-# 7. Copier à la racine de l'archive pour accès rapide
-cp [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/CORRIGE.md [PROJECT_NAME]-archive/
-cp [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/
-cp [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/rex.md [PROJECT_NAME]-archive/REX.md
-
-# 8. Créer README.md de l'archive
-
-# 9. Commit sur la branche actuelle
+# 7. Commit sur la branche actuelle
 git add [PROJECT_NAME]-archive/
 git commit -m "feat: Add complete archive for [PROJECT_NAME] project"
 git push origin [branche-actuelle]
@@ -772,14 +757,14 @@ git push origin [branche-actuelle]
 
 **⚠️ VÉRIFICATION OBLIGATOIRE AVANT DE CONTINUER** :
 - [ ] Dossier `[PROJECT_NAME]-archive/` existe
-- [ ] Sous-dossier `instructions/` avec les 3 fichiers (project.md, stack.md, assets.md)
+- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
 - [ ] Sous-dossier `[PROJECT_NAME]-starter/` présent
 - [ ] Sous-dossier `[PROJECT_NAME]-solution/` présent
-- [ ] Sous-dossier `[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/` avec solution, rex.md, SUMMARY_SETUP.md
-- [ ] Sous-dossier `[PROJECT_NAME]-ressources-mentors-ld/MENTORS/` avec CORRIGE.md, GUIDE_FORMATEUR.md, README_FORMATEUR.md
-- [ ] Fichiers à la racine de l'archive: CORRIGE.md, GUIDE_FORMATEUR.md, REX.md, README.md
+- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec guide-mentor.md et corrige.md
+- [ ] README.md à la racine de l'archive (seul fichier à la racine avec les dossiers)
+- [ ] AUCUN doublon : les fichiers doivent être dans leurs dossiers respectifs uniquement
 
-**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md` et `AGENTS.md` restent à la racine du repository car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-archive/instructions/` pour archiver le projet.
+**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md`, `guide-mentor.md` et `AGENTS.md` restent à la racine du repository car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-archive/fichiers-de-configuration/` ou `ressources-mentors-learning-designers/` pour archiver le projet.
 
 **Étape 2 : Créer la branche étudiants**
 
@@ -821,9 +806,11 @@ Avant de passer à la section 7.5, vérifier que :
 
 **Structure de l'archive créée** :
 - [ ] Dossier `[PROJECT_NAME]-archive/` existe à la racine
-- [ ] Tous les sous-dossiers créés (instructions/, starter/, solution/, ressources-mentors-ld/)
-- [ ] Tous les fichiers copiés aux bons emplacements
-- [ ] README.md de l'archive créé et complet
+- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers
+- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec 2 fichiers
+- [ ] Starter et solution à la racine de l'archive
+- [ ] README.md de l'archive créé et complet (seul fichier à la racine)
+- [ ] AUCUN doublon de fichiers
 
 **Branche étudiants créée** :
 - [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` existe
@@ -892,11 +879,10 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
 
 2. **Vérifier la branche ressources (archive)** :
    - [ ] Dossier `[PROJECT_NAME]-archive/` créé sur branche actuelle
-   - [ ] Sous-dossier `instructions/` avec project.md, stack.md, assets.md
-   - [ ] Sous-dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/`
-   - [ ] Dossier `[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/` complet
-   - [ ] Dossier `[PROJECT_NAME]-ressources-mentors-ld/MENTORS/` complet
-   - [ ] Fichiers à la racine de l'archive (CORRIGE.md, GUIDE_FORMATEUR.md, REX.md, README.md)
+   - [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
+   - [ ] Sous-dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/` à la racine de l'archive
+   - [ ] Dossier `ressources-mentors-learning-designers/` avec guide-mentor.md et corrige.md
+   - [ ] README.md UNIQUEMENT à la racine de l'archive (pas de doublons)
 
 3. **Tester en tant qu'étudiant** :
    ```bash
@@ -1127,11 +1113,10 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
 
 ### Phase 7 : Organisation Git (CRITIQUE)
 - [ ] Structure `[PROJECT_NAME]-archive/` créée
-- [ ] Sous-dossier `instructions/` avec copies configs
-- [ ] Starter et solution dans archive
-- [ ] Dossier `ressources-mentors-ld/LEARNING_DESIGNER/` complet
-- [ ] Dossier `ressources-mentors-ld/MENTORS/` complet
-- [ ] Fichiers racine archive (CORRIGE.md, GUIDE_FORMATEUR.md, REX.md, README.md)
+- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers
+- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec guide-mentor.md et corrige.md
+- [ ] Starter et solution à la racine de l'archive
+- [ ] README.md UNIQUEMENT à la racine (pas de doublons)
 - [ ] Branche étudiants créée et testée
 - [ ] Aucune fuite corrections vers branche étudiants
 - [ ] Tests en mode incognito effectués

@@ -15,40 +15,31 @@ Cette archive contient **l'intégralité du projet pédagogique TéléSport** g�
 ```
 p2-dfsjs-telesport-archive/
 │
-├── README.md                           # Ce fichier
+├── README.md                                    # Ce fichier
 │
-├── instructions/                       # Configuration du projet
-│   ├── project.md                      # Spécifications pédagogiques
-│   ├── stack.md                        # Stack technique
-│   └── assets.md                       # Données et maquettes
+├── fichiers-de-configuration/                  # Configuration et documentation
+│   ├── project.md                              # Spécifications pédagogiques
+│   ├── stack.md                                # Stack technique
+│   ├── assets.md                               # Données et maquettes
+│   ├── REX.md                                  # Retour d'expérience
+│   └── SUMMARY_SETUP.md                        # Résumé du setup
 │
-├── p2-dfsjs-telesport-starter/         # Code starter (étudiants)
-│   ├── src/App.tsx                     # Code intentionnellement mauvais
+├── p2-dfsjs-telesport-starter/                 # Code starter (étudiants)
+│   ├── src/App.tsx                             # Code intentionnellement mauvais
 │   ├── package.json
-│   └── README.md                       # Instructions pour étudiants
+│   └── README.md                               # Instructions pour étudiants
 │
-├── p2-dfsjs-telesport-solution/        # Code solution (référence)
+├── p2-dfsjs-telesport-solution/                # Code solution (référence)
 │   ├── src/
-│   │   ├── components/                 # Composants réutilisables
-│   │   ├── pages/                      # Pages de l'application
-│   │   ├── hooks/                      # Custom Hooks
-│   │   └── models/                     # Interfaces TypeScript
+│   │   ├── components/                         # Composants réutilisables
+│   │   ├── pages/                              # Pages de l'application
+│   │   ├── hooks/                              # Custom Hooks
+│   │   └── models/                             # Interfaces TypeScript
 │   └── README_SOLUTION.md
 │
-├── p2-dfsjs-telesport-ressources-mentors-ld/
-│   ├── MENTORS/                        # Ressources formateurs
-│   │   ├── CORRIGE.md                  # Corrections (1400+ lignes)
-│   │   ├── GUIDE_FORMATEUR.md          # Guide pédagogique
-│   │   └── README_FORMATEUR.md
-│   │
-│   └── LEARNING_DESIGNER/              # Référence technique
-│       ├── telesport-solution/         # Copie solution
-│       ├── REX.md                      # Retour d'expérience
-│       └── SUMMARY_SETUP.md            # Résumé setup
-│
-├── CORRIGE.md                          # Corrections (racine)
-├── GUIDE_FORMATEUR.md                  # Guide formateur (racine)
-└── REX.md                              # REX (racine)
+└── ressources-mentors-learning-designers/      # Ressources pédagogiques
+    ├── guide-mentor.md                         # Guide pour mentors/formateurs
+    └── corrige.md                              # Corrections détaillées
 ```
 
 ---
@@ -66,23 +57,22 @@ npm install
 npm run dev
 ```
 
-### Pour les mentors
+### Pour les mentors et Learning Designers
 
-**Ressources** : [p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/)
-
-Documents clés :
-- [CORRIGE.md](./CORRIGE.md) - Corrections exhaustives
-- [GUIDE_FORMATEUR.md](./GUIDE_FORMATEUR.md) - Guide pédagogique
-- [README_FORMATEUR.md](./p2-dfsjs-telesport-ressources-mentors-ld/MENTORS/README_FORMATEUR.md)
-
-### Pour les Learning Designers
-
-**Référence technique** : [p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/)
+**Ressources pédagogiques** : [ressources-mentors-learning-designers/](./ressources-mentors-learning-designers/)
 
 Documents clés :
-- [REX.md](./REX.md) - Retour d'expérience complet
-- [SUMMARY_SETUP.md](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/SUMMARY_SETUP.md)
-- [telesport-solution/](./p2-dfsjs-telesport-ressources-mentors-ld/LEARNING_DESIGNER/telesport-solution/) - Code solution
+- [guide-mentor.md](./ressources-mentors-learning-designers/guide-mentor.md) - Guide complet pour mentors (1200+ lignes)
+- [corrige.md](./ressources-mentors-learning-designers/corrige.md) - Corrections exhaustives (1400+ lignes)
+
+**Configuration et documentation** : [fichiers-de-configuration/](./fichiers-de-configuration/)
+
+Documents techniques :
+- [REX.md](./fichiers-de-configuration/REX.md) - Retour d'expérience complet (800+ lignes)
+- [SUMMARY_SETUP.md](./fichiers-de-configuration/SUMMARY_SETUP.md) - Résumé du setup
+- [project.md](./fichiers-de-configuration/project.md) - Spécifications pédagogiques complètes
+- [stack.md](./fichiers-de-configuration/stack.md) - Stack technique imposée
+- [assets.md](./fichiers-de-configuration/assets.md) - Données olympiques et maquettes
 
 ---
 
@@ -110,16 +100,6 @@ Documents clés :
 
 ---
 
-## 📝 Configuration du projet
-
-Les fichiers de configuration sont dans [instructions/](./instructions/) :
-
-- **[project.md](./instructions/project.md)** - Spécifications pédagogiques complètes (2 exercices, 9 étapes)
-- **[stack.md](./instructions/stack.md)** - Stack technique imposée
-- **[assets.md](./instructions/assets.md)** - Données olympiques et maquettes
-
----
-
 ## 🔄 Workflow de génération
 
 Ce projet a été généré selon [AGENTS.md](../AGENTS.md) :
@@ -129,8 +109,8 @@ Ce projet a été généré selon [AGENTS.md](../AGENTS.md) :
 3. ✅ Phase 1 : Extraction stack technique
 4. ✅ Phase 3 : Génération starter code
 5. ✅ Phase 6.1 : Création solution
-6. ✅ Phase 6.2 : Génération CORRIGE.md
-7. ✅ Phase 6.3 : Génération GUIDE_FORMATEUR.md
+6. ✅ Phase 6.2 : Génération corrige.md
+7. ✅ Phase 6.3 : Génération guide-mentor.md
 8. ✅ Phase 5 : Création REX.md
 9. ✅ Phase 7 : Organisation Git branches
 
@@ -153,19 +133,21 @@ git clone <url-repo> -b p2-dfsjs-telesport-starter-etudiants-openclassrooms
 
 ## 📚 Documentation
 
-### Corrections et guides (pour mentors)
-- **[CORRIGE.md](./CORRIGE.md)** (1400+ lignes)
+### Pour mentors et formateurs
+- **[guide-mentor.md](./ressources-mentors-learning-designers/guide-mentor.md)** (1200+ lignes)
+  - Conseils pédagogiques par exercice
+  - FAQ mentor (15+ questions)
+  - Problèmes fréquents et solutions
+  - Adaptation spécifique à React 19 + TypeScript
+
+### Pour corrections
+- **[corrige.md](./ressources-mentors-learning-designers/corrige.md)** (1400+ lignes)
   - Corrections détaillées pour chaque étape
   - Erreurs fréquentes et solutions
   - Grille d'évaluation complète
 
-- **[GUIDE_FORMATEUR.md](./GUIDE_FORMATEUR.md)** (1200+ lignes)
-  - Conseils pédagogiques par exercice
-  - FAQ mentor (15+ questions)
-  - Problèmes fréquents et solutions
-
 ### Retour d'expérience (pour LD)
-- **[REX.md](./REX.md)** (800+ lignes)
+- **[REX.md](./fichiers-de-configuration/REX.md)** (800+ lignes)
   - Décisions architecturales
   - Leçons apprises
   - Métriques du projet
@@ -182,8 +164,8 @@ git clone <url-repo> -b p2-dfsjs-telesport-starter-etudiants-openclassrooms
 - [x] `npm run lint` passe (starter + solution)
 
 ### Documentation validée
-- [x] CORRIGE.md complet
-- [x] GUIDE_FORMATEUR.md avec conseils
+- [x] corrige.md complet
+- [x] guide-mentor.md avec conseils
 - [x] REX.md finalisé
 - [x] README et instructions clairs
 
