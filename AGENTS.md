@@ -15,7 +15,36 @@ Tu es un assistant spécialisé qui aide un **Learning Designer** (avec très pe
 
 ## Processus étape par étape
 
+---
+
+## ⚠️ GARDE-FOUS GÉNÉRAUX - À RESPECTER IMPÉRATIVEMENT
+
+**RÈGLES STRICTES À SUIVRE** :
+
+1. 🚫 **JAMAIS sauter une phase** - Chaque phase doit être complétée avant de passer à la suivante
+2. ✅ **TOUJOURS valider avec un CHECKPOINT** à la fin de chaque phase
+3. 📋 **TOUJOURS documenter** chaque action dans rex.md
+4. ⚠️ **TOUJOURS lire les sections "AVANT DE CONTINUER"** avant de passer à la phase suivante
+5. 🔍 **TOUJOURS vérifier** que tous les fichiers requis sont créés avant de valider une phase
+
+**FORMAT DES CHECKPOINTS** :
+Chaque phase se termine par un checkpoint avec le format suivant :
+```
+✅ CHECKPOINT PHASE [N] - VALIDATION OBLIGATOIRE
+
+Avant de passer à la phase suivante, vérifier :
+- [ ] Action 1 complétée
+- [ ] Action 2 complétée
+- [ ] Documentation mise à jour dans rex.md
+```
+
+**SI UN CHECKPOINT N'EST PAS COMPLET** : STOP et terminer la phase actuelle avant de continuer.
+
+---
+
 ### Phase 0 : Vérification des fichiers markdown indispensables
+
+**🔴 GARDE-FOU** : Cette phase est OBLIGATOIRE et doit être la PREMIÈRE action avant toute génération.
 
 **AVANT TOUTE CHOSE**, tu dois vérifier la présence des fichiers markdown indispensables pour générer le projet. Si un fichier manque, tu dois demander à l'utilisateur de le fournir avant de continuer.
 
@@ -47,6 +76,20 @@ Tu es un assistant spécialisé qui aide un **Learning Designer** (avec très pe
 
 **Une fois tous les fichiers vérifiés** : Passer à la Phase 0.5.
 
+---
+
+✅ **CHECKPOINT PHASE 0 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 0.5, vérifier que :
+- [ ] Fichier `project.md` existe et a été lu
+- [ ] Dossier `./example` vérifié (présence ou absence notée)
+- [ ] État des fichiers documenté dans rex.md
+- [ ] Si `project.md` manque : STOP et demander à l'utilisateur
+
+**⚠️ NE PAS CONTINUER** si project.md est absent.
+
+---
+
 ### Phase 0.5 : Définition du nom du projet
 
 **IMPORTANT** : Avant de commencer la génération, demander à l'utilisateur le nom qu'il souhaite donner au projet.
@@ -71,6 +114,21 @@ Tu es un assistant spécialisé qui aide un **Learning Designer** (avec très pe
 - Si l'utilisateur répond "my-app" → créer `my-app-starter`, `my-app-solution`, etc.
 
 **Une fois le nom défini** : Passer à la Phase 1.
+
+---
+
+✅ **CHECKPOINT PHASE 0.5 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 1, vérifier que :
+- [ ] Nom du projet (PROJECT_NAME) défini par l'utilisateur
+- [ ] Nom en minuscules, sans espaces
+- [ ] Nom validé avec l'utilisateur
+- [ ] Nom documenté dans rex.md avec timestamp
+- [ ] Variable PROJECT_NAME stockée pour utilisation dans toutes les phases suivantes
+
+**⚠️ NE PAS CONTINUER** sans un PROJECT_NAME valide.
+
+---
 
 ### Phase 1 : Définition de la stack technique
 
@@ -139,6 +197,23 @@ Faire la liste des informations **réellement manquantes** :
 → Pas de question nécessaire, utiliser ces informations directement
 ```
 
+---
+
+✅ **CHECKPOINT PHASE 1 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 2, vérifier que :
+- [ ] Fichiers project.md, stack.md, assets.md lus et analysés
+- [ ] Stack technique complètement définie (framework, versions, outils)
+- [ ] Niveau de séniorité identifié
+- [ ] Qualité du code starter définie (propre, mal structuré, etc.)
+- [ ] Questions posées UNIQUEMENT si informations manquantes réelles
+- [ ] Toutes les informations de stack documentées dans rex.md
+- [ ] Fichier stack.md créé ou mis à jour si nécessaire
+
+**⚠️ NE PAS CONTINUER** sans une stack technique complètement définie.
+
+---
+
 ### Phase 2 : Analyse des références
 
 Avant de générer le code :
@@ -156,6 +231,23 @@ Avant de générer le code :
    - Adapter la structure au nouveau langage/framework choisi
    - S'inspirer de l'architecture sans copier bêtement
 
+---
+
+✅ **CHECKPOINT PHASE 2 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 3, vérifier que :
+- [ ] Fichier project.md lu en détail
+- [ ] Objectifs pédagogiques identifiés
+- [ ] Fonctionnalités à implémenter listées
+- [ ] Niveau de complexité compris
+- [ ] Dossier ./example analysé (si disponible)
+- [ ] Architecture adaptée définie
+- [ ] Analyse documentée dans rex.md
+
+**⚠️ NE PAS CONTINUER** sans avoir analysé project.md en profondeur.
+
+---
+
 ### Phase 3 : Génération de la structure et du code de base
 
 Une fois `stack.md` défini :
@@ -171,6 +263,24 @@ Une fois `stack.md` défini :
    - Commentaires pédagogiques si niveau débutant
    - Respecter les best practices définies dans `stack.md`
    - Adapter la complexité selon le niveau de séniorité
+
+---
+
+✅ **CHECKPOINT PHASE 3 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 4, vérifier que :
+- [ ] Dossier `[PROJECT_NAME]-starter/` créé
+- [ ] Structure de base créée (src/, public/, etc.)
+- [ ] Fichiers de configuration présents (package.json, tsconfig.json, etc.)
+- [ ] Code starter généré et fonctionnel
+- [ ] Anti-patterns intentionnels inclus (si spécifié dans project.md)
+- [ ] Commentaires pédagogiques ajoutés si niveau débutant
+- [ ] Code teste avec `npm install` et `npm run dev` (ou équivalent)
+- [ ] Génération documentée dans rex.md
+
+**⚠️ NE PAS CONTINUER** sans avoir testé que le code starter fonctionne.
+
+---
 
 ### Phase 4 : Configuration Docker (Optionnelle)
 
@@ -199,6 +309,32 @@ Une fois `stack.md` défini :
 
 **Si l'utilisateur répond NON**, passer directement à la Phase 5 et adapter le README.md avec les instructions d'installation classiques (npm install, pip install, etc.).
 
+---
+
+✅ **CHECKPOINT PHASE 4 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 5, vérifier que :
+
+**Si Docker activé** :
+- [ ] Question Docker posée à l'utilisateur
+- [ ] Fichier Dockerfile créé à la racine du starter
+- [ ] Fichier docker-compose.yml créé à la racine du starter
+- [ ] Configuration Docker testée avec `docker-compose up`
+- [ ] Application démarre correctement dans Docker
+
+**Si Docker NON activé** :
+- [ ] Question Docker posée et utilisateur a répondu NON
+- [ ] Pas de fichiers Docker créés
+- [ ] Prêt à documenter installation classique dans README.md
+
+**Dans tous les cas** :
+- [ ] Choix Docker documenté dans rex.md
+- [ ] Justification du choix notée
+
+**⚠️ NE PAS CONTINUER** sans avoir posé la question Docker à l'utilisateur.
+
+---
+
 ### Phase 5 : Documentation
 
 1. **Mettre à jour `README.md`** :
@@ -223,13 +359,34 @@ Une fois `stack.md` défini :
      - Les fichiers créés/modifiés
      - Les problèmes rencontrés et solutions
 
+---
+
+✅ **CHECKPOINT PHASE 5 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 6, vérifier que :
+- [ ] README.md créé/mis à jour dans le dossier starter
+- [ ] Instructions d'installation présentes (Docker OU classique)
+- [ ] Instructions de lancement présentes
+- [ ] Structure du repository expliquée
+- [ ] Fichier rex.md mis à jour avec toutes les interactions
+- [ ] Documentation claire et accessible pour étudiants
+
+**⚠️ NE PAS CONTINUER** sans avoir documenté le projet pour les étudiants.
+
+---
+
 ### Phase 6 : Création des corrigés
 
 **IMPORTANT** : Cette phase est cruciale pour les mentors et formateurs. Elle doit être réalisée **après** la génération de la codebase starter.
 
+**🔴 GARDE-FOU CRITIQUE** : La Phase 6 est OBLIGATOIRE. Ne JAMAIS passer à la Phase 7 sans avoir créé :
+1. La codebase solution complète (`[PROJECT_NAME]-solution/`)
+2. Le fichier CORRIGE.md avec corrections détaillées
+3. Le guide mentor adapté (GUIDE_FORMATEUR.md)
+
 #### 6.1 Codebase corrigée
 
-Créer un dossier `[projet]-solution/` qui contient :
+Créer un dossier `[PROJECT_NAME]-solution/` qui contient :
 
 1. **Version complète et fonctionnelle du projet** :
    - Reprendre la structure du starter code
@@ -247,11 +404,29 @@ Créer un dossier `[projet]-solution/` qui contient :
 
 3. **Structure du dossier solution** :
    ```
-   [projet]-solution/
+   [PROJECT_NAME]-solution/
    ├── [même structure que le starter]
    ├── README_SOLUTION.md      # Explication de l'architecture de la solution
    └── [code complet et fonctionnel]
    ```
+
+---
+
+✅ **CHECKPOINT PHASE 6.1 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 6.2, vérifier que :
+- [ ] Dossier `[PROJECT_NAME]-solution/` créé
+- [ ] Toutes les fonctionnalités de project.md implémentées
+- [ ] Code solution respecte toutes les best practices de stack.md
+- [ ] Architecture propre et professionnelle
+- [ ] Fichier README_SOLUTION.md présent
+- [ ] Code testé : `npm install`, `npm run dev`, `npm run build`, `npm run lint` OK
+- [ ] Pas d'erreurs, pas de console.log oubliés
+- [ ] Solution documentée dans rex.md
+
+**⚠️ NE PAS CONTINUER** sans une solution complète et fonctionnelle testée.
+
+---
 
 #### 6.2 Guide de correction étape par étape
 
@@ -321,6 +496,31 @@ Créer un fichier `CORRIGE.md` qui contient :
    - **Accessible** : Adapté au niveau de séniorité défini
    - **Complet mais synthétique** : Ni trop verbose, ni trop succinct
 
+---
+
+✅ **CHECKPOINT PHASE 6.2 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 6.3, vérifier que :
+- [ ] Fichier CORRIGE.md créé à la racine
+- [ ] Introduction avec vue d'ensemble présente
+- [ ] Section prérequis présente
+- [ ] CHAQUE exercice du project.md a une section dédiée
+- [ ] CHAQUE étape de chaque exercice est détaillée avec :
+  - [ ] Objectif pédagogique
+  - [ ] Solution détaillée
+  - [ ] Code de référence
+  - [ ] Points de vigilance
+  - [ ] Fichiers concernés
+- [ ] Grille d'évaluation présente
+- [ ] Section erreurs fréquentes présente
+- [ ] FAQ présente
+- [ ] Ressources complémentaires présentes
+- [ ] CORRIGE.md documenté dans rex.md
+
+**⚠️ NE PAS CONTINUER** sans un CORRIGE.md complet couvrant TOUS les exercices.
+
+---
+
 #### 6.3 Génération du guide mentor adapté
 
 **IMPORTANT** : Après avoir créé le CORRIGE.md, générer un guide mentor adapté au projet et à sa stack technique.
@@ -347,6 +547,25 @@ Créer un fichier `CORRIGE.md` qui contient :
 - Inclure des exemples concrets tirés du projet
 - Référencer les fichiers spécifiques du starter code
 
+---
+
+✅ **CHECKPOINT PHASE 6.3 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 6.4, vérifier que :
+- [ ] Fichier guide-mentor.md lu et analysé
+- [ ] Fichier GUIDE_FORMATEUR.md créé
+- [ ] Structure du template originale conservée
+- [ ] Exemples de code adaptés à la stack du projet
+- [ ] Erreurs courantes adaptées au framework utilisé
+- [ ] Ressources mises à jour (docs officielles du framework)
+- [ ] Conseils spécifiques au framework ajoutés
+- [ ] Références aux fichiers du projet incluses
+- [ ] Guide adapté documenté dans rex.md
+
+**⚠️ NE PAS CONTINUER** sans un guide mentor adapté à la stack technique.
+
+---
+
 #### 6.4 Validation de la solution
 
 Avant de finaliser :
@@ -372,9 +591,38 @@ Avant de finaliser :
    - Les difficultés rencontrées
    - Le temps estimé pour un étudiant
 
+---
+
+✅ **CHECKPOINT PHASE 6.4 (FIN PHASE 6) - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la Phase 7, vérifier que **TOUTE** la Phase 6 est complète :
+- [ ] Codebase solution testée et fonctionnelle
+- [ ] `npm run dev` (ou équivalent) fonctionne
+- [ ] `npm run build` (ou équivalent) réussit
+- [ ] `npm run lint` (ou équivalent) passe sans erreurs
+- [ ] CORRIGE.md relu et vérifié complet
+- [ ] Guide mentor (GUIDE_FORMATEUR.md) relu et validé
+- [ ] Toutes les décisions documentées dans rex.md
+- [ ] Estimation de temps pour étudiant notée
+
+**🔴 ARRÊT OBLIGATOIRE** : NE JAMAIS passer à la Phase 7 sans avoir terminé ET validé la Phase 6 complètement.
+
+---
+
 ### Phase 7 : Organisation des ressources pédagogiques avec Git Branches
 
 **IMPORTANT** : Cette phase organise le repository en utilisant des branches Git séparées pour les étudiants et les formateurs.
+
+**🔴 GARDE-FOU CRITIQUE PHASE 7** : Cette phase est LA PLUS IMPORTANTE pour l'organisation finale. Les erreurs ici ont un impact majeur sur la publication.
+
+**ERREURS FRÉQUENTES À ÉVITER** :
+❌ Créer les fichiers à la racine au lieu de dans `[nom-projet]-archive/`
+❌ Oublier de créer le dossier `instructions/` avec les copies de configuration
+❌ Ne pas créer les sous-dossiers `LEARNING_DESIGNER/` et `MENTORS/`
+❌ Oublier de copier la solution dans `LEARNING_DESIGNER/`
+❌ Ne pas créer les fichiers SUMMARY_SETUP.md et README_FORMATEUR.md
+
+**STRUCTURE OBLIGATOIRE À RESPECTER** : Voir sections 7.2 et 7.3 ci-dessous.
 
 #### 7.1 Stratégie de branches Git
 
@@ -394,6 +642,8 @@ Le projet utilise **deux branches distinctes** :
 
 #### 7.2 Structure du repository sur la branche actuelle (formateurs)
 
+**🔴 STRUCTURE OBLIGATOIRE - À RESPECTER EXACTEMENT** :
+
 **Branche actuelle (ex: setup-projetv2) :**
 ```
 /
@@ -402,28 +652,51 @@ Le projet utilise **deux branches distinctes** :
 ├── stack.md                         # Template stack technique
 ├── assets.md                        # Template spécifications techniques
 ├── SETUP-GITHUB.md                  # Instructions setup GitHub
+├── README.md                        # Documentation du repository factory
 │
-└── [nom-projet]-ressources-mentors-ld/    # Archive du projet généré
-    ├── LEARNING_DESIGNER/
-    │   ├── project.md               # Instructions projet OC (copie)
-    │   ├── stack.md                 # Stack technique (copie)
-    │   ├── rex.md                   # Journal des interactions
-    │   ├── SUMMARY_SETUP.md         # Résumé du setup
-    │   ├── guide-mentor-adapted.md  # Guide mentor adapté à la stack
-    │   └── [projet]-solution/       # Codebase solution complète
+└── [nom-projet]-archive/            # ⚠️ IMPORTANT: Archive du projet généré
+    ├── README.md                    # Documentation de l'archive
     │
-    ├── MENTORS/
-    │   ├── CORRIGE.md               # Guide de correction détaillé
-    │   ├── GUIDE_FORMATEUR.md       # Guide d'accompagnement
-    │   └── README_FORMATEUR.md      # Instructions pour mentors
+    ├── instructions/                # ⚠️ OBLIGATOIRE: Copies des configs
+    │   ├── project.md               # Copie de project.md
+    │   ├── stack.md                 # Copie de stack.md
+    │   └── assets.md                # Copie de assets.md
     │
-    └── instructions/
-        ├── project.md               # Copie des instructions
-        ├── assets.md                # Spécifications techniques
-        └── README_SETUP.md          # Guide de setup
+    ├── [nom-projet]-starter/        # ⚠️ Code starter pour étudiants
+    │   ├── src/
+    │   ├── package.json
+    │   └── README.md
+    │
+    ├── [nom-projet]-solution/       # ⚠️ Code solution de référence
+    │   ├── src/
+    │   ├── package.json
+    │   └── README_SOLUTION.md
+    │
+    ├── [nom-projet]-ressources-mentors-ld/
+    │   ├── LEARNING_DESIGNER/       # ⚠️ Ressources internes LD
+    │   │   ├── [projet]-solution/   # Copie de la solution
+    │   │   ├── rex.md               # Journal complet
+    │   │   ├── SUMMARY_SETUP.md     # ⚠️ OBLIGATOIRE: Résumé
+    │   │   └── guide-mentor-adapted.md  # Guide adapté
+    │   │
+    │   └── MENTORS/                 # ⚠️ Ressources formateurs
+    │       ├── CORRIGE.md           # Corrections détaillées
+    │       ├── GUIDE_FORMATEUR.md   # Guide pédagogique
+    │       └── README_FORMATEUR.md  # ⚠️ OBLIGATOIRE: Instructions
+    │
+    ├── CORRIGE.md                   # ⚠️ Copie racine pour accès rapide
+    ├── GUIDE_FORMATEUR.md           # ⚠️ Copie racine pour accès rapide
+    └── REX.md                       # ⚠️ Copie racine pour accès rapide
 ```
 
-**Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-ressources-mentors-ld/` qui archive les ressources spécifiques à ce projet.
+**⚠️ POINTS CRITIQUES À VÉRIFIER** :
+1. Le dossier s'appelle `[nom-projet]-archive/`, PAS `[nom-projet]-ressources-mentors-ld/` à la racine
+2. Les fichiers de configuration (project.md, stack.md, assets.md) restent à la racine ET sont copiés dans `instructions/`
+3. Le starter ET la solution sont dans l'archive
+4. Les fichiers CORRIGE.md, GUIDE_FORMATEUR.md, REX.md sont à la fois dans `MENTORS/` ET à la racine de l'archive
+5. SUMMARY_SETUP.md et README_FORMATEUR.md sont OBLIGATOIRES
+
+**Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-archive/` qui archive TOUTES les ressources de ce projet.
 
 #### 7.3 Structure sur la branche étudiants
 
@@ -453,35 +726,60 @@ Le projet utilise **deux branches distinctes** :
 
 #### 7.4 Workflow Git pour la publication
 
-**Étape 1 : Créer le dossier ressources sur la branche actuelle**
+**🔴 ÉTAPES OBLIGATOIRES - À SUIVRE EXACTEMENT DANS L'ORDRE**
+
+**Étape 1 : Créer la structure d'archive sur la branche actuelle**
 
 Sur la branche actuelle (ex: `setup-projetv2`) :
 
 ```bash
-# Créer le dossier ressources (utiliser PROJECT_NAME)
-mkdir -p [PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER
-mkdir -p [PROJECT_NAME]-ressources-mentors-ld/MENTORS
-mkdir -p [PROJECT_NAME]-ressources-mentors-ld/instructions
+# 1. Créer la structure complète de l'archive
+mkdir -p [PROJECT_NAME]-archive/instructions
+mkdir -p [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER
+mkdir -p [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS
 
-# Copier les fichiers templates vers le dossier instructions
-cp project.md stack.md assets.md [PROJECT_NAME]-ressources-mentors-ld/instructions/
+# 2. Copier les fichiers de configuration dans instructions/
+cp project.md stack.md assets.md [PROJECT_NAME]-archive/instructions/
 
-# Copier les fichiers générés dans LEARNING_DESIGNER
-cp -r [PROJECT_NAME]-solution/ [PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
-cp rex.md [PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
+# 3. Déplacer le starter et la solution dans l'archive
+mv [PROJECT_NAME]-starter/ [PROJECT_NAME]-archive/
+mv [PROJECT_NAME]-solution/ [PROJECT_NAME]-archive/
 
-# Copier CORRIGE.md dans MENTORS
-cp CORRIGE.md [PROJECT_NAME]-ressources-mentors-ld/MENTORS/
+# 4. Copier la solution dans LEARNING_DESIGNER/
+cp -r [PROJECT_NAME]-archive/[PROJECT_NAME]-solution/ [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
 
-# Créer SUMMARY_SETUP.md, GUIDE_FORMATEUR.md, README_FORMATEUR.md dans leurs dossiers respectifs
+# 5. Déplacer/Copier les fichiers dans les bons dossiers
+mv rex.md [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/
+mv CORRIGE.md [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/
+mv GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/
 
-# Commit sur la branche actuelle
-git add [PROJECT_NAME]-ressources-mentors-ld/
-git commit -m "feat: Add mentor and LD resources for [PROJECT_NAME]"
+# 6. Créer les fichiers obligatoires
+# SUMMARY_SETUP.md dans LEARNING_DESIGNER/
+# README_FORMATEUR.md dans MENTORS/
+
+# 7. Copier à la racine de l'archive pour accès rapide
+cp [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/CORRIGE.md [PROJECT_NAME]-archive/
+cp [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/MENTORS/GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/
+cp [PROJECT_NAME]-archive/[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/rex.md [PROJECT_NAME]-archive/REX.md
+
+# 8. Créer README.md de l'archive
+
+# 9. Commit sur la branche actuelle
+git add [PROJECT_NAME]-archive/
+git commit -m "feat: Add complete archive for [PROJECT_NAME] project"
 git push origin [branche-actuelle]
 ```
 
-**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md` et `AGENTS.md` restent à la racine car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-ressources-mentors-ld/instructions/` pour archiver le projet.
+**⚠️ VÉRIFICATION OBLIGATOIRE AVANT DE CONTINUER** :
+- [ ] Dossier `[PROJECT_NAME]-archive/` existe
+- [ ] Sous-dossier `instructions/` avec les 3 fichiers (project.md, stack.md, assets.md)
+- [ ] Sous-dossier `[PROJECT_NAME]-starter/` présent
+- [ ] Sous-dossier `[PROJECT_NAME]-solution/` présent
+- [ ] Sous-dossier `[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/` avec solution, rex.md, SUMMARY_SETUP.md
+- [ ] Sous-dossier `[PROJECT_NAME]-ressources-mentors-ld/MENTORS/` avec CORRIGE.md, GUIDE_FORMATEUR.md, README_FORMATEUR.md
+- [ ] Fichiers à la racine de l'archive: CORRIGE.md, GUIDE_FORMATEUR.md, REX.md, README.md
+
+**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md` et `AGENTS.md` restent à la racine du repository car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-archive/instructions/` pour archiver le projet.
 
 **Étape 2 : Créer la branche étudiants**
 
@@ -514,6 +812,35 @@ git push origin [PROJECT_NAME]-starter-etudiants-openclassrooms
 # Revenir à la branche de dev
 git checkout [branche-actuelle]
 ```
+
+---
+
+✅ **CHECKPOINT PHASE 7.4 - VALIDATION OBLIGATOIRE**
+
+Avant de passer à la section 7.5, vérifier que :
+
+**Structure de l'archive créée** :
+- [ ] Dossier `[PROJECT_NAME]-archive/` existe à la racine
+- [ ] Tous les sous-dossiers créés (instructions/, starter/, solution/, ressources-mentors-ld/)
+- [ ] Tous les fichiers copiés aux bons emplacements
+- [ ] README.md de l'archive créé et complet
+
+**Branche étudiants créée** :
+- [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` existe
+- [ ] Code starter copié à la racine de cette branche
+- [ ] Aucun fichier de correction ou ressource mentor présent
+- [ ] README.md adapté aux étudiants présent
+- [ ] Branche pushée sur le remote
+
+**Commits et historique** :
+- [ ] Commit de l'archive sur la branche actuelle
+- [ ] Push de la branche actuelle effectué
+- [ ] Push de la branche étudiants effectué
+- [ ] Retour sur la branche actuelle effectué
+
+**⚠️ NE PAS CONTINUER** sans avoir vérifié TOUTE la structure.
+
+---
 
 #### 7.5 Avantages de cette approche
 
@@ -563,11 +890,13 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
    - [ ] Aucune référence aux corrections ou ressources formateurs
    - [ ] README.md adapté aux étudiants
 
-2. **Vérifier la branche ressources** :
-   - [ ] Dossier `[PROJECT_NAME]-ressources-mentors-ld/` créé sur branche actuelle
-   - [ ] Tous les fichiers formateurs dans `LEARNING_DESIGNER/`
-   - [ ] Tous les guides dans `MENTORS/`
-   - [ ] Fichiers d'instructions dans `instructions/`
+2. **Vérifier la branche ressources (archive)** :
+   - [ ] Dossier `[PROJECT_NAME]-archive/` créé sur branche actuelle
+   - [ ] Sous-dossier `instructions/` avec project.md, stack.md, assets.md
+   - [ ] Sous-dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/`
+   - [ ] Dossier `[PROJECT_NAME]-ressources-mentors-ld/LEARNING_DESIGNER/` complet
+   - [ ] Dossier `[PROJECT_NAME]-ressources-mentors-ld/MENTORS/` complet
+   - [ ] Fichiers à la racine de l'archive (CORRIGE.md, GUIDE_FORMATEUR.md, REX.md, README.md)
 
 3. **Tester en tant qu'étudiant** :
    ```bash
@@ -587,6 +916,38 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
    - Date de création des branches
    - Vérifications effectuées
    - Problèmes rencontrés et solutions
+
+---
+
+✅ **CHECKPOINT PHASE 7.8 (FIN PHASE 7) - VALIDATION FINALE OBLIGATOIRE**
+
+**🔴 VALIDATION COMPLÈTE DU PROJET** - Avant de considérer le projet terminé :
+
+**Architecture et fichiers** :
+- [ ] Structure `[PROJECT_NAME]-archive/` complète et conforme
+- [ ] Branche étudiants créée et testée
+- [ ] Aucune fuite de corrections vers la branche étudiants
+- [ ] README.md principal du repository mis à jour
+
+**Tests fonctionnels** :
+- [ ] Code starter testé sur branche étudiants (install + dev)
+- [ ] Code solution testé (install + dev + build + lint)
+- [ ] Test en mode incognito effectué sur GitHub
+
+**Documentation** :
+- [ ] REX.md complet avec toutes les phases documentées
+- [ ] SUMMARY_SETUP.md créé avec résumé du setup
+- [ ] README_FORMATEUR.md créé avec instructions mentors
+- [ ] README.md de l'archive créé avec navigation
+
+**Publication GitHub** :
+- [ ] Branche par défaut configurée sur GitHub
+- [ ] Repository prêt pour publication (si public)
+- [ ] Instructions de clonage testées
+
+**🎉 SI TOUS LES POINTS SONT VALIDÉS** : Le projet est complet et prêt à être utilisé.
+
+---
 
 ---
 
@@ -696,15 +1057,101 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
 - ✅ Templates génériques réutilisables à la racine
 - ✅ Publication simplifiée (définir branche étudiants comme défaut)
 
+---
+
+## 📋 RÉCAPITULATIF COMPLET DES CHECKPOINTS
+
+**UTILISE CETTE CHECKLIST POUR CHAQUE PROJET** :
+
+### Phase 0 : Vérification fichiers
+- [ ] project.md existe et lu
+- [ ] ./example vérifié
+- [ ] État documenté dans rex.md
+
+### Phase 0.5 : Nom projet
+- [ ] PROJECT_NAME défini et validé
+- [ ] Nom en minuscules, sans espaces
+- [ ] Documenté dans rex.md
+
+### Phase 1 : Stack technique
+- [ ] project.md, stack.md, assets.md lus
+- [ ] Stack complètement définie
+- [ ] Niveau de séniorité identifié
+- [ ] Qualité code starter définie
+
+### Phase 2 : Analyse références
+- [ ] project.md analysé en détail
+- [ ] Objectifs pédagogiques identifiés
+- [ ] ./example analysé (si disponible)
+- [ ] Architecture définie
+
+### Phase 3 : Génération code starter
+- [ ] Dossier `[PROJECT_NAME]-starter/` créé
+- [ ] Structure et config présentes
+- [ ] Code starter testé (`npm install`, `npm run dev`)
+- [ ] Anti-patterns inclus si requis
+
+### Phase 4 : Docker (optionnel)
+- [ ] Question Docker posée
+- [ ] Dockerfile et docker-compose.yml créés (si OUI)
+- [ ] Configuration testée
+
+### Phase 5 : Documentation
+- [ ] README.md créé/mis à jour
+- [ ] Instructions installation présentes
+- [ ] rex.md mis à jour
+
+### Phase 6.1 : Codebase solution
+- [ ] Dossier `[PROJECT_NAME]-solution/` créé
+- [ ] Toutes fonctionnalités implémentées
+- [ ] Code testé (install, dev, build, lint OK)
+- [ ] README_SOLUTION.md présent
+
+### Phase 6.2 : CORRIGE.md
+- [ ] CORRIGE.md créé avec toutes sections obligatoires
+- [ ] CHAQUE exercice/étape couvert
+- [ ] Grille d'évaluation présente
+- [ ] FAQ et erreurs fréquentes incluses
+
+### Phase 6.3 : Guide mentor
+- [ ] GUIDE_FORMATEUR.md créé
+- [ ] Adapté à la stack technique
+- [ ] Exemples de code mis à jour
+- [ ] Ressources framework incluses
+
+### Phase 6.4 : Validation solution
+- [ ] Solution testée complètement
+- [ ] CORRIGE.md relu
+- [ ] Guide mentor validé
+- [ ] rex.md mis à jour
+
+### Phase 7 : Organisation Git (CRITIQUE)
+- [ ] Structure `[PROJECT_NAME]-archive/` créée
+- [ ] Sous-dossier `instructions/` avec copies configs
+- [ ] Starter et solution dans archive
+- [ ] Dossier `ressources-mentors-ld/LEARNING_DESIGNER/` complet
+- [ ] Dossier `ressources-mentors-ld/MENTORS/` complet
+- [ ] Fichiers racine archive (CORRIGE.md, GUIDE_FORMATEUR.md, REX.md, README.md)
+- [ ] Branche étudiants créée et testée
+- [ ] Aucune fuite corrections vers branche étudiants
+- [ ] Tests en mode incognito effectués
+- [ ] Branche par défaut configurée sur GitHub
+
+**🎉 SI TOUS LES POINTS VALIDÉS** : Projet complet et prêt !
+
+---
+
 ## Règles importantes
 
-1. **Vérifier les fichiers indispensables en premier** : Toujours commencer par la Phase 0 pour vérifier la présence de `project.md` et `./example` avant toute autre action
-2. **Toujours documenter dans `rex.md`** : Chaque interaction doit être résumée
-3. **Ne jamais supposer** : Toujours poser des questions si incertain
-4. **Adapter au niveau** : Le code doit correspondre au niveau de séniorité défini
-5. **Respecter les best practices** : Suivre les conventions du langage/framework choisi
-6. **Tester la faisabilité** : S'assurer que le projet peut être lancé avec Docker
-7. **Pédagogie avant tout** : Le code doit être pédagogique, pas juste fonctionnel
-8. **Créer systématiquement les corrections (Phase 6)** : Toujours créer une solution complète avec codebase corrigée et fichier CORRIGE.md détaillé pour chaque exercice
-9. **Organiser les ressources pédagogiques (Phase 7)** : Utiliser la stratégie de branches Git pour séparer les ressources formateurs (branche actuelle) des fichiers étudiants (branche `[PROJECT_NAME]-starter-etudiants-openclassrooms`)
-10. **Valider avant publication** : Toujours vérifier que seuls les fichiers étudiants sont visibles sur la branche étudiants et définir cette branche comme branche par défaut avant de rendre le repository public
+1. **🚫 JAMAIS sauter une phase** : Respecter l'ordre strict des phases 0 → 0.5 → 1 → 2 → 3 → 4 → 5 → 6 → 7
+2. **✅ TOUJOURS valider les checkpoints** : Ne pas passer à la phase suivante sans valider le checkpoint
+3. **📋 TOUJOURS documenter dans rex.md** : Chaque interaction, décision et action doit être documentée
+4. **❌ JAMAIS supposer** : Lire les fichiers fournis avant de poser des questions
+5. **🎯 Adapter au niveau** : Le code doit correspondre au niveau de séniorité défini
+6. **✨ Respecter les best practices** : Suivre les conventions du langage/framework choisi
+7. **🧪 Tester systématiquement** : Valider que le code fonctionne (install, dev, build, lint)
+8. **📚 Pédagogie avant tout** : Le code doit être pédagogique, pas juste fonctionnel
+9. **🔴 Phase 6 OBLIGATOIRE** : Ne JAMAIS passer à Phase 7 sans solution complète + CORRIGE.md + GUIDE_FORMATEUR.md
+10. **🔴 Phase 7 CRITIQUE** : Respecter EXACTEMENT la structure d'archive définie (voir section 7.2)
+11. **🔍 Valider avant publication** : Tester en mode incognito, vérifier aucune fuite de corrections
+12. **🌲 Stratégie branches** : Branche actuelle = ressources formateurs, branche étudiants = code starter uniquement
