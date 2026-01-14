@@ -812,89 +812,52 @@ Avant de passer à la Phase 7, vérifier que **TOUTE** la Phase 6 est complète 
 
 **STRUCTURE OBLIGATOIRE À RESPECTER** : Voir sections 7.2 et 7.3 ci-dessous.
 
-#### 7.1 Stratégie de repositories séparés
+#### 7.1 Stratégie de repositories séparés (3 repos par projet)
 
-Le projet utilise **deux repositories distincts** :
+Le projet génère **3 repositories GitHub distincts par projet** + 1 repository template :
 
-1. **Repository étudiant** : `[ORGANIZATION]/[PROJECT_NAME]`
+**🔴 IMPORTANT** : Plus de dossier `[PROJECT_NAME]-archive/` dans le repository template. Chaque composant du projet (starter, solution, ressources) devient un repository séparé.
+
+1. **Repository étudiant (PUBLIC)** : `[ORGANIZATION]/[PROJECT_NAME]`
    - Contient UNIQUEMENT le code starter pour les étudiants
-   - Exemple avec PROJECT_NAME="p2-telesport" : `openclassrooms/p2-telesport`
-   - Repository public accessible directement par les étudiants
-   - URL simple à cloner : `git clone https://github.com/openclassrooms/p2-telesport.git`
+   - Exemple : `openclassrooms/p2-telesport`
+   - README professionnel (sans mentions pédagogiques)
+   - Repository **public** accessible directement par les étudiants
+   - URL : `https://github.com/openclassrooms/p2-telesport`
 
-2. **Repository template/archive** (ex: CodebaseFactory)
-   - Contient les templates réutilisables (AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md)
-   - Contient un dossier `[PROJECT_NAME]-archive/` par projet généré avec :
-     - Starter code
-     - Solution code
-     - Ressources pédagogiques (guide-mentor.md, corrige-*.md, etc.)
-     - Documentation (REX.md, SUMMARY_SETUP.md)
-   - Repository privé pour formateurs/learning designers uniquement
+2. **Repository solution (PRIVÉ)** : `[ORGANIZATION]/[PROJECT_NAME]-corrige`
+   - Contient UNIQUEMENT le code solution de référence
+   - Exemple : `openclassrooms/p2-telesport-corrige`
+   - README professionnel expliquant l'architecture solution
+   - Repository **privé** pour formateurs/mentors uniquement
+   - URL : `https://github.com/openclassrooms/p2-telesport-corrige`
 
-#### 7.2 Structure du repository sur la branche actuelle (formateurs)
+3. **Repository setup/ressources (PRIVÉ)** : `[ORGANIZATION]/[PROJECT_NAME]-setup`
+   - Contient TOUTES les ressources pédagogiques :
+     - `fichiers-de-configuration/` (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
+     - `ressources-mentors-learning-designers/` (guide-mentor.md, corrige-*.md, grille-evaluation.md, faq-etudiants.md, etc.)
+     - README.md expliquant l'organisation du projet
+   - Exemple : `openclassrooms/p2-telesport-setup`
+   - Repository **privé** pour formateurs/learning designers uniquement
+   - URL : `https://github.com/openclassrooms/p2-telesport-setup`
 
-**🔴 STRUCTURE OBLIGATOIRE - À RESPECTER EXACTEMENT** :
+4. **Repository template (PRIVÉ)** : (ex: `CodebaseFactory`)
+   - Contient UNIQUEMENT les templates réutilisables :
+     - AGENTS.md (ce workflow)
+     - project.md (template instructions)
+     - stack.md (template stack technique)
+     - assets.md (template spécifications)
+     - guide-mentor.md (template guide mentor)
+   - **NE CONTIENT PLUS** de dossiers `[PROJECT_NAME]-archive/`
+   - Repository **privé** pour l'équipe factory uniquement
 
-**Branche actuelle (ex: setup-projetv2) :**
-```
-/
-├── AGENTS.md                                # Workflow générique réutilisable
-├── project.md                               # Template instructions projet
-├── stack.md                                 # Template stack technique
-├── assets.md                                # Template spécifications techniques
-├── SETUP-GITHUB.md                          # Instructions setup GitHub
-├── guide-mentor.md                          # Template guide mentor générique
-├── README.md                                # Documentation du repository factory
-│
-└── [nom-projet]-archive/                    # ⚠️ IMPORTANT: Archive du projet généré
-    ├── README.md                            # ⚠️ OBLIGATOIRE: Documentation de l'archive
-    │
-    ├── fichiers-de-configuration/           # ⚠️ Configuration et documentation
-    │   ├── project.md                       # Copie de project.md
-    │   ├── stack.md                         # Copie de stack.md
-    │   ├── assets.md                        # Copie de assets.md
-    │   ├── REX.md                           # ⚠️ Retour d'expérience
-    │   └── SUMMARY_SETUP.md                 # ⚠️ OBLIGATOIRE: Résumé du setup
-    │
-    ├── [nom-projet]-starter/                # ⚠️ Code starter pour étudiants
-    │   ├── src/
-    │   ├── package.json
-    │   └── README.md
-    │
-    ├── [nom-projet]-solution/               # ⚠️ Code solution de référence
-    │   ├── src/
-    │   ├── package.json
-    │   └── README_SOLUTION.md
-    │
-    └── ressources-mentors-learning-designers/  # ⚠️ Ressources pédagogiques unifiées
-        ├── guide-mentor.md                  # ⚠️ OBLIGATOIRE: Guide pour mentors/formateurs
-        ├── corrige-vue-ensemble.md          # ⚠️ OBLIGATOIRE: Vue d'ensemble + architecture
-        ├── corrige-exercice1.md             # ⚠️ OBLIGATOIRE: Correction exercice 1
-        ├── corrige-exercice2.md             # ⚠️ OBLIGATOIRE: Correction exercice 2
-        ├── [corrige-exerciceN.md]           # ⚠️ OBLIGATOIRE: Un fichier par exercice
-        ├── grille-evaluation.md             # ⚠️ OBLIGATOIRE: Critères de validation
-        ├── erreurs-frequentes.md            # ⚠️ OBLIGATOIRE: Erreurs classiques
-        ├── faq-etudiants.md                 # ⚠️ OBLIGATOIRE: Questions fréquentes
-        └── ressources-complementaires.md    # ⚠️ OBLIGATOIRE: Liens et ressources
-```
-
-**⚠️ POINTS CRITIQUES À VÉRIFIER** :
-1. Le dossier s'appelle `[nom-projet]-archive/`, PAS `[nom-projet]-ressources-mentors-ld/` à la racine
-2. Les fichiers de configuration (project.md, stack.md, assets.md) restent à la racine ET sont copiés dans `fichiers-de-configuration/`
-3. REX.md et SUMMARY_SETUP.md sont dans `fichiers-de-configuration/`, PAS à la racine
-4. Le starter ET la solution sont directement dans l'archive (pas dans des sous-dossiers)
-5. Un SEUL dossier `ressources-mentors-learning-designers/` unifié (plus de séparation MENTORS/LEARNING_DESIGNER)
-6. guide-mentor.md et TOUS les fichiers corrige-*.md UNIQUEMENT dans `ressources-mentors-learning-designers/`, PAS de doublons à la racine
-7. README.md UNIQUEMENT à la racine de l'archive pour la navigation
-
-**Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md, guide-mentor.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-archive/` qui archive TOUTES les ressources de ce projet.
-
-#### 7.3 Structure du repository étudiant
+#### 7.2 Structure du repository étudiant (PUBLIC)
 
 **Repository `[ORGANIZATION]/[PROJECT_NAME]` (ex: `openclassrooms/p2-telesport`) :**
+
 ```
 /
-├── README.md                # Documentation pour étudiants
+├── README.md                # Documentation professionnelle pour étudiants
 ├── Dockerfile               # Configuration Docker
 ├── docker-compose.yml       # Orchestration Docker
 ├── package.json             # Dépendances npm
@@ -915,66 +878,79 @@ Le projet utilise **deux repositories distincts** :
 
 **Important** : Le repository étudiant contient UNIQUEMENT le code starter, sans aucune référence aux corrections ou ressources formateurs.
 
-#### 7.4 Workflow Git pour la publication
+---
+
+#### 7.3 Structure du repository solution (PRIVÉ)
+
+**Repository `[ORGANIZATION]/[PROJECT_NAME]-corrige` (ex: `openclassrooms/p2-telesport-corrige`) :**
+
+```
+/
+├── README.md                # Documentation expliquant l'architecture solution
+├── Dockerfile               # Configuration Docker
+├── docker-compose.yml       # Orchestration Docker
+├── package.json             # Dépendances npm
+├── tsconfig.json            # Config TypeScript
+├── tailwind.config.js       # Config Tailwind
+├── vite.config.ts           # Config Vite
+├── .gitignore
+├── .eslintrc.cjs
+└── src/
+    ├── components/          # Composants réutilisables (version propre)
+    ├── hooks/               # Custom Hooks (ex: useOlympicData)
+    ├── models/              # Interfaces TypeScript
+    ├── pages/               # Pages de l'application
+    ├── App.tsx
+    ├── main.tsx
+    └── index.css
+```
+
+**Important** : Le repository solution contient le code de référence avec une architecture propre et professionnelle. Le README doit expliquer les choix techniques et l'architecture (pas de mentions pédagogiques).
+
+---
+
+#### 7.4 Structure du repository setup/ressources (PRIVÉ)
+
+**Repository `[ORGANIZATION]/[PROJECT_NAME]-setup` (ex: `openclassrooms/p2-telesport-setup`) :**
+
+```
+/
+├── README.md                            # Documentation de l'organisation du projet
+│
+├── fichiers-de-configuration/           # Configuration et documentation
+│   ├── project.md                       # Instructions du projet
+│   ├── stack.md                         # Stack technique
+│   ├── assets.md                        # Spécifications fonctionnelles
+│   ├── REX.md                           # Retour d'expérience
+│   └── SUMMARY_SETUP.md                 # Résumé du setup
+│
+└── ressources-mentors-learning-designers/  # Ressources pédagogiques
+    ├── guide-mentor.md                  # Guide pour mentors/formateurs
+    ├── corrige-vue-ensemble.md          # Vue d'ensemble + architecture
+    ├── corrige-exercice1.md             # Correction exercice 1
+    ├── corrige-exercice2.md             # Correction exercice 2
+    ├── [corrige-exerciceN.md]           # Un fichier par exercice
+    ├── grille-evaluation.md             # Critères de validation
+    ├── erreurs-frequentes.md            # Erreurs classiques
+    ├── faq-etudiants.md                 # Questions fréquentes
+    └── ressources-complementaires.md    # Liens et ressources
+```
+
+**Important** : Le repository setup contient TOUTES les ressources pédagogiques nécessaires pour les formateurs et learning designers.
+
+#### 7.5 Workflow Git pour la publication (3 repositories)
 
 **🔴 ÉTAPES OBLIGATOIRES - À SUIVRE EXACTEMENT DANS L'ORDRE**
 
-**Étape 1 : Créer la structure d'archive sur la branche actuelle**
+**🔴 IMPORTANT** : Contrairement à l'ancien workflow, on NE CRÉE PLUS de dossier `[PROJECT_NAME]-archive/` dans le repository template. Chaque composant devient un repository séparé directement.
 
-Sur la branche actuelle (ex: `setup-projetv2`) :
+---
 
-```bash
-# 1. Créer la structure complète de l'archive
-mkdir -p [PROJECT_NAME]-archive/fichiers-de-configuration
-mkdir -p [PROJECT_NAME]-archive/ressources-mentors-learning-designers
+**Étape 1 : Créer les READMEs professionnels**
 
-# 2. Copier les fichiers de configuration dans fichiers-de-configuration/
-cp project.md stack.md assets.md [PROJECT_NAME]-archive/fichiers-de-configuration/
+Avant de créer les repositories, préparer 3 READMEs :
 
-# 3. Déplacer le starter et la solution dans l'archive
-mv [PROJECT_NAME]-starter/ [PROJECT_NAME]-archive/
-mv [PROJECT_NAME]-solution/ [PROJECT_NAME]-archive/
-
-# 4. Déplacer REX.md et SUMMARY_SETUP.md dans fichiers-de-configuration/
-mv rex.md [PROJECT_NAME]-archive/fichiers-de-configuration/REX.md
-mv SUMMARY_SETUP.md [PROJECT_NAME]-archive/fichiers-de-configuration/
-
-# 5. Déplacer et renommer les fichiers pédagogiques
-mv GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/guide-mentor.md
-mv corrige-*.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
-mv grille-evaluation.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
-mv erreurs-frequentes.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
-mv faq-etudiants.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
-mv ressources-complementaires.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
-
-# 6. Créer README.md de l'archive (obligatoire)
-# Utiliser le template adapté au projet
-
-# 7. Commit sur la branche actuelle
-git add [PROJECT_NAME]-archive/
-git commit -m "feat: Add complete archive for [PROJECT_NAME] project"
-git push origin [branche-actuelle]
-```
-
-**⚠️ VÉRIFICATION OBLIGATOIRE AVANT DE CONTINUER** :
-- [ ] Dossier `[PROJECT_NAME]-archive/` existe
-- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
-- [ ] Sous-dossier `[PROJECT_NAME]-starter/` présent
-- [ ] Sous-dossier `[PROJECT_NAME]-solution/` présent
-- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec:
-  - [ ] guide-mentor.md
-  - [ ] corrige-vue-ensemble.md
-  - [ ] corrige-exercice[N].md (un par exercice)
-  - [ ] grille-evaluation.md
-  - [ ] erreurs-frequentes.md
-  - [ ] faq-etudiants.md
-  - [ ] ressources-complementaires.md
-- [ ] README.md à la racine de l'archive (seul fichier à la racine avec les dossiers)
-- [ ] AUCUN doublon : les fichiers doivent être dans leurs dossiers respectifs uniquement
-
-**Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md`, `guide-mentor.md` et `AGENTS.md` restent à la racine du repository car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-archive/fichiers-de-configuration/` ou `ressources-mentors-learning-designers/` pour archiver le projet.
-
-**Étape 1.5 : Créer un README professionnel pour le repository étudiant**
+1. **README_ETUDIANTS.md** : README professionnel pour le repository étudiant (PUBLIC)
 
 **🔴 IMPORTANT CRITIQUE** : Le README du repository étudiant doit avoir l'air d'un projet professionnel normal. Il ne doit PAS contenir :
 - ❌ Le mot "étudiant", "projet pédagogique", "OpenClassrooms", "parcours"
