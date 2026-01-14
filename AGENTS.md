@@ -428,96 +428,275 @@ Avant de passer à la Phase 6.2, vérifier que :
 
 ---
 
-#### 6.2 Guide de correction étape par étape
+#### 6.2 Guide de correction étape par étape (SPLIT-FILE STRATEGY)
 
-Créer un fichier `CORRIGE.md` qui contient :
+**⚠️ STRATÉGIE IMPORTANTE** : Pour réduire la consommation de tokens (~60% d'économie), créer **plusieurs fichiers séparés** au lieu d'un seul CORRIGE.md monolithique.
 
-1. **Introduction** :
-   - Vue d'ensemble de la solution
-   - Compétences validées par cette solution
-   - Architecture générale adoptée
+**Structure des fichiers de correction** :
 
-2. **Pour chaque exercice/étape du `project.md`** :
+```
+/
+├── corrige-vue-ensemble.md           # ⚠️ OBLIGATOIRE
+├── corrige-exercice1.md              # ⚠️ OBLIGATOIRE (un par exercice)
+├── corrige-exercice2.md              # ⚠️ OBLIGATOIRE (un par exercice)
+├── [corrige-exerciceN.md]            # ⚠️ OBLIGATOIRE (un par exercice)
+├── grille-evaluation.md              # ⚠️ OBLIGATOIRE
+├── erreurs-frequentes.md             # ⚠️ OBLIGATOIRE
+├── faq-etudiants.md                  # ⚠️ OBLIGATOIRE
+└── ressources-complementaires.md     # ⚠️ OBLIGATOIRE
+```
 
-   **Format structuré** :
-   ```markdown
-   ## Exercice [N] : [Titre de l'exercice]
+---
 
-   ### Objectif pédagogique
-   - Compétence(s) travaillée(s)
-   - Ce que l'étudiant doit comprendre
+**1. Fichier `corrige-vue-ensemble.md`** (OBLIGATOIRE)
 
-   ### Solution détaillée
+**Contenu** :
+- **Introduction générale** : Vue d'ensemble de la solution
+- **Compétences validées** : Liste des compétences travaillées
+- **Architecture générale** : Schéma de l'architecture adoptée (composants, hooks, pages, models, etc.)
+- **Prérequis techniques** : Connaissances nécessaires avant de commencer (concepts React, TypeScript, etc.)
+- **Navigation** : Liens vers les autres fichiers de correction
 
-   #### Étape [N.1] : [Titre de l'étape]
+**Longueur typique** : 200-400 lignes
 
-   **Ce qu'il faut faire** :
-   - Action 1
-   - Action 2
-   - Action 3
+---
 
-   **Explication technique** :
-   - Pourquoi cette approche
-   - Concepts clés à comprendre
-   - Liens avec les best practices
+**2. Fichiers `corrige-exercice[N].md`** (UN PAR EXERCICE - OBLIGATOIRES)
 
-   **Code de référence** :
-   ```[langage]
-   // Code exemple avec commentaires explicatifs
-   ```
+**Convention de nommage** :
+- `corrige-exercice1.md` pour l'exercice 1
+- `corrige-exercice2.md` pour l'exercice 2
+- etc.
 
-   **Points de vigilance** :
-   - Erreurs courantes à éviter
-   - Pièges classiques
-   - Ce que le mentor doit vérifier
+**Structure OBLIGATOIRE pour chaque fichier d'exercice** :
 
-   **Fichiers concernés** :
-   - `chemin/vers/fichier1.ext`
-   - `chemin/vers/fichier2.ext`
+```markdown
+# Exercice [N] : [Titre de l'exercice]
 
-   #### Étape [N.2] : [Titre de l'étape suivante]
-   [Même structure...]
-   ```
+## Objectif pédagogique
+- Compétence(s) travaillée(s)
+- Ce que l'étudiant doit comprendre
 
-3. **Sections obligatoires du CORRIGE.md** :
+## Vue d'ensemble de l'exercice
+[Synthèse de ce qui sera fait dans cet exercice]
 
-   - **Vue d'ensemble** : Architecture globale de la solution
-   - **Prérequis** : Connaissances nécessaires avant de commencer
-   - **Exercice par exercice** : Solution détaillée pour chaque exercice
-   - **Grille d'évaluation** : Critères de validation (ce qui doit être vérifié)
-   - **Erreurs fréquentes** : Liste des erreurs classiques et comment les corriger
-   - **Ressources complémentaires** : Liens vers docs, tutoriels, concepts clés
-   - **FAQ** : Questions fréquentes des étudiants et réponses
+---
 
-4. **Style d'écriture du CORRIGE.md** :
-   - **Pédagogique** : Expliquer le "pourquoi", pas seulement le "comment"
-   - **Progressif** : Suivre l'ordre du `project.md`
-   - **Illustré** : Exemples de code, schémas si nécessaire
-   - **Accessible** : Adapté au niveau de séniorité défini
-   - **Complet mais synthétique** : Ni trop verbose, ni trop succinct
+## Étape [N.1] : [Titre de l'étape]
+
+### Ce qu'il faut faire
+- Action 1
+- Action 2
+- Action 3
+
+### Explication technique
+- Pourquoi cette approche
+- Concepts clés à comprendre
+- Liens avec les best practices
+
+### Code de référence
+```[langage]
+// Code exemple avec commentaires explicatifs
+```
+
+### Points de vigilance
+- Erreurs courantes à éviter
+- Pièges classiques
+- Ce que le mentor doit vérifier
+
+### Fichiers concernés
+- `chemin/vers/fichier1.ext`
+- `chemin/vers/fichier2.ext`
+
+---
+
+## Étape [N.2] : [Titre de l'étape suivante]
+[Même structure que Étape N.1...]
+
+---
+
+## Récapitulatif de l'exercice [N]
+[Synthèse de ce qui a été fait, compétences acquises]
+```
+
+**Longueur typique par exercice** : 800-2000 lignes (selon la complexité)
+
+---
+
+**3. Fichier `grille-evaluation.md`** (OBLIGATOIRE)
+
+**Contenu** :
+- **Critères de validation** : Tableau avec critères, points, description
+- **Barème détaillé** : Total des points (ex: 55 points)
+- **Niveaux d'exigence** : Ce qui est attendu pour "Acquis", "En cours d'acquisition", "Non acquis"
+- **Check-list mentor** : Points spécifiques à vérifier lors de la session de bilan
+
+**Format recommandé** :
+```markdown
+| Critère | Points | Description | Validation |
+|---------|--------|-------------|------------|
+| Architecture modulaire | 10 | Composants séparés, hooks custom | [ ] Validé |
+| TypeScript strict | 8 | Pas de `any`, interfaces définies | [ ] Validé |
+...
+```
+
+**Longueur typique** : 300-600 lignes
+
+---
+
+**4. Fichier `erreurs-frequentes.md`** (OBLIGATOIRE)
+
+**Contenu** :
+- **Liste des erreurs classiques** par exercice/étape
+- **Symptômes** : Comment identifier l'erreur
+- **Causes** : Pourquoi ça arrive
+- **Corrections** : Solution détaillée avec code
+
+**Structure recommandée** :
+```markdown
+## Exercice 1
+
+### Erreur 1 : [Description courte]
+**Symptôme** : [Ce qu'on observe]
+**Cause** : [Pourquoi ça arrive]
+**Correction** :
+```code
+// Solution
+```
+
+### Erreur 2 : [Description courte]
+...
+```
+
+**Longueur typique** : 500-1000 lignes
+
+---
+
+**5. Fichier `faq-etudiants.md`** (OBLIGATOIRE)
+
+**Contenu** :
+- **Questions fréquentes** par thème (architecture, TypeScript, React Hooks, React Router, etc.)
+- **Réponses détaillées** avec exemples de code si nécessaire
+- **Liens vers ressources** pour approfondir
+
+**Structure recommandée** :
+```markdown
+## Architecture React
+
+### Q1 : Pourquoi séparer les composants dans des fichiers différents ?
+**Réponse** : [Explication pédagogique...]
+
+### Q2 : C'est quoi un Custom Hook et pourquoi l'utiliser ?
+**Réponse** : [Explication pédagogique...]
+
+## TypeScript
+
+### Q1 : Pourquoi éviter `any` ?
+**Réponse** : [Explication pédagogique...]
+```
+
+**Longueur typique** : 400-800 lignes
+
+---
+
+**6. Fichier `ressources-complementaires.md`** (OBLIGATOIRE)
+
+**Contenu** :
+- **Documentation officielle** : Liens vers React, TypeScript, etc.
+- **Tutoriels recommandés** : Par concept clé
+- **Articles de référence** : Best practices, patterns
+- **Vidéos** : Si pertinent
+- **Repos GitHub** : Exemples de code
+
+**Structure recommandée** :
+```markdown
+## Documentation officielle
+
+- [React 19 Documentation](https://react.dev)
+- [TypeScript Handbook](https://typescriptlang.org/docs/)
+...
+
+## Concepts clés
+
+### Custom Hooks
+- [React Docs: Reusing Logic with Custom Hooks](...)
+- [Article: When to use Custom Hooks](...)
+
+### TypeScript avec React
+- [React TypeScript Cheatsheet](...)
+...
+```
+
+**Longueur typique** : 200-400 lignes
+
+---
+
+**7. Style d'écriture (TOUS LES FICHIERS)** :
+
+- **Pédagogique** : Expliquer le "pourquoi", pas seulement le "comment"
+- **Progressif** : Suivre l'ordre logique du `project.md`
+- **Illustré** : Exemples de code, schémas si nécessaire
+- **Accessible** : Adapté au niveau de séniorité défini
+- **Complet mais synthétique** : Ni trop verbose, ni trop succinct
+- **Cross-références** : Lier les fichiers entre eux quand pertinent
+
+---
+
+**8. Stratégie d'écriture pour économiser les tokens** :
+
+⚠️ **MÉTHODE RECOMMANDÉE** pour éviter de consommer trop de tokens :
+
+1. **Créer les fichiers progressivement** avec `echo >> fichier.md` (approche incrémentale)
+2. **Utiliser Edit tool** pour ajouter des sections (plus efficace que Write tool)
+3. **Documenter la création dans rex.md** au fur et à mesure
+4. **Générer un fichier par tour** si nécessaire pour rester sous la limite de tokens
+
+Cette approche a permis de créer REX.md (600 lignes) avec seulement ~5k tokens vs CORRIGE.md monolithique (11k lignes) avec ~39k tokens.
 
 ---
 
 ✅ **CHECKPOINT PHASE 6.2 - VALIDATION OBLIGATOIRE**
 
-Avant de passer à la Phase 6.3, vérifier que :
-- [ ] Fichier CORRIGE.md créé à la racine
-- [ ] Introduction avec vue d'ensemble présente
-- [ ] Section prérequis présente
-- [ ] CHAQUE exercice du project.md a une section dédiée
-- [ ] CHAQUE étape de chaque exercice est détaillée avec :
-  - [ ] Objectif pédagogique
-  - [ ] Solution détaillée
-  - [ ] Code de référence
-  - [ ] Points de vigilance
-  - [ ] Fichiers concernés
-- [ ] Grille d'évaluation présente
-- [ ] Section erreurs fréquentes présente
-- [ ] FAQ présente
-- [ ] Ressources complémentaires présentes
-- [ ] CORRIGE.md documenté dans rex.md
+Avant de passer à la Phase 6.3, vérifier que **TOUS les fichiers de correction** sont créés :
 
-**⚠️ NE PAS CONTINUER** sans un CORRIGE.md complet couvrant TOUS les exercices.
+**Fichiers obligatoires** :
+- [ ] `corrige-vue-ensemble.md` existe à la racine
+  - [ ] Introduction générale présente
+  - [ ] Vue d'ensemble de l'architecture présente
+  - [ ] Prérequis techniques présents
+  - [ ] Navigation vers les autres fichiers présente
+
+- [ ] UN fichier `corrige-exercice[N].md` pour CHAQUE exercice du project.md
+  - [ ] `corrige-exercice1.md` existe
+  - [ ] `corrige-exercice2.md` existe
+  - [ ] [Autres exercices si nécessaire]
+  - [ ] CHAQUE fichier d'exercice contient TOUTES ses étapes détaillées avec :
+    - [ ] Objectif pédagogique
+    - [ ] Solution détaillée par étape
+    - [ ] Code de référence
+    - [ ] Points de vigilance
+    - [ ] Fichiers concernés
+
+- [ ] `grille-evaluation.md` existe à la racine
+  - [ ] Critères de validation avec barème
+  - [ ] Check-list mentor présente
+
+- [ ] `erreurs-frequentes.md` existe à la racine
+  - [ ] Erreurs classiques listées par exercice
+  - [ ] Symptômes, causes, corrections présents
+
+- [ ] `faq-etudiants.md` existe à la racine
+  - [ ] Questions fréquentes par thème
+  - [ ] Réponses pédagogiques détaillées
+
+- [ ] `ressources-complementaires.md` existe à la racine
+  - [ ] Documentation officielle
+  - [ ] Tutoriels et articles recommandés
+
+**Documentation dans REX.md** :
+- [ ] Création de TOUS les fichiers de correction documentée dans rex.md
+
+**⚠️ NE PAS CONTINUER** sans TOUS les fichiers de correction créés et complets.
 
 ---
 
@@ -576,15 +755,16 @@ Avant de finaliser :
    - Tester chaque fonctionnalité demandée
    - Vérifier qu'il n'y a pas d'erreurs
 
-2. **Relire le CORRIGE.md** :
-   - Vérifier que chaque étape du `project.md` est couverte
+2. **Relire tous les fichiers de correction** :
+   - Vérifier que chaque étape du `project.md` est couverte dans les fichiers corrige-exercice[N].md
    - S'assurer que les explications sont claires
    - Valider que le niveau correspond au niveau de séniorité
+   - Vérifier la cohérence entre tous les fichiers (vue-ensemble, exercices, grille, FAQ)
 
 3. **Vérifier le guide mentor** :
    - Confirmer que les exemples correspondent à la stack
    - Valider que les ressources sont pertinentes
-   - S'assurer de la cohérence avec le CORRIGE.md
+   - S'assurer de la cohérence avec les fichiers de correction
 
 4. **Documenter dans `rex.md`** :
    - Le processus de création de la solution
@@ -601,7 +781,13 @@ Avant de passer à la Phase 7, vérifier que **TOUTE** la Phase 6 est complète 
 - [ ] `npm run dev` (ou équivalent) fonctionne
 - [ ] `npm run build` (ou équivalent) réussit
 - [ ] `npm run lint` (ou équivalent) passe sans erreurs
-- [ ] CORRIGE.md relu et vérifié complet
+- [ ] TOUS les fichiers de correction relus et vérifiés complets:
+  - [ ] corrige-vue-ensemble.md
+  - [ ] corrige-exercice[N].md (tous les exercices)
+  - [ ] grille-evaluation.md
+  - [ ] erreurs-frequentes.md
+  - [ ] faq-etudiants.md
+  - [ ] ressources-complementaires.md
 - [ ] Guide mentor (GUIDE_FORMATEUR.md) relu et validé
 - [ ] Toutes les décisions documentées dans rex.md
 - [ ] Estimation de temps pour étudiant notée
@@ -678,7 +864,14 @@ Le projet utilise **deux branches distinctes** :
     │
     └── ressources-mentors-learning-designers/  # ⚠️ Ressources pédagogiques unifiées
         ├── guide-mentor.md                  # ⚠️ OBLIGATOIRE: Guide pour mentors/formateurs
-        └── corrige.md                       # ⚠️ OBLIGATOIRE: Corrections détaillées
+        ├── corrige-vue-ensemble.md          # ⚠️ OBLIGATOIRE: Vue d'ensemble + architecture
+        ├── corrige-exercice1.md             # ⚠️ OBLIGATOIRE: Correction exercice 1
+        ├── corrige-exercice2.md             # ⚠️ OBLIGATOIRE: Correction exercice 2
+        ├── [corrige-exerciceN.md]           # ⚠️ OBLIGATOIRE: Un fichier par exercice
+        ├── grille-evaluation.md             # ⚠️ OBLIGATOIRE: Critères de validation
+        ├── erreurs-frequentes.md            # ⚠️ OBLIGATOIRE: Erreurs classiques
+        ├── faq-etudiants.md                 # ⚠️ OBLIGATOIRE: Questions fréquentes
+        └── ressources-complementaires.md    # ⚠️ OBLIGATOIRE: Liens et ressources
 ```
 
 **⚠️ POINTS CRITIQUES À VÉRIFIER** :
@@ -687,7 +880,7 @@ Le projet utilise **deux branches distinctes** :
 3. REX.md et SUMMARY_SETUP.md sont dans `fichiers-de-configuration/`, PAS à la racine
 4. Le starter ET la solution sont directement dans l'archive (pas dans des sous-dossiers)
 5. Un SEUL dossier `ressources-mentors-learning-designers/` unifié (plus de séparation MENTORS/LEARNING_DESIGNER)
-6. guide-mentor.md et corrige.md UNIQUEMENT dans `ressources-mentors-learning-designers/`, PAS de doublons à la racine
+6. guide-mentor.md et TOUS les fichiers corrige-*.md UNIQUEMENT dans `ressources-mentors-learning-designers/`, PAS de doublons à la racine
 7. README.md UNIQUEMENT à la racine de l'archive pour la navigation
 
 **Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md, guide-mentor.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-archive/` qui archive TOUTES les ressources de ce projet.
@@ -744,7 +937,11 @@ mv SUMMARY_SETUP.md [PROJECT_NAME]-archive/fichiers-de-configuration/
 
 # 5. Déplacer et renommer les fichiers pédagogiques
 mv GUIDE_FORMATEUR.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/guide-mentor.md
-mv CORRIGE.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/corrige.md
+mv corrige-*.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
+mv grille-evaluation.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
+mv erreurs-frequentes.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
+mv faq-etudiants.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
+mv ressources-complementaires.md [PROJECT_NAME]-archive/ressources-mentors-learning-designers/
 
 # 6. Créer README.md de l'archive (obligatoire)
 # Utiliser le template adapté au projet
@@ -760,7 +957,14 @@ git push origin [branche-actuelle]
 - [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
 - [ ] Sous-dossier `[PROJECT_NAME]-starter/` présent
 - [ ] Sous-dossier `[PROJECT_NAME]-solution/` présent
-- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec guide-mentor.md et corrige.md
+- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec:
+  - [ ] guide-mentor.md
+  - [ ] corrige-vue-ensemble.md
+  - [ ] corrige-exercice[N].md (un par exercice)
+  - [ ] grille-evaluation.md
+  - [ ] erreurs-frequentes.md
+  - [ ] faq-etudiants.md
+  - [ ] ressources-complementaires.md
 - [ ] README.md à la racine de l'archive (seul fichier à la racine avec les dossiers)
 - [ ] AUCUN doublon : les fichiers doivent être dans leurs dossiers respectifs uniquement
 
