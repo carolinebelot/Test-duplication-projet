@@ -946,36 +946,17 @@ Le projet génère **3 repositories GitHub distincts par projet** + 1 repository
 
 ---
 
-**Étape 1 : Créer les READMEs professionnels**
 
-Avant de créer les repositories, préparer 3 READMEs :
+**Étape 1 : Préparer les 3 READMEs professionnels**
 
-1. **README_ETUDIANTS.md** : README professionnel pour le repository étudiant (PUBLIC)
+Créer 3 fichiers README à la racine du repository template (CodebaseFactory) :
 
-**🔴 IMPORTANT CRITIQUE** : Le README du repository étudiant doit avoir l'air d'un projet professionnel normal. Il ne doit PAS contenir :
-- ❌ Le mot "étudiant", "projet pédagogique", "OpenClassrooms", "parcours"
-- ❌ Des mentions "exercices", "objectifs pédagogiques", "livrables attendus"
-- ❌ Des critères de validation, grilles d'évaluation
-- ❌ Des instructions de clonage spécifiques à une branche
-- ❌ Des références au contexte pédagogique
+**1.1 - README_ETUDIANTS.md (pour repository PUBLIC)**
 
-**Ce qu'il DOIT contenir** :
-✅ Nom du projet simple et professionnel
-✅ Description technique brève
-✅ Instructions d'installation standards (npm install, npm run dev)
-✅ Stack technique
-✅ Fonctionnalités principales
-✅ Structure du projet
-✅ Documentation et ressources officielles
-✅ Licence (MIT ou autre licence standard)
-
-**Template à suivre** :
 ```markdown
 # [Nom du Projet] - [Tagline court]
 
 [Description technique du projet en 1-2 phrases]
-
----
 
 ## 🚀 Getting Started
 
@@ -989,177 +970,378 @@ npm install
 npm run dev
 \`\`\`
 
-### Available Commands
-\`\`\`bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run lint     # Run code quality checks
-\`\`\`
-
 ## 🛠️ Tech Stack
-[Liste des technologies]
+- React 19
+- TypeScript
+- Vite 5
+- Tailwind CSS 3.4
 
 ## 📋 Features
 [Fonctionnalités principales]
 
 ## 🏗️ Project Structure
-[Structure des dossiers]
+\`\`\`
+src/
+├── components/
+├── hooks/
+├── models/
+├── pages/
+├── App.tsx
+└── main.tsx
+\`\`\`
 
 ## 📚 Documentation
-[Liens vers docs officielles]
+- [React Documentation](https://react.dev)
+- [TypeScript Handbook](https://typescriptlang.org)
 
 ## 📝 License
 MIT License
-
----
-**Built with [Stack principale]**
 ```
 
-**Actions à effectuer** :
-1. Créer ce README professionnel dans `[PROJECT_NAME]-starter/README.md`
-2. Remplacer complètement le README existant s'il contient des références pédagogiques
-3. Vérifier qu'aucune référence au contexte éducatif n'apparaît
-4. Sauvegarder aussi une copie comme `README_ETUDIANTS.md` à la racine (pour référence)
+⚠️ **VÉRIFIER** : Aucune mention "étudiant", "exercice", "projet pédagogique", "OpenClassrooms"
 
-**Étape 2 : Créer le repository GitHub pour les étudiants**
+**1.2 - README_SOLUTION.md (pour repository PRIVÉ solution)**
 
-**🔴 ATTENTION CRITIQUE** : Cette étape crée un **nouveau repository GitHub séparé** contenant UNIQUEMENT le code starter. Ce repository est complètement isolé du repository template/archive.
+```markdown
+# [Nom du Projet] - Solution de Référence
 
-**⚠️ ERREUR FRÉQUENTE** : Copier accidentellement des fichiers formateurs (AGENTS.md, project.md, guide-mentor.md, etc.) dans le repository étudiant → C'est une FUITE MAJEURE de ressources formateurs.
+Architecture propre et professionnelle du projet [Nom].
 
-**Commandes à exécuter** :
+## 🎯 Architecture
+
+Ce repository contient la solution de référence avec :
+- Architecture modulaire (components/, hooks/, pages/, models/)
+- Custom Hook `useOlympicData` pour la gestion des données
+- Composants réutilisables (Indicator, MedalsPieChart, MedalsLineChart)
+- TypeScript strict (pas de `any`)
+- Routing avec React Router 6
+
+## 📐 Choix Techniques
+
+### Structure des dossiers
+\`\`\`
+src/
+├── components/       # Composants réutilisables
+│   ├── Indicator.tsx
+│   ├── MedalsPieChart.tsx
+│   └── MedalsLineChart.tsx
+├── hooks/           # Custom Hooks
+│   └── useOlympicData.ts
+├── models/          # Interfaces TypeScript
+│   └── Olympic.ts
+├── pages/           # Pages de l'application
+│   ├── Home.tsx
+│   ├── Country.tsx
+│   └── NotFound.tsx
+├── data/            # Données mockées
+│   └── mockOlympicData.ts
+├── App.tsx          # Router configuration
+└── main.tsx
+\`\`\`
+
+### Patterns utilisés
+- Custom Hook pour la logique métier
+- Composition de composants
+- Props drilling évité via Custom Hook
+- Types TypeScript stricts
+
+## 🚀 Installation
+
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+## 📚 Ressources
+- [React 19 Documentation](https://react.dev)
+- [TypeScript Handbook](https://typescriptlang.org)
+```
+
+**1.3 - README_SETUP.md (pour repository PRIVÉ setup)**
+
+```markdown
+# [Nom du Projet] - Ressources Pédagogiques
+
+Documentation complète du projet pédagogique [Nom].
+
+## 📦 Contenu
+
+### 📂 fichiers-de-configuration/
+- `project.md` : Instructions du projet
+- `stack.md` : Stack technique
+- `assets.md` : Spécifications fonctionnelles
+- `REX.md` : Retour d'expérience
+- `SUMMARY_SETUP.md` : Résumé du setup
+
+### 📂 ressources-mentors-learning-designers/
+- `guide-mentor.md` : Guide pour mentors/formateurs
+- `corrige-vue-ensemble.md` : Vue d'ensemble + architecture
+- `corrige-exercice1.md` : Correction exercice 1
+- `corrige-exercice2.md` : Correction exercice 2
+- `grille-evaluation.md` : Critères de validation
+- `erreurs-frequentes.md` : Erreurs classiques
+- `faq-etudiants.md` : Questions fréquentes
+- `ressources-complementaires.md` : Liens et ressources
+
+## 🎯 Utilisation
+
+Ce repository contient toutes les ressources nécessaires pour :
+- Accompagner les étudiants (guide-mentor.md)
+- Corriger les travaux (corrige-*.md)
+- Évaluer les compétences (grille-evaluation.md)
+- Répondre aux questions (faq-etudiants.md)
+
+## 📚 Documentation Externe
+
+- [AGENTS.md workflow](../CodebaseFactory/AGENTS.md)
+- Repository starter : `https://github.com/openclassrooms/[PROJECT_NAME]`
+- Repository solution : `https://github.com/openclassrooms/[PROJECT_NAME]-corrige`
+```
+
+---
+
+**Étape 2 : Créer le repository étudiant (PUBLIC)**
 
 ```bash
-# 1. Créer le nouveau repository GitHub (adapter l'organisation et le nom)
-# Format: gh repo create [ORGANIZATION]/[PROJECT_NAME] --public --description "[Description]"
+# 2.1 - Créer le repository GitHub
 gh repo create openclassrooms/[PROJECT_NAME] --public --description "[Brief professional description]"
 
 # Exemple concret:
 # gh repo create openclassrooms/p2-telesport --public --description "Olympic Games History Dashboard - React 19 + TypeScript + Chart.js"
 
-# 2. Préparer le code starter dans un dossier temporaire
+# 2.2 - Préparer le code dans /tmp
 cd /tmp
-cp -r /chemin/vers/CodebaseFactory/[PROJECT_NAME]-archive/[PROJECT_NAME]-starter [PROJECT_NAME]
+cp -r /chemin/vers/CodebaseFactory/[PROJECT_NAME]-starter [PROJECT_NAME]
 cd [PROJECT_NAME]
 
-# 3. Copier le README professionnel (depuis Étape 1.5)
+# 2.3 - Copier le README professionnel
 cp /chemin/vers/CodebaseFactory/README_ETUDIANTS.md README.md
 
-# 4. Vérifier qu'il n'y a QUE les fichiers du starter (pas de fichiers formateurs)
+# 2.4 - Vérifier qu'il n'y a QUE les fichiers du starter
 ls -la
-# Doit contenir: README.md, package.json, src/, Dockerfile, docker-compose.yml, etc.
-# Ne doit PAS contenir: AGENTS.md, project.md, stack.md, guide-mentor.md, rex.md, etc.
+# ✅ Attendu: README.md, package.json, src/, Dockerfile, docker-compose.yml, vite.config.ts, .gitignore
+# ❌ Interdit: AGENTS.md, project.md, stack.md, guide-mentor.md, rex.md, corrige-*.md
 
-# 5. VALIDATION : Vérifier qu'il n'y a QUE les fichiers du starter
-# ✅ Fichiers attendus : README.md, package.json, src/, vite.config.ts, Dockerfile, docker-compose.yml, etc.
-# ❌ Fichiers interdits : AGENTS.md, project.md, stack.md, guide-mentor.md, rex.md, corrige-*.md
-
-# 6. Si tout est OK, initialiser Git et commiter
+# 2.5 - Initialiser Git et pousser
 git init
 git add .
 git commit -m "feat: Initial commit - [PROJECT_NAME] starter code
 
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 
-# 7. Configurer le remote et push vers le nouveau repository
 git remote add origin git@github.com:openclassrooms/[PROJECT_NAME].git
 git branch -M main
 git push -u origin main
-
-# Exemple concret:
-# git remote add origin git@github.com:openclassrooms/p2-telesport.git
-# git branch -M main
-# git push -u origin main
 ```
 
-**🔴 VÉRIFICATION OBLIGATOIRE APRÈS PUSH** :
+**Vérification** :
 ```bash
-# Cloner le repository étudiant dans un dossier temporaire pour vérifier
+# Cloner et vérifier
 cd /tmp
-git clone https://github.com/openclassrooms/[PROJECT_NAME].git test-repo-etudiants
-cd test-repo-etudiants
+git clone https://github.com/openclassrooms/[PROJECT_NAME].git verify-student
+cd verify-student
 ls -la
-
-# ✅ Fichiers qui DOIVENT être présents :
-# - README.md (professionnel, sans références pédagogiques)
-# - package.json
-# - src/ (avec code starter)
-# - Dockerfile
-# - docker-compose.yml
-# - vite.config.ts (ou autre config selon stack)
-# - .gitignore
-# - tsconfig.json (si TypeScript)
-
-# ❌ Fichiers qui NE DOIVENT PAS être présents :
-# - AGENTS.md
-# - project.md
-# - stack.md
-# - assets.md
-# - guide-mentor.md
-# - SETUP-GITHUB.md
-# - rex.md
-# - SUMMARY_SETUP.md
-# - corrige-*.md
-# - grille-evaluation.md
-# - erreurs-frequentes.md
-# - faq-etudiants.md
-# - ressources-complementaires.md
-# - [PROJECT_NAME]-archive/ (dossier)
-
-# Si ces fichiers interdits sont présents : ERREUR CRITIQUE, supprimer le repository et recommencer l'Étape 2
+# Si fichiers interdits présents → ERREUR CRITIQUE, supprimer repo et recommencer
 ```
 
-**Étape 3 : Nettoyage et retour au repository principal**
+---
+
+**Étape 3 : Créer le repository solution (PRIVÉ)**
 
 ```bash
-# Nettoyer le dossier temporaire
+# 3.1 - Créer le repository GitHub PRIVÉ
+gh repo create openclassrooms/[PROJECT_NAME]-corrige --private --description "Solution de référence - [Brief description]"
+
+# Exemple:
+# gh repo create openclassrooms/p2-telesport-corrige --private --description "Solution de référence - Olympic Games Dashboard"
+
+# 3.2 - Préparer le code dans /tmp
+cd /tmp
+cp -r /chemin/vers/CodebaseFactory/[PROJECT_NAME]-solution [PROJECT_NAME]-corrige
+cd [PROJECT_NAME]-corrige
+
+# 3.3 - Copier le README solution
+cp /chemin/vers/CodebaseFactory/README_SOLUTION.md README.md
+
+# 3.4 - Vérifier le contenu
+ls -la
+# ✅ Attendu: README.md (expliquant architecture), package.json, src/ (clean code), Dockerfile
+# ❌ Interdit: AGENTS.md, project.md, guide-mentor.md, corrige-*.md
+
+# 3.5 - Initialiser Git et pousser
+git init
+git add .
+git commit -m "feat: Initial commit - [PROJECT_NAME] solution code
+
+Architecture propre et professionnelle avec:
+- Custom Hook useOlympicData
+- Composants réutilisables
+- TypeScript strict
+- React Router 6
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+git remote add origin git@github.com:openclassrooms/[PROJECT_NAME]-corrige.git
+git branch -M main
+git push -u origin main
+```
+
+---
+
+**Étape 4 : Créer le repository setup/ressources (PRIVÉ)**
+
+```bash
+# 4.1 - Créer le repository GitHub PRIVÉ
+gh repo create openclassrooms/[PROJECT_NAME]-setup --private --description "Ressources pédagogiques - [Project Name]"
+
+# Exemple:
+# gh repo create openclassrooms/p2-telesport-setup --private --description "Ressources pédagogiques - TéléSport Project"
+
+# 4.2 - Créer la structure dans /tmp
+cd /tmp
+mkdir -p [PROJECT_NAME]-setup/fichiers-de-configuration
+mkdir -p [PROJECT_NAME]-setup/ressources-mentors-learning-designers
+cd [PROJECT_NAME]-setup
+
+# 4.3 - Copier les fichiers de configuration
+cp /chemin/vers/CodebaseFactory/project.md fichiers-de-configuration/
+cp /chemin/vers/CodebaseFactory/stack.md fichiers-de-configuration/
+cp /chemin/vers/CodebaseFactory/assets.md fichiers-de-configuration/
+cp /chemin/vers/CodebaseFactory/rex.md fichiers-de-configuration/REX.md
+cp /chemin/vers/CodebaseFactory/SUMMARY_SETUP.md fichiers-de-configuration/
+
+# 4.4 - Copier les ressources pédagogiques
+cp /chemin/vers/CodebaseFactory/GUIDE_FORMATEUR.md ressources-mentors-learning-designers/guide-mentor.md
+cp /chemin/vers/CodebaseFactory/corrige-*.md ressources-mentors-learning-designers/
+cp /chemin/vers/CodebaseFactory/grille-evaluation.md ressources-mentors-learning-designers/
+cp /chemin/vers/CodebaseFactory/erreurs-frequentes.md ressources-mentors-learning-designers/
+cp /chemin/vers/CodebaseFactory/faq-etudiants.md ressources-mentors-learning-designers/
+cp /chemin/vers/CodebaseFactory/ressources-complementaires.md ressources-mentors-learning-designers/
+
+# 4.5 - Copier le README setup
+cp /chemin/vers/CodebaseFactory/README_SETUP.md README.md
+
+# 4.6 - Vérifier la structure
+tree -L 2
+# ✅ Attendu:
+# .
+# ├── README.md
+# ├── fichiers-de-configuration/
+# │   ├── project.md
+# │   ├── stack.md
+# │   ├── assets.md
+# │   ├── REX.md
+# │   └── SUMMARY_SETUP.md
+# └── ressources-mentors-learning-designers/
+#     ├── guide-mentor.md
+#     ├── corrige-*.md (tous)
+#     ├── grille-evaluation.md
+#     ├── erreurs-frequentes.md
+#     ├── faq-etudiants.md
+#     └── ressources-complementaires.md
+
+# 4.7 - Initialiser Git et pousser
+git init
+git add .
+git commit -m "feat: Initial commit - [PROJECT_NAME] pedagogical resources
+
+Complete setup documentation:
+- Configuration files (project.md, stack.md, assets.md, REX.md)
+- Mentor guides and corrections
+- Evaluation grids and FAQs
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+git remote add origin git@github.com:openclassrooms/[PROJECT_NAME]-setup.git
+git branch -M main
+git push -u origin main
+```
+
+---
+
+**Étape 5 : Nettoyage et vérifications finales**
+
+```bash
+# 5.1 - Nettoyer les dossiers temporaires
 cd /chemin/vers/CodebaseFactory
 rm -rf /tmp/[PROJECT_NAME]
-rm -rf /tmp/test-repo-etudiants
+rm -rf /tmp/[PROJECT_NAME]-corrige
+rm -rf /tmp/[PROJECT_NAME]-setup
+rm -rf /tmp/verify-student
 
-# Vérifier qu'on est bien sur la branche de travail
-git branch
-# Devrait afficher: * setup-projetv2 (ou la branche actuelle)
+# 5.2 - Nettoyer le repository template (CodebaseFactory)
+# Supprimer les fichiers qui ont été publiés dans les repos
+rm -rf [PROJECT_NAME]-starter/
+rm -rf [PROJECT_NAME]-solution/
+rm rex.md
+rm SUMMARY_SETUP.md
+rm GUIDE_FORMATEUR.md
+rm corrige-*.md
+rm grille-evaluation.md
+rm erreurs-frequentes.md
+rm faq-etudiants.md
+rm ressources-complementaires.md
+rm README_ETUDIANTS.md
+rm README_SOLUTION.md
+rm README_SETUP.md
+
+# 5.3 - Vérifier que le repository template ne contient plus que les templates
+ls -la
+# ✅ Attendu: AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, SETUP-GITHUB.md, README.md
+# ❌ Plus de: [PROJECT_NAME]-starter/, [PROJECT_NAME]-solution/, rex.md, corrige-*.md, etc.
 ```
 
 ---
 
-✅ **CHECKPOINT PHASE 7.4 - VALIDATION OBLIGATOIRE**
+**Étape 6 : Vérifications finales des 3 repositories**
 
-Avant de passer à la section 7.5, vérifier que :
+**6.1 - Repository étudiant (PUBLIC)**
+```bash
+# Ouvrir en navigation privée
+open https://github.com/openclassrooms/[PROJECT_NAME]
 
-**Structure de l'archive créée (dans repository template)** :
-- [ ] Dossier `[PROJECT_NAME]-archive/` existe à la racine
-- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
-- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec tous les fichiers corrigé (guide-mentor.md, corrige-*.md, grille-evaluation.md, etc.)
-- [ ] Starter et solution à la racine de l'archive
-- [ ] README.md de l'archive créé et complet (seul fichier à la racine)
-- [ ] AUCUN doublon de fichiers
+# Vérifier:
+# ✅ Repository public accessible
+# ✅ README professionnel affiché
+# ✅ Aucune mention "étudiant", "exercice", "OpenClassrooms"
+# ✅ Code starter visible
+# ❌ Aucun fichier formateur visible
+```
 
-**Repository étudiant créé** :
-- [ ] Repository GitHub `[ORGANIZATION]/[PROJECT_NAME]` créé (ex: `openclassrooms/p2-telesport`)
-- [ ] Repository créé avec `gh repo create` (PAS de branche orpheline)
-- [ ] Code starter copié à la racine de ce repository
-- [ ] **VÉRIFICATION CRITIQUE** : `ls -la` dans le repository étudiant ne montre QUE les fichiers du starter
-- [ ] **AUCUN de ces fichiers interdits présents** : AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, SETUP-GITHUB.md, rex.md, corrige-*.md, grille-evaluation.md, [PROJECT_NAME]-archive/
-- [ ] README.md professionnel présent (SANS références pédagogiques/étudiants)
-- [ ] README vérifié : aucune mention "étudiant", "exercice", "projet pédagogique", "OpenClassrooms", etc.
-- [ ] Repository pushé sur GitHub
-- [ ] **TEST FINAL** : Clone du repository en /tmp et vérification `ls -la` (aucun fichier interdit)
-- [ ] Repository accessible à l'URL : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]`
+**6.2 - Repository solution (PRIVÉ)**
+```bash
+# Vérifier l'accès
+gh repo view openclassrooms/[PROJECT_NAME]-corrige
 
-**Commits et nettoyage** :
-- [ ] Commit de l'archive sur la branche actuelle du repository template
-- [ ] Push de la branche actuelle effectué
-- [ ] Repository étudiant initialisé et pushé
-- [ ] Dossiers temporaires nettoyés (/tmp/[PROJECT_NAME], /tmp/test-repo-etudiants)
-- [ ] Retour sur la branche actuelle du repository template
+# ✅ Repository privé
+# ✅ README expliquant l'architecture
+# ✅ Code solution propre avec architecture modulaire
+```
 
-**⚠️ NE PAS CONTINUER** sans avoir vérifié TOUTE la structure.
+**6.3 - Repository setup (PRIVÉ)**
+```bash
+# Vérifier l'accès
+gh repo view openclassrooms/[PROJECT_NAME]-setup
+
+# ✅ Repository privé
+# ✅ README listant les ressources
+# ✅ Dossier fichiers-de-configuration/ complet
+# ✅ Dossier ressources-mentors-learning-designers/ complet
+```
 
 ---
 
-#### 7.5 Avantages de cette approche (repositories séparés)
+**Étape 7 : Documentation dans REX (si nouveau projet ultérieur)**
+
+Pour les prochains projets, documenter dans le futur REX.md :
+- Date de création des 3 repositories
+- URLs des 3 repositories
+- Vérifications effectuées
+- Problèmes rencontrés et solutions
+
+---
+
+#### 7.6 Avantages de cette approche (repositories séparés)
 
 ✅ **Séparation totale** : Étudiants et formateurs ont des repositories complètement distincts
 ✅ **Sécurité maximale** : Aucun risque de fuite des corrections (pas d'accès au repository template)
@@ -1172,7 +1354,7 @@ Avant de passer à la section 7.5, vérifier que :
 ✅ **Statistiques séparées** : GitHub Insights indépendants par projet
 ✅ **Professional appearance** : Les étudiants voient un vrai repository de projet
 
-#### 7.6 Publication finale aux étudiants
+#### 7.7 Publication finale aux étudiants
 
 Pour publier le projet aux étudiants :
 
@@ -1200,7 +1382,7 @@ Pour publier le projet aux étudiants :
    - Le README du repository contient déjà toutes les instructions nécessaires
    - Pas besoin de documentation supplémentaire sur le clonage
 
-#### 7.7 Instructions pour le README.md étudiant
+#### 7.8 Instructions pour le README.md étudiant
 
 Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà couvert dans Étape 1.5 ci-dessus) :
 
@@ -1221,26 +1403,48 @@ Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà
 - Guide de correction ou solution
 - Instructions pour mentors
 
-#### 7.8 Validation avant publication
+#### 7.9 Validation avant publication
 
-**Checklist de publication aux étudiants :**
+**Checklist complète des 3 repositories :**
 
-1. **Vérifier le repository étudiant** :
+1. **Vérifier le repository étudiant (PUBLIC)** :
    - [ ] Repository `[ORGANIZATION]/[PROJECT_NAME]` créé sur GitHub
+   - [ ] Repository PUBLIC et accessible
    - [ ] Code starter copié dans le repository
    - [ ] Aucune référence aux corrections ou ressources formateurs
    - [ ] README.md professionnel SANS mentions pédagogiques (vérifier : pas de "étudiant", "exercice", "objectifs", "OpenClassrooms", etc.)
-   - [ ] Repository accessible publiquement
    - [ ] URL fonctionne : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]`
+   - [ ] Aucun fichier interdit présent (AGENTS.md, project.md, guide-mentor.md, rex.md, corrige-*.md)
 
-2. **Vérifier le repository template (archive)** :
-   - [ ] Dossier `[PROJECT_NAME]-archive/` créé sur branche actuelle
-   - [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
-   - [ ] Sous-dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/` à la racine de l'archive
-   - [ ] Dossier `ressources-mentors-learning-designers/` avec guide-mentor.md, corrige-*.md, grille-evaluation.md, etc.
-   - [ ] README.md UNIQUEMENT à la racine de l'archive (pas de doublons)
+2. **Vérifier le repository solution (PRIVÉ)** :
+   - [ ] Repository `[ORGANIZATION]/[PROJECT_NAME]-corrige` créé sur GitHub
+   - [ ] Repository PRIVÉ
+   - [ ] Code solution avec architecture propre copié
+   - [ ] README.md expliquant l'architecture solution présent
+   - [ ] URL fonctionne : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]-corrige`
+   - [ ] Aucun fichier pédagogique présent (guide-mentor.md, corrige-*.md, grille-evaluation.md)
 
-3. **Tester en tant qu'étudiant** :
+3. **Vérifier le repository setup (PRIVÉ)** :
+   - [ ] Repository `[ORGANIZATION]/[PROJECT_NAME]-setup` créé sur GitHub
+   - [ ] Repository PRIVÉ
+   - [ ] Dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
+   - [ ] Dossier `ressources-mentors-learning-designers/` avec TOUS les fichiers :
+     - [ ] guide-mentor.md
+     - [ ] corrige-vue-ensemble.md
+     - [ ] corrige-exercice[N].md (tous les exercices)
+     - [ ] grille-evaluation.md
+     - [ ] erreurs-frequentes.md
+     - [ ] faq-etudiants.md
+     - [ ] ressources-complementaires.md
+   - [ ] README.md listant l'organisation du projet
+   - [ ] URL fonctionne : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]-setup`
+
+4. **Vérifier le repository template (CodebaseFactory)** :
+   - [ ] Repository template ne contient PLUS de dossiers `[PROJECT_NAME]-starter/` ou `[PROJECT_NAME]-solution/`
+   - [ ] Repository template ne contient PLUS de fichiers rex.md, corrige-*.md, etc.
+   - [ ] Repository template contient UNIQUEMENT les templates (AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md)
+
+5. **Tester en tant qu'étudiant** :
    ```bash
    git clone https://github.com/[ORGANIZATION]/[PROJECT_NAME].git temp-test-etudiant
    cd temp-test-etudiant
@@ -1248,53 +1452,52 @@ Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà
    # L'application doit démarrer correctement
    ```
 
-4. **Vérifier sur GitHub** :
+6. **Vérifier sur GitHub** :
    - Aller sur `https://github.com/[ORGANIZATION]/[PROJECT_NAME]` en mode anonyme/incognito
    - Confirmer qu'aucun fichier sensible n'apparaît
    - Vérifier que seuls les fichiers étudiants sont visibles
    - Vérifier que le README s'affiche correctement et est professionnel
 
-5. **Documenter dans rex.md** :
-   - Date de création du repository étudiant
-   - URL du repository étudiant
+7. **Documenter dans le futur REX.md du prochain projet** :
+   - Date de création des 3 repositories
+   - URLs des 3 repositories
    - Vérifications effectuées
    - Problèmes rencontrés et solutions
 
 ---
 
-✅ **CHECKPOINT PHASE 7.8 (FIN PHASE 7) - VALIDATION FINALE OBLIGATOIRE**
+✅ **CHECKPOINT PHASE 7.9 (FIN PHASE 7) - VALIDATION FINALE OBLIGATOIRE**
 
 **🔴 VALIDATION COMPLÈTE DU PROJET** - Avant de considérer le projet terminé :
 
-**Architecture et fichiers** :
-- [ ] Structure `[PROJECT_NAME]-archive/` complète et conforme
-- [ ] Branche étudiants créée et testée
-- [ ] Aucune fuite de corrections vers la branche étudiants
-- [ ] README.md principal du repository mis à jour
+**Architecture des 3 repositories** :
+- [ ] Repository étudiant `[ORGANIZATION]/[PROJECT_NAME]` créé, PUBLIC, et fonctionnel
+- [ ] Repository solution `[ORGANIZATION]/[PROJECT_NAME]-corrige` créé, PRIVÉ, et fonctionnel
+- [ ] Repository setup `[ORGANIZATION]/[PROJECT_NAME]-setup` créé, PRIVÉ, avec toutes les ressources
+- [ ] Repository template (CodebaseFactory) nettoyé et ne contient PLUS que les templates
+- [ ] Aucune fuite de ressources formateurs vers le repository étudiant PUBLIC
 
 **Tests fonctionnels** :
-- [ ] Code starter testé sur branche étudiants (install + dev)
+- [ ] Code starter testé (git clone + install + dev)
 - [ ] Code solution testé (install + dev + build + lint)
-- [ ] Test en mode incognito effectué sur GitHub
+- [ ] Test en mode incognito effectué sur le repository étudiant PUBLIC
 
-**Documentation** :
-- [ ] REX.md complet avec toutes les phases documentées
-- [ ] SUMMARY_SETUP.md créé avec résumé du setup
-- [ ] README_FORMATEUR.md créé avec instructions mentors
-- [ ] README.md de l'archive créé avec navigation
+**Documentation dans le repository setup** :
+- [ ] REX.md complet dans `fichiers-de-configuration/`
+- [ ] SUMMARY_SETUP.md dans `fichiers-de-configuration/`
+- [ ] Tous les fichiers corrige-*.md dans `ressources-mentors-learning-designers/`
+- [ ] README.md du repository setup expliquant l'organisation
 
 **Publication GitHub** :
-- [ ] Branche par défaut configurée sur GitHub
-- [ ] Repository prêt pour publication (si public)
-- [ ] Instructions de clonage testées
+- [ ] Repository étudiant PUBLIC accessible à tous
+- [ ] Repositories solution et setup PRIVÉS accessibles uniquement aux formateurs
+- [ ] Instructions de clonage testées pour les 3 repositories
 
-**🎉 SI TOUS LES POINTS SONT VALIDÉS** : Le projet est complet et prêt à être utilisé.
-
----
+**🎉 SI TOUS LES POINTS SONT VALIDÉS** : Le projet est complet avec ses 3 repositories séparés et prêt à être utilisé.
 
 ---
 
-**Note importante** : Avec cette approche par branches, il n'y a plus besoin de supprimer manuellement les dossiers "A SUPPRIMER". Les ressources formateurs restent en permanence sur la branche de développement, et seule la branche étudiants est rendue publique.
+**Note importante** : Avec cette approche à 3 repositories séparés, chaque composant du projet (starter, solution, ressources) est isolé dans son propre repository avec ses propres permissions. Plus besoin de gérer des branches ou des dossiers à supprimer. Le repository template reste léger et réutilisable.
 
 ---
 
