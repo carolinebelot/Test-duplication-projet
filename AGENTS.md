@@ -796,9 +796,9 @@ Avant de passer à la Phase 7, vérifier que **TOUTE** la Phase 6 est complète 
 
 ---
 
-### Phase 7 : Organisation des ressources pédagogiques avec Git Branches
+### Phase 7 : Organisation des ressources pédagogiques avec Repository Séparé
 
-**IMPORTANT** : Cette phase organise le repository en utilisant des branches Git séparées pour les étudiants et les formateurs.
+**IMPORTANT** : Cette phase organise les ressources en créant un **repository GitHub séparé** pour les étudiants, distinct du repository template/archive.
 
 **🔴 GARDE-FOU CRITIQUE PHASE 7** : Cette phase est LA PLUS IMPORTANTE pour l'organisation finale. Les erreurs ici ont un impact majeur sur la publication.
 
@@ -806,26 +806,30 @@ Avant de passer à la Phase 7, vérifier que **TOUTE** la Phase 6 est complète 
 ❌ Créer les fichiers à la racine au lieu de dans `[nom-projet]-archive/`
 ❌ Oublier de créer le dossier `fichiers-de-configuration/` avec les copies de configuration
 ❌ Ne pas créer le dossier unifié `ressources-mentors-learning-designers/`
-❌ **ERREUR CRITIQUE** : Créer la branche étudiants avec `git checkout -b` au lieu de `git checkout --orphan` → résultat: TOUS les fichiers du repository sont copiés dans la branche étudiants (AGENTS.md, project.md, guide-mentor.md, etc.)
-❌ Ne pas vérifier le contenu de la branche étudiants après création
+❌ **ERREUR CRITIQUE** : Créer le repository étudiant sans vérifier qu'il ne contient QUE le starter (pas AGENTS.md, project.md, guide-mentor.md, etc.)
+❌ Ne pas créer de README professionnel pour le repository étudiant
+❌ Utiliser un nom de repository non conforme aux standards
 
 **STRUCTURE OBLIGATOIRE À RESPECTER** : Voir sections 7.2 et 7.3 ci-dessous.
 
-#### 7.1 Stratégie de branches Git
+#### 7.1 Stratégie de repositories séparés
 
-Le projet utilise **deux branches distinctes** :
+Le projet utilise **deux repositories distincts** :
 
-1. **Branche étudiants** : `[PROJECT_NAME]-starter-etudiants-openclassrooms`
+1. **Repository étudiant** : `[ORGANIZATION]/[PROJECT_NAME]`
    - Contient UNIQUEMENT le code starter pour les étudiants
-   - Exemple avec PROJECT_NAME="telesport" : `telesport-starter-etudiants-openclassrooms`
-   - Cette branche peut être rendue publique directement
+   - Exemple avec PROJECT_NAME="p2-telesport" : `openclassrooms/p2-telesport`
+   - Repository public accessible directement par les étudiants
+   - URL simple à cloner : `git clone https://github.com/openclassrooms/p2-telesport.git`
 
-2. **Branche actuelle (dev/setup)** : Contient les ressources formateurs
-   - Dossier `[PROJECT_NAME]-ressources-mentors-ld/` avec :
-     - `LEARNING_DESIGNER/` (fichiers internes)
-     - `MENTORS/` (guides de correction)
-     - Tous les fichiers d'instructions (project.md, stack.md, rex.md, etc.)
-   - Exemple avec PROJECT_NAME="telesport" : `telesport-ressources-mentors-ld/`
+2. **Repository template/archive** (ex: CodebaseFactory)
+   - Contient les templates réutilisables (AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md)
+   - Contient un dossier `[PROJECT_NAME]-archive/` par projet généré avec :
+     - Starter code
+     - Solution code
+     - Ressources pédagogiques (guide-mentor.md, corrige-*.md, etc.)
+     - Documentation (REX.md, SUMMARY_SETUP.md)
+   - Repository privé pour formateurs/learning designers uniquement
 
 #### 7.2 Structure du repository sur la branche actuelle (formateurs)
 
@@ -885,9 +889,9 @@ Le projet utilise **deux branches distinctes** :
 
 **Note importante** : La branche `setup-projetv2` sert de **template générique** pour créer plusieurs projets. Les fichiers à la racine (AGENTS.md, project.md, stack.md, assets.md, SETUP-GITHUB.md, guide-mentor.md) sont réutilisables. Chaque projet généré aura son propre dossier `[nom-projet]-archive/` qui archive TOUTES les ressources de ce projet.
 
-#### 7.3 Structure sur la branche étudiants
+#### 7.3 Structure du repository étudiant
 
-**Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` :**
+**Repository `[ORGANIZATION]/[PROJECT_NAME]` (ex: `openclassrooms/p2-telesport`) :**
 ```
 /
 ├── README.md                # Documentation pour étudiants
@@ -909,7 +913,7 @@ Le projet utilise **deux branches distinctes** :
     └── index.css
 ```
 
-**Important** : La branche étudiants contient UNIQUEMENT le code starter, sans aucune référence aux corrections ou ressources formateurs.
+**Important** : Le repository étudiant contient UNIQUEMENT le code starter, sans aucune référence aux corrections ou ressources formateurs.
 
 #### 7.4 Workflow Git pour la publication
 
@@ -970,9 +974,9 @@ git push origin [branche-actuelle]
 
 **Important** : Les fichiers `project.md`, `stack.md`, `assets.md`, `SETUP-GITHUB.md`, `guide-mentor.md` et `AGENTS.md` restent à la racine du repository car ils servent de templates génériques pour créer de nouveaux projets. Seule une copie est placée dans `[PROJECT_NAME]-archive/fichiers-de-configuration/` ou `ressources-mentors-learning-designers/` pour archiver le projet.
 
-**Étape 1.5 : Créer un README professionnel pour la branche étudiants**
+**Étape 1.5 : Créer un README professionnel pour le repository étudiant**
 
-**🔴 IMPORTANT CRITIQUE** : Le README de la branche étudiants doit avoir l'air d'un projet professionnel normal. Il ne doit PAS contenir :
+**🔴 IMPORTANT CRITIQUE** : Le README du repository étudiant doit avoir l'air d'un projet professionnel normal. Il ne doit PAS contenir :
 - ❌ Le mot "étudiant", "projet pédagogique", "OpenClassrooms", "parcours"
 - ❌ Des mentions "exercices", "objectifs pédagogiques", "livrables attendus"
 - ❌ Des critères de validation, grilles d'évaluation
@@ -1039,72 +1043,107 @@ MIT License
 1. Créer ce README professionnel dans `[PROJECT_NAME]-starter/README.md`
 2. Remplacer complètement le README existant s'il contient des références pédagogiques
 3. Vérifier qu'aucune référence au contexte éducatif n'apparaît
+4. Sauvegarder aussi une copie comme `README_ETUDIANTS.md` à la racine (pour référence)
 
-**Étape 2 : Créer la branche étudiants**
+**Étape 2 : Créer le repository GitHub pour les étudiants**
 
-**🔴 ATTENTION CRITIQUE** : Cette étape doit créer une branche **orpheline** (sans historique) contenant UNIQUEMENT le code starter. Ne JAMAIS utiliser `git checkout -b` qui copierait TOUS les fichiers du repository.
+**🔴 ATTENTION CRITIQUE** : Cette étape crée un **nouveau repository GitHub séparé** contenant UNIQUEMENT le code starter. Ce repository est complètement isolé du repository template/archive.
 
-**⚠️ ERREUR FRÉQUENTE** : Utiliser `git checkout -b` au lieu de `git checkout --orphan` → résultat: la branche étudiants contiendra AGENTS.md, project.md, stack.md, guide-mentor.md, etc. C'est une FUITE MAJEURE de ressources formateurs.
+**⚠️ ERREUR FRÉQUENTE** : Copier accidentellement des fichiers formateurs (AGENTS.md, project.md, guide-mentor.md, etc.) dans le repository étudiant → C'est une FUITE MAJEURE de ressources formateurs.
 
 **Commandes à exécuter** :
 
 ```bash
-# 1. Créer une branche orpheline (sans historique, sans fichiers)
-git checkout --orphan [PROJECT_NAME]-starter-etudiants-openclassrooms
+# 1. Créer le nouveau repository GitHub (adapter l'organisation et le nom)
+# Format: gh repo create [ORGANIZATION]/[PROJECT_NAME] --public --description "[Description]"
+gh repo create openclassrooms/[PROJECT_NAME] --public --description "[Brief professional description]"
 
-# 2. Supprimer TOUS les fichiers du staging (critical!)
-git rm -rf .
+# Exemple concret:
+# gh repo create openclassrooms/p2-telesport --public --description "Olympic Games History Dashboard - React 19 + TypeScript + Chart.js"
 
-# 3. Copier UNIQUEMENT le dossier starter depuis la branche formateurs
-git checkout [branche-actuelle] -- [PROJECT_NAME]-archive/[PROJECT_NAME]-starter
+# 2. Préparer le code starter dans un dossier temporaire
+cd /tmp
+cp -r /chemin/vers/CodebaseFactory/[PROJECT_NAME]-archive/[PROJECT_NAME]-starter [PROJECT_NAME]
+cd [PROJECT_NAME]
 
-# 4. Déplacer le contenu du starter à la racine
-mv [PROJECT_NAME]-archive/[PROJECT_NAME]-starter/* .
-mv [PROJECT_NAME]-archive/[PROJECT_NAME]-starter/.* . 2>/dev/null || true
-rm -rf [PROJECT_NAME]-archive
+# 3. Copier le README professionnel (depuis Étape 1.5)
+cp /chemin/vers/CodebaseFactory/README_ETUDIANTS.md README.md
 
-# 5. VÉRIFICATION OBLIGATOIRE : Lister les fichiers présents
+# 4. Vérifier qu'il n'y a QUE les fichiers du starter (pas de fichiers formateurs)
 ls -la
+# Doit contenir: README.md, package.json, src/, Dockerfile, docker-compose.yml, etc.
+# Ne doit PAS contenir: AGENTS.md, project.md, stack.md, guide-mentor.md, rex.md, etc.
 
-# 6. VALIDATION : Vérifier qu'il n'y a QUE les fichiers du starter
-# ✅ Fichiers attendus : README.md, package.json, src/, vite.config.ts, etc.
-# ❌ Fichiers interdits : AGENTS.md, project.md, stack.md, guide-mentor.md, [PROJECT_NAME]-archive/
+# 5. VALIDATION : Vérifier qu'il n'y a QUE les fichiers du starter
+# ✅ Fichiers attendus : README.md, package.json, src/, vite.config.ts, Dockerfile, docker-compose.yml, etc.
+# ❌ Fichiers interdits : AGENTS.md, project.md, stack.md, guide-mentor.md, rex.md, corrige-*.md
 
-# 7. Si tout est OK, ajouter et commiter
+# 6. Si tout est OK, initialiser Git et commiter
+git init
 git add .
-git commit -m "feat: Initialize [PROJECT_NAME] starter code with professional README
+git commit -m "feat: Initial commit - [PROJECT_NAME] starter code
 
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 
-# 8. Push de la nouvelle branche
-git push origin [PROJECT_NAME]-starter-etudiants-openclassrooms
+# 7. Configurer le remote et push vers le nouveau repository
+git remote add origin git@github.com:openclassrooms/[PROJECT_NAME].git
+git branch -M main
+git push -u origin main
+
+# Exemple concret:
+# git remote add origin git@github.com:openclassrooms/p2-telesport.git
+# git branch -M main
+# git push -u origin main
 ```
 
 **🔴 VÉRIFICATION OBLIGATOIRE APRÈS PUSH** :
 ```bash
-# Cloner la branche étudiants dans un dossier temporaire pour vérifier
+# Cloner le repository étudiant dans un dossier temporaire pour vérifier
 cd /tmp
-git clone -b [PROJECT_NAME]-starter-etudiants-openclassrooms [url-repo] test-branch-etudiants
-cd test-branch-etudiants
+git clone https://github.com/openclassrooms/[PROJECT_NAME].git test-repo-etudiants
+cd test-repo-etudiants
 ls -la
 
-# Vérifier qu'il n'y a PAS ces fichiers :
+# ✅ Fichiers qui DOIVENT être présents :
+# - README.md (professionnel, sans références pédagogiques)
+# - package.json
+# - src/ (avec code starter)
+# - Dockerfile
+# - docker-compose.yml
+# - vite.config.ts (ou autre config selon stack)
+# - .gitignore
+# - tsconfig.json (si TypeScript)
+
+# ❌ Fichiers qui NE DOIVENT PAS être présents :
 # - AGENTS.md
 # - project.md
 # - stack.md
 # - assets.md
 # - guide-mentor.md
 # - SETUP-GITHUB.md
-# - [PROJECT_NAME]-archive/
+# - rex.md
+# - SUMMARY_SETUP.md
+# - corrige-*.md
+# - grille-evaluation.md
+# - erreurs-frequentes.md
+# - faq-etudiants.md
+# - ressources-complementaires.md
+# - [PROJECT_NAME]-archive/ (dossier)
 
-# Si ces fichiers sont présents : ERREUR CRITIQUE, recommencer l'Étape 2
+# Si ces fichiers interdits sont présents : ERREUR CRITIQUE, supprimer le repository et recommencer l'Étape 2
 ```
 
-**Étape 3 : Retour à la branche de développement**
+**Étape 3 : Nettoyage et retour au repository principal**
 
 ```bash
-# Revenir à la branche de dev
-git checkout [branche-actuelle]
+# Nettoyer le dossier temporaire
+cd /chemin/vers/CodebaseFactory
+rm -rf /tmp/[PROJECT_NAME]
+rm -rf /tmp/test-repo-etudiants
+
+# Vérifier qu'on est bien sur la branche de travail
+git branch
+# Devrait afficher: * setup-projetv2 (ou la branche actuelle)
 ```
 
 ---
@@ -1113,69 +1152,95 @@ git checkout [branche-actuelle]
 
 Avant de passer à la section 7.5, vérifier que :
 
-**Structure de l'archive créée** :
+**Structure de l'archive créée (dans repository template)** :
 - [ ] Dossier `[PROJECT_NAME]-archive/` existe à la racine
-- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers
-- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec 2 fichiers
+- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
+- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec tous les fichiers corrigé (guide-mentor.md, corrige-*.md, grille-evaluation.md, etc.)
 - [ ] Starter et solution à la racine de l'archive
 - [ ] README.md de l'archive créé et complet (seul fichier à la racine)
 - [ ] AUCUN doublon de fichiers
 
-**Branche étudiants créée** :
-- [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` existe
-- [ ] Branche créée avec `git checkout --orphan` (PAS `git checkout -b`)
-- [ ] Code starter copié à la racine de cette branche
-- [ ] **VÉRIFICATION CRITIQUE** : `ls -la` sur la branche étudiants ne montre QUE les fichiers du starter
-- [ ] **AUCUN de ces fichiers interdits présents** : AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, SETUP-GITHUB.md, [PROJECT_NAME]-archive/
+**Repository étudiant créé** :
+- [ ] Repository GitHub `[ORGANIZATION]/[PROJECT_NAME]` créé (ex: `openclassrooms/p2-telesport`)
+- [ ] Repository créé avec `gh repo create` (PAS de branche orpheline)
+- [ ] Code starter copié à la racine de ce repository
+- [ ] **VÉRIFICATION CRITIQUE** : `ls -la` dans le repository étudiant ne montre QUE les fichiers du starter
+- [ ] **AUCUN de ces fichiers interdits présents** : AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, SETUP-GITHUB.md, rex.md, corrige-*.md, grille-evaluation.md, [PROJECT_NAME]-archive/
 - [ ] README.md professionnel présent (SANS références pédagogiques/étudiants)
-- [ ] README vérifié : aucune mention "étudiant", "exercice", "projet pédagogique", etc.
-- [ ] Branche pushée sur le remote
-- [ ] **TEST FINAL** : Clone de la branche en /tmp et vérification `ls -la` (aucun fichier interdit)
+- [ ] README vérifié : aucune mention "étudiant", "exercice", "projet pédagogique", "OpenClassrooms", etc.
+- [ ] Repository pushé sur GitHub
+- [ ] **TEST FINAL** : Clone du repository en /tmp et vérification `ls -la` (aucun fichier interdit)
+- [ ] Repository accessible à l'URL : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]`
 
-**Commits et historique** :
-- [ ] Commit de l'archive sur la branche actuelle
+**Commits et nettoyage** :
+- [ ] Commit de l'archive sur la branche actuelle du repository template
 - [ ] Push de la branche actuelle effectué
-- [ ] Push de la branche étudiants effectué
-- [ ] Retour sur la branche actuelle effectué
+- [ ] Repository étudiant initialisé et pushé
+- [ ] Dossiers temporaires nettoyés (/tmp/[PROJECT_NAME], /tmp/test-repo-etudiants)
+- [ ] Retour sur la branche actuelle du repository template
 
 **⚠️ NE PAS CONTINUER** sans avoir vérifié TOUTE la structure.
 
 ---
 
-#### 7.5 Avantages de cette approche
+#### 7.5 Avantages de cette approche (repositories séparés)
 
-✅ **Séparation claire** : Étudiants et formateurs ont des branches dédiées
-✅ **Pas de risque de fuite** : Les corrections ne sont jamais dans la branche étudiants
-✅ **Pas de suppression manuelle** : Plus besoin de "AVERTISSEMENT.md"
-✅ **Historique propre** : Chaque branche a son propre historique
-✅ **Collaboration facilitée** : Les formateurs peuvent collaborer sur la branche ressources
-✅ **Publication simple** : Il suffit de rendre publique la branche étudiants
+✅ **Séparation totale** : Étudiants et formateurs ont des repositories complètement distincts
+✅ **Sécurité maximale** : Aucun risque de fuite des corrections (pas d'accès au repository template)
+✅ **URLs propres** : `github.com/openclassrooms/p2-telesport` vs `github.com/factory/codebase?branch=...`
+✅ **Clone simple** : `git clone [url]` sans option de branche
+✅ **Historique isolé** : Chaque repository a son propre historique Git
+✅ **Permissions granulaires** : Accès et permissions indépendants par projet
+✅ **Scalabilité** : Le repository template ne grossit pas avec chaque nouveau projet
+✅ **Gestion facilitée** : Archivage, désactivation, transfert de repository simple
+✅ **Statistiques séparées** : GitHub Insights indépendants par projet
+✅ **Professional appearance** : Les étudiants voient un vrai repository de projet
 
 #### 7.6 Publication finale aux étudiants
 
 Pour publier le projet aux étudiants :
 
-1. **Configurer la branche par défaut sur GitHub** :
-   - Aller dans Settings > Branches
-   - Définir `[nom-projet]-starter-etudiants-openclassrooms` comme branche par défaut
+1. **Vérifier que le repository étudiant est public** :
+   ```bash
+   gh repo view [ORGANIZATION]/[PROJECT_NAME] --json isPrivate
+   # Doit retourner: "isPrivate": false
 
-2. **Rendre le repository public** (si nécessaire)
+   # Si privé, rendre public:
+   gh repo edit [ORGANIZATION]/[PROJECT_NAME] --visibility public
+   ```
 
-3. **Partager le lien** : Les étudiants cloneront automatiquement la bonne branche
+2. **Partager l'URL du repository** :
+   - URL à communiquer : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]`
+   - Exemple : `https://github.com/openclassrooms/p2-telesport`
+   - Les étudiants clonent simplement : `git clone https://github.com/openclassrooms/p2-telesport.git`
+
+3. **Vérifier l'accessibilité** :
+   - Ouvrir l'URL dans un navigateur en navigation privée
+   - Vérifier que le README s'affiche correctement
+   - Vérifier qu'il n'y a aucun fichier formateur visible
+   - Vérifier que le code est professionnel et sans références pédagogiques
+
+4. **Documentation pour les étudiants** :
+   - Le README du repository contient déjà toutes les instructions nécessaires
+   - Pas besoin de documentation supplémentaire sur le clonage
 
 #### 7.7 Instructions pour le README.md étudiant
 
-Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
+Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà couvert dans Étape 1.5 ci-dessus) :
 
 **À inclure :**
-- Titre du projet et contexte
+- Titre du projet professionnel et description technique
 - Prérequis (Node.js, Docker, etc.)
 - Installation : `git clone`, `npm install`, `docker-compose up`
 - Lancement : `npm run dev` ou commandes Docker
+- Stack technique
 - Structure du projet (arborescence simplifiée)
 - Ressources externes (documentation officielle)
+- Licence
 
 **À NE PAS inclure :**
+- Mot "étudiant", "projet pédagogique", "OpenClassrooms"
+- Références "exercices", "objectifs pédagogiques", "livrables"
 - Références aux fichiers internes (`project.md`, `stack.md`)
 - Guide de correction ou solution
 - Instructions pour mentors
@@ -1184,35 +1249,38 @@ Le `README.md` sur la branche étudiants doit être adapté aux étudiants :
 
 **Checklist de publication aux étudiants :**
 
-1. **Vérifier la branche étudiants** :
-   - [ ] Branche `[PROJECT_NAME]-starter-etudiants-openclassrooms` créée
-   - [ ] Code starter copié dans la branche
+1. **Vérifier le repository étudiant** :
+   - [ ] Repository `[ORGANIZATION]/[PROJECT_NAME]` créé sur GitHub
+   - [ ] Code starter copié dans le repository
    - [ ] Aucune référence aux corrections ou ressources formateurs
-   - [ ] README.md professionnel SANS mentions pédagogiques (vérifier : pas de "étudiant", "exercice", "objectifs", etc.)
+   - [ ] README.md professionnel SANS mentions pédagogiques (vérifier : pas de "étudiant", "exercice", "objectifs", "OpenClassrooms", etc.)
+   - [ ] Repository accessible publiquement
+   - [ ] URL fonctionne : `https://github.com/[ORGANIZATION]/[PROJECT_NAME]`
 
-2. **Vérifier la branche ressources (archive)** :
+2. **Vérifier le repository template (archive)** :
    - [ ] Dossier `[PROJECT_NAME]-archive/` créé sur branche actuelle
    - [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers (project.md, stack.md, assets.md, REX.md, SUMMARY_SETUP.md)
    - [ ] Sous-dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/` à la racine de l'archive
-   - [ ] Dossier `ressources-mentors-learning-designers/` avec guide-mentor.md et corrige.md
+   - [ ] Dossier `ressources-mentors-learning-designers/` avec guide-mentor.md, corrige-*.md, grille-evaluation.md, etc.
    - [ ] README.md UNIQUEMENT à la racine de l'archive (pas de doublons)
 
 3. **Tester en tant qu'étudiant** :
    ```bash
-   git clone -b [PROJECT_NAME]-starter-etudiants-openclassrooms [url] temp-test-etudiant
+   git clone https://github.com/[ORGANIZATION]/[PROJECT_NAME].git temp-test-etudiant
    cd temp-test-etudiant
    docker-compose up  # ou npm install && npm run dev
    # L'application doit démarrer correctement
    ```
 
 4. **Vérifier sur GitHub** :
-   - Configurer `[PROJECT_NAME]-starter-etudiants-openclassrooms` comme branche par défaut
-   - Aller sur le repository en mode anonyme/incognito
+   - Aller sur `https://github.com/[ORGANIZATION]/[PROJECT_NAME]` en mode anonyme/incognito
    - Confirmer qu'aucun fichier sensible n'apparaît
    - Vérifier que seuls les fichiers étudiants sont visibles
+   - Vérifier que le README s'affiche correctement et est professionnel
 
 5. **Documenter dans rex.md** :
-   - Date de création des branches
+   - Date de création du repository étudiant
+   - URL du repository étudiant
    - Vérifications effectuées
    - Problèmes rencontrés et solutions
 
