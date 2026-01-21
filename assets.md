@@ -1,87 +1,257 @@
-# Spécifications (Cahier des charges) - TÉLÉSPORT
+1 : Transcription enregistrée
+# **TRANSCRIPTION VIDEO : RÉUNION DE LANCEMENT**
 
-## Contexte
-TéléSport a préparé une section « Jeux Olympiques » pour visualiser les performances des pays.
-Ce projet contient deux pages principales en **React** :
-1.  Un **Dashboard** (page d'accueil) : statistiques (nombre total des pays participants, nombre total de jeux olympiques), vue d'ensemble avec un pie chart.
-2.  Une **Page détail pays** : statistiques (nombre total d'athlètes, nombre de participations, nombre de médailles) + évolution des médailles (graphique).
+**ORLANDO** Bonjour à tous. Bon, étant donné que tu ne peux pas être avec nous à cette réunion, on va l'enregistrer afin que tu puisses avoir les informations importantes qui te permettront d'accomplir ce projet.
 
-Les pages actuelles ne sont pas maintenables. Elles ne permettent pas aux utilisateurs d'avoir une expérience fluide ni responsive.
+En tout cas, on est tous très enthousiastes pour le lancement de MDD, et on a hâte de voir ce que tu vas faire.
 
-## Pages Ciblées
-Les pages devront avoir une navigation fluide et une UI responsive, utilisables à la fois sur ordinateur, tablette et mobile.
+**HEIDI** Oui c'est clair \! Ce qui est bien avec ce projet c'est qu'il est très stimulant pour nous, mais il va aussi l'être pour beaucoup de développeurs. Bon il s'avère que je ne pourrai pas finaliser le projet, donc c'est à toi de reprendre la main...
+
+**ORLANDO** Effectivement, on espère avoir un bel impact avec ce projet. Juana, peux-tu lui expliquer les visuels qu'un utilisateur va voir ?
+
+**JUANA** Oui bien sûr \! Alors voici les maquettes.
+
+Tout d'abord la page d'accueil, comme tu notes elle a un format classique et ce qui est important c'est d'accéder rapidement à la page de connexion ou d'inscription. Ensuite la page d'inscription puis la page de connexion, très standard pour cette version MVP.
+
+Une fois connecté, sur la page d'accueil on voit son fil d'actualité mais on peut aussi :
+
+* Ouvrir la page des thèmes pour les parcourir et s'abonner à ceux de notre choix  
+* Ouvrir un article pour le consulter  
+* Ouvrir un formulaire qui permet de créer un nouvel article  
+* Ouvrir sa page de profil
+
+Si on regarde chacune des pages :
+
+* La page des thèmes est simple : une liste de thèmes et pour chacun un bouton pour s'abonner.  
+* La page de consultation de l'article permet de lire confortablement toutes les informations et permet aussi de commenter l'article.  
+* Le formulaire pour créer un nouvel article est classique, attention l'auteur et la date doivent être renseignés automatiquement. Tout comme pour un commentaire d'ailleurs.  
+* La page de profil doit permettre de modifier les informations du profil utilisateur mais aussi de voir tous les abonnements et de se désabonner si on le souhaite.
+
+Et voilà, je pense j'ai fait le tour \!
+
+**ORLANDO** Super Juana, merci beaucoup, c'est très clair.
+
+Techniquement il y a quand même quelques contraintes à respecter ; déjà, tu devras développer l'application en **Next.js / TypeScript**. Côté architecture, c'est le **Next.js App Router** qui a été choisi pour gérer à la fois le front et le back.
+
+On utilise Git et GitHub pour le versionning avec un seul repository pour tout le projet, fait d'ailleurs attention à ce que tout soit bien organisé.
+
+Tu peux consulter les documents de spécifications fonctionnelles et de contraintes techniques pour voir tout ce qu'on a déjà choisi.
+
+Tu as le choix pour l'implémentation logique, par exemple je sais que certains développeurs iraient jusqu'à mettre en place une API séparée complexe (sourire) mais c'est à toi de voir \!
+
+En tout cas, il y a beaucoup de latitude pour les développeurs chez nous, pas vrai Heidi ?
+
+**HEIDI** Absolument, bon j'étais pas partie sur une API séparée moi (sourire) \! En fait j'avais commencé à travailler sur le projet seulement quelques heures donc je ne suis pas allé très loin dans les choix qui nous incombent.
+
+J'imaginais par exemple utiliser une base de données relationnelle et donc **PostgreSQL** avec l'ORM **Prisma**, je le préfère aux requêtes SQL brutes.
+
+Tu t'en rendras compte dans le repository GitHub.
+
+La partie UI (**Client Components**), c'est ce que j'ai le moins touché parce que j'ai plutôt l'habitude de commencer par le schéma de données (**Schema.prisma**) dans mes projets. Mais bon, à toi de voir comment tu veux t'organiser.
+
+**ORLANDO** Même si tu as pas mal de liberté, on a tout de même une procédure de validation. Tu dois faire un document où tu listes les justifications pour chaque choix.
+
+Un conseil, reste objectif sur les avantages et inconvénients de chacun d'entre eux. Par expérience, je sais que les développeurs n'aiment pas trop faire ce genre de documentation, mais c'est important \!
+
+Bon, et bien je crois qu'on a rien oublié ?
+
+**HEIDI** Pour moi c'est bon \!
+
+**JUANA** Pour moi aussi \!
+
+**ORLANDO** Dans ce cas, je vous souhaite à tous une bonne journée, et bon courage pour la suite \!
+
+**HEIDI & JUANA** Salut, au revoir.
+
+
+
+
+
+2 : Spécifications fonctionnelles
+# ORION
+
+# Spécifications fonctionnelles
+
+# Projet MDD
+
+```
+Auteur : Orlando Espinoza
+Version 0.0.
+```
+
+- Objet du document
+- Périmètre
+- Glossaire
+- Liste des fonctionnalités
+   - Gestion des utilisateurs
+   - Gestion des abonnements
+   - Gestion des articles
+- Exigences particulières
+
+
+## Objet du document
+
+Le document “Spécifications fonctionnelles” liste les fonctionnalités à
+implémenter pour le projet MDD. Ces fonctionnalités sont exprimées du
+point de vue métier sous la forme d’actions que l’utilisateur peut effectuer
+sur l’application.
 
 ## Périmètre
-* Graphiques (barres pour totaux ; ligne/aires pour évolution).
-* Tri/sélection simple et navigation par clic.
-* Gestion des états : loading, empty, error (au minimum visuels).
-* Accessibilité de base (contraste, focus visibles, ARIA simples).
 
-## Hors périmètre
-* Authentification, rôles.
-* Édition/saisie des données.
-* Persistance réelle côté serveur.
+Les spécifications fonctionnelles formalisées dans ce document
+concernent uniquement la version MVP (Minimum Viable Product) du
+projet MDD.
+La version MVP ne prévoit pas de back-office, c'est-à-dire une zone
+administrateur qui permettrait de gérer les données de l'application.
+
+## Glossaire
+
+Cette table donne les termes clés en français et en anglais pour
+implémenter les fonctionnalités de l’application.
+Terme français Terme anglais Description
+Utilisateur User Personne physique connectée au
+réseau social
+Sujet, thème Subject, topic Thème du monde de la
+programmation informatique
+Article Post Message abordant un thème
+identifié
+Abonnement Subscription Un utilisateur souhaite voir les
+articles correspondant à un sujet
+Fil Feed Ensemble des articles des
+abonnements d’un utilisateur
+
+
+## Liste des fonctionnalités
+
+### Gestion des utilisateurs
+
+```
+● Accéder au formulaire de connexion et d’inscription à partir de la
+page d’accueil (non connectée).
+● S’inscrire grâce à un e-mail, un mot de passe et un nom d’utilisateur.
+● Se connecter à partir d’un e-mail ou d’un nom d’utilisateur et d’un
+mot de passe.
+○ Attention  : la connexion d’un utilisateur doit persister entre les
+sessions.
+● Consulter son profil (e-mail, nom d’utilisateur et abonnements) via la
+page de profil.
+● Modifier son profil (e-mail, nom d’utilisateur et mot de passe) via la
+page de profil.
+● Se déconnecter.
+```
+### Gestion des abonnements
+
+```
+● Consulter la liste de tous les thèmes (que l’utilisateur y soit abonné
+ou non) via une page dédiée.
+● S’abonner à un thème via la page des thèmes.
+● Se désabonner via la page de profil.
+```
+
+### Gestion des articles
+
+```
+● Consulter son fil d’actualité sur la page d’accueil par chronologie (du
+plus récent au plus ancien) une fois connecté.
+● Trier le fil d’actualité du plus récent au plus ancien ou bien du plus
+ancien au plus récent.
+● Ajouter un article (choisir le thème associé, définir le titre et le
+contenu).
+● Consulter un article (thème associé, titre, auteur, date, contenu,
+commentaires).
+● Ajouter un commentaire à un article (définir le contenu).
+```
+## Exigences particulières
+
+Note : Ces exigences concernent les fonctionnalités précédemment citées,
+et n’amènent pas l’ajout d’autres fonctionnalités.
+L’application doit pouvoir être utilisée aussi bien sur mobile que sur
+ordinateur. De ce fait, chaque écran devra être **responsive** et s’adapter à la
+taille de l’appareil utilisé.
+Un mot de passe est valide si :
+
+- son nombre de caractère est supérieur ou égal à 8 caractères ;
+- il contient au moins un de chacun de ces types de caractères :
+    - chiffre,
+    - lettre minuscule,
+    - lettre majuscule,
+    - caractère spécial.
+Lors de l’ajout d’un article, l’auteur et la date sont définis
+automatiquement.
+Lors de l’ajout d’un commentaire, l’auteur et la date sont définis
+automatiquement.
+
+
+Un commentaire correspond uniquement à un article, il n’est pas récursif
+(pas de sous-commentaires).
+Après avoir cliquer sur le bouton “S’abonner” dans la page des Thèmes, le
+bouton devient inactif et le texte “S’abonner” est remplacé par “Déjà
+abonné”.
+
+
+3. Contraintes Techniques
+
+# **ORION**
+
+## **Contraintes techniques**
+
+### **Projet MDD**
+
+Auteur: Orlando Espinoza
+
+Version: 0.0.1
 
 ---
 
-## Détails des pages
+## **Sommaire**
 
-### 1 - Dashboard (page d'accueil)
-L'utilisateur arrivera sur cette page au démarrage de l'application (il s'agit de la route par défaut).
-
-Cette page :
-1.  Présentera le contexte de l'application.
-2.  Contiendra un graphique (type "bar" ou "pie", comme vous pouvez le voir dans le design sur Figma).
-
-Ce graphique permettra la visualisation du nombre de médailles pour chaque pays, toutes années confondues.
-Pour pouvoir présenter ce graphique, l'affichage de la page d'accueil devra automatiquement déclencher la récupération des données nécessaires (via `useEffect`).
-
-En cliquant sur un des pays, l'utilisateur sera redirigé vers une page "détail" à propos de ce pays.
-
-*Note : Pour ce projet, on ne prépare pas encore le détail par sport, cela fera partie d'une version ultérieure.*
-
-### 2 - Page détail
-Lors de son affichage, cette page devra automatiquement récupérer les données propres au pays sélectionné par l'utilisateur.
-
-Cette page devra ensuite afficher les données relatives à ce pays :
-* Nombre de participations aux JOs.
-* Nombre total de médailles obtenues.
-* Nombre total d'athlètes présentés aux JOs.
-
-Pour finir, un nouveau graphique (de type "line" ou "bar") devra permettre à l'utilisateur de visualiser sur cette page le nombre de médailles obtenues par le pays au cours de chaque édition des Jeux olympiques.
-
-Il sera bien entendu essentiel de pouvoir retourner à la page d'accueil depuis cette page.
-Aussi, l'utilisateur peut saisir dans l'URL le pays dont il souhaite connaître les détails. Il faut donc vérifier que le pays existe.
+| Section | Page |
+| :---- | :---- |
+| **Objet du document** | 3 |
+| **Périmètre** | 3 |
+| **Architecture logicielle** | 3 |
+| **Langages de programmation et framework** | 4 |
+| **Gestion de code** | 4 |
 
 ---
 
-## User stories
+## **Objet du document**
 
-* **US-01** - En tant que visiteur, je veux voir un graphique des totaux de médailles par pays, afin de repérer les leaders.
-* **US-02** - En tant que visiteur, je veux pouvoir cliquer sur un pays sur le Dashboard, afin d'ouvrir sa page de détail.
-* **US-03** - En tant que visiteur, sur la route `/country/:id`, je veux voir les informations clés (participations, total médailles, athlètes) et un graphique d'évolution, afin de connaître les détails du pays sélectionné.
-* **US-04** - En tant que visiteur, je veux pouvoir revenir au Dashboard depuis la page de détail, afin de naviguer facilement entre les pages.
-* **US-05** - En tant que visiteur mobile, je veux que l'affichage reste lisible et utilisable, afin de consulter les informations sur mon appareil.
+Ce document liste les contraintes techniques imposées par ORION pour le projet MDD (Monde de Dév).
+
+Les choix qui restent à faire sont à la discrétion du développeur, mais ne doivent pas entrer en conflit avec ces contraintes.
+
+## **Périmètre**
+
+Les contraintes techniques formalisées dans ce document concernent la version MVP (Minimum Viable Product) du projet MDD.
+
+Si le MVP atteint ses objectifs, les choix techniques seront conservés pour les versions suivantes.
+
+## **Architecture logicielle**
+
+* Le back-end (Server Components) est logiquement distinct du front-end (Client Components). Des **Server Actions** permettront l'interaction entre les 2\.  
+* L'interaction entre le front-end et le back-end doit être sécurisée (Validation Zod).  
+  * Les méthodes de sécurisation sont laissées à la discrétion du développeur.  
+* Respect des principes de programmation propre (Clean Code / SOLID).
 
 ---
 
-## Spécifications techniques
+## **Langages de programmation et framework**
 
-### Modèle de données (simulé) et Services (données simulées)
+**Back-end : TypeScript / Node.js**
 
-Créez des interfaces TypeScript dans `src/models/` :
+* **Next.js (App Router)** est obligatoire pour son architecture Server Components et Server Actions.  
+* **Node.js 22 LTS** est le moteur d'exécution imposé.  
+* Pour répondre aux besoins des développements, on choisira en priorité des outils standards de l'écosystème Next.js. Par exemple, pour l'interaction avec la base de données, on prend **Prisma ORM** plutôt que des requêtes SQL brutes.
 
-```typescript
-export interface Participation {
-    id: number;
-    year: number;
-    city: string;
-    medalsCount: number;
-    athleteCount: number;
-}
+**Front-end : TypeScript / React**
 
-export interface Olympic {
-    id: number;
-    country: string;
-    participations: Participation[];
-}
+* Respecter les bonnes pratiques mises en avant par Next.js, comme : [https://nextjs.org/docs/security](https://www.google.com/search?q=https://nextjs.org/docs/security).  
+* **Next.js CLI** est fortement recommandé pour l'initialisation et la gestion du projet.
+
+## **Gestion de code**
+
+* Utiliser Git et GitHub pour la gestion de code.  
+* Garder un seul repository pour tout le projet (Monorepo).
+
+

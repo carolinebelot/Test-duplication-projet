@@ -1,57 +1,38 @@
-# Page d'acceuil
+# Accueil
 
-# **Page d’accueil – Nouvelle version**
+Accueil
 
-### **Qu’allez-vous apprendre dans ce projet ?**
+**Qu’allez-vous apprendre dans ce projet ?**
 
-Vous avez déjà des connaissances basiques du développement front-end, et vous savez concevoir au moins des interfaces web simples.
+Lancez-vous dans la création d'une application complexe \! Ce projet vous donne l'opportunité de synthétiser vos compétences en intégrant les composants front-end et back-end.
 
-*\#info* Pour relire les fondamentaux de programmation front-end si nécessaire, vous pouvez réviser ces cours OpenClassrooms :
+Dans l'option A de ce projet vous allez concevoir, implémenter, tester et documenter une solution répondant à une problématique métier concrète.
 
-1. \[PLACEHOLDER COURS\]  
-2. \[PLACEHOLDER COURS\]
+Dans l’option B ce projet, vous allez concevoir et développer MDD (Monde de Dév), un réseau social pour les développeurs. Vous combinez et appliquez vos compétences acquises en front-end, back-end et dans la gestion de l'architecture logicielle.
 
-Dans ce projet, vous plongez dans le cœur du développement front-end en utilisant la bibliothèque **React 19** et le langage **TypeScript** pour créer des applications web dynamiques et interactives.
+Vous allez également rédiger la documentation des outils utilisés, choisissant les meilleures technologies adaptées aux exigences du projet, telles que Next.js, TypeScript, Prisma.
 
-Vous serez amené à :
+**En quoi ces compétences sont-elles importantes pour votre carrière ?**
 
-* **améliorer un code existant** à l’aide des bonnes pratiques **React** ;  
-* structurer une **architecture front-end claire et évolutive** ;  
-* **développer une interface** professionnelle à partir de maquettes ;  
-* gérer la **navigation et les erreurs** dans une application **React** ;  
-* préparer le terrain pour l’intégration back-end via une API (dans le projet suivant).
+Développer une application full-stack complète vous positionne comme un expert capable de superviser et de réaliser des projets complexes du début à la fin.
 
-En plus, vous allez intégrer des bonnes pratiques de versionnage avec Git et GitHub pour le suivi des modifications et la collaboration, et d’utilisation efficace d’un environnement de développement (IDE) comme VSCode.
+La compréhension approfondie des interactions entre le front-end et le back-end est essentielle pour la réalisation de logiciels modernes, performants et évolutifs, et ouvre la voie à des postes de lead développeur et de chef de projet.
 
-### **En quoi ces compétences sont-elles importantes pour votre carrière ?**
+**Comment allez-vous procéder ?**
 
-Ces compétences front-end sont essentielles pour tout développeur souhaitant évoluer vers des projets professionnels de plus grande envergure. **React** est utilisé par de nombreuses entreprises pour concevoir des applications complexes et maintenables. Le maîtriser vous positionne comme un développeur polyvalent recherché.
+Ce projet est découpé en 3 activités.
 
-Les recruteurs attendent des développeurs full-stack qu’ils soient capables de :
+* **Cours** : Vous suivrez un cours sur Next.js qui vous permettra de maîtriser les concepts clés de l'architecture Server Components, des Server Actions, et de la création d’interfaces dynamiques et performantes.  
+* **Mission** : Vous réaliserez la mission principale Prenez en charge le développement d'une application full-stack en choisissant l’option qui convient le mieux à votre situation.  
+  * Option A : Mission en entreprise.  
+    * Si vous êtes salarié ou en alternance, vous pouvez réaliser cette option A qui consiste à travailler avec les données, technologies et méthodologies de l'entreprise dans laquelle vous êtes. Vous devrez intervenir sur tous les aspects du projet et travaillerez les mêmes compétences que pour l'option B.  
+  * Option B : Mission fictive. Vous réaliserez la mission en suivant le scénario fictif proposé.
 
-* **structurer leur code avec des composants réutilisables** ;  
-* respecter les **design patterns** et bonnes pratiques de la bibliothèque ;  
-* gérer la **navigation, l’architecture** et la **maintenabilité** dans des projets réels ;  
-* intégrer efficacement les **custom hooks** et les **données**.
+Vous terminerez en complétant la fiche d’autoévaluation qui servira de base de discussion avec votre mentor avant la soutenance.
 
-D’ailleurs, **Git & GitHub** sont des incontournables pour le travail collaboratif et la gestion de version du code.
+À l’issue de ce projet, vous présenterez les livrables de la mission à un mentor évaluateur lors d’une **soutenance**. Cela vous permettra de valider les compétences visées par ce projet.
 
-### **Comment allez-vous procéder ?**
-
-Ce projet est découpé en 4 activités.
-
-* **Cours** : Vous suivrez le cours \[PLACEHOLDER COURS\] pour vous permettre de comprendre les design patterns utiles pour modéliser le front-end d’une application.  
-* **Exercice – Réfactorisez l’architecture front-end existante** : vous analyserez un code starter **React** fonctionnel mais mal structuré d’une application web interactive pour une chaîne de télévision. Vous en définirez une architecture propre, adaptée et scalable.  
-* **Cours** : Vous suivrez le cours \[PLACEHOLDER COURS\] pour vous permettre de comprendre les bases du code front-end en **React**.  
-* **Exercice – Implémentez des nouvelles fonctionnalités dans l’interface utilisateur avec React** : vous construirez une interface complète pour l’application déjà restructurisée à partir des spécifications fonctionnelles, en respectant les bonnes pratiques de **React**.
-
-Vous terminerez chaque exercice en complétant la fiche d’autoévaluation qui servira de base de discussion et de bilan avec votre mentor.
-
-À l’issue de ce projet, vous aurez une **session de bilan** avec votre mentor pour discuter de votre projet.
-
-Cela vous assurera que vous êtes sur la bonne voie avant de passer à la suite.
-
-**Prêt à démarrer votre projet ?** Lancez-vous dans la première section Cours \- \[PLACEHOLDER COURS\].
+**Prêt à démarrer votre projet ?** Lancez-vous dans la première section Cours.
 
 Votre projet démarre : suivez ces quelques recommandations pour être plus efficace \!
 
@@ -63,460 +44,366 @@ Vous avez toutes les cartes en main, c’est parti \!
 
 Pour plus de conseils, suivez ce chapitre de cours : \[PLACEHOLDER COURS\].
 
-# Exercice 1
+# Exercice B
 
-Prêt à résoudre l’exercice ?
+# **Mission \- Prenez en charge le développement d'une application full-stack**
 
-Dans cet exercice, vous plongerez dans un projet **React** d’entreprise à travers une application web en cours de développement pour **TéléSport**, une chaîne de télévision nationale.
+| Conseils mentor Pendant la mission, demandez à votre étudiant de vous parler de : son avancement ; ses difficultés ; sa compréhension de l’exercice. Vous pourrez ainsi identifier ses problèmes, ses lacunes, ses processus ou méthodologies erronés. Compréhension des attendus Assurez-vous que l’étudiant puisse répondre à ces questions : Que doivent contenir les livrables ? À quoi ressembleront-ils ? Quel est le niveau de précision attendu ? Lacunes récurrentes Si vous sentez que votre étudiant n’est pas à l’aise avec …concepts,notions… n’hésitez pas à lui conseiller de revoir …nometlienpartieducours/ressource… avant d’aller plus loin et de vous faire un résumé oral. Méthodologie Encouragez-votre étudiant à conseilsurunepartied’unlivrable Points de vigilance Mettez l'accent sur l'importance de …techniquedereˊalisationd’unlivrable… Les critères d’évaluation sont dans le guide mentor du projet. Cependant, l’étudiant a accès à une fiche d’autoévaluation dans la dernière étape de son travail. Elle contient des critères moins détaillés que les vôtres. L’étudiant peut l’utiliser comme base de discussion avec vous mais surtout comme checklist pour vérifier qu'il n'a rien oublié. |
+| :---- |
 
-TéléSport souhaite publier une page dédiée à l’historique des Jeux Olympiques, avec un tableau interactif affichant les performances des pays.
+Comment allez-vous procéder ?
 
-Mais le code de départ (\[codebase a générer\]) est **mal structuré**, difficile à maintenir et loin des standards professionnels. C’est ici que vous intervenez \!
+Cette mission suit un scénario de projet professionnel.
 
-Votre responsable Jeannette vous donnez les spécifications pour améliorer le code : (voir fichier assets.md)
+Vous pouvez suivre les étapes pour vous aider à réaliser vos livrables.
 
-\#NOTE : à déterminer si on pourra utiliser des parties de ce vidéo → \[PLACEHOLDER ASSETS\] . Ce serait dommage si on ne pourra pas du tout l’utiliser, mais je pense qu’on devrait éditer la vidéo afin de ne garder que les parties toujours pertinentes.
+Avant de démarrer, nous vous conseillons de :
 
-En somme, votre mission consiste à :
+* lire toute la mission et ses documents liés ;  
+* prendre des notes sur ce que vous avez compris ;  
+* consulter les étapes pour vous guider ;  
+* préparer une liste de questions pour votre session de mentorat.
 
-* **analyser le starter code existant** ;  
-* **identifier les problèmes techniques et structurels** ;  
-* et **concevoir une architecture front-end claire, modulaire et scalable**, prête à accueillir les développements de l’interface dans le prochain exercice.
+## **Prêt à mener la mission ?**
 
-*\#info* Si vous avez besoin de remettre à niveau en Git et GitHub, vous pouvez suivre le cours \[PLACEHOLDER COURS\]. Si vous avez déjà ce niveau d'expérience en Git \+ GitHub, vous pouvez le laisser.
+Vous êtes recruté en tant que développeur full-stack dans une entreprise spécialisée dans le développement logiciel, ORION.
 
-Cet exercice est entièrement guidé. Vous pouvez suivre les étapes ci-dessous.
+ORION souhaite créer le prochain réseau social dédié aux développeurs : **MDD (Monde de Dév)**. Le but de ce réseau social est d’aider les développeurs qui cherchent un travail par la mise en relation et la collaboration entre pairs.
 
-Étapes
+MDD pourrait devenir un vivier de recrutement des profils manquant pour les entreprises \!
 
-### **Étape 1 – ​​Analysez le code existant et repérez les problèmes**
+Avant de lancer MDD auprès d’un large public, l’entreprise veut le tester avec une version minimale déployée en interne (MVP : Minimum Viable Product).
 
-Vous allez explorer le starter code fourni et repérer les mauvaises pratiques **React**, les risques de dette technique et les violations de lisibilité. Cette étape est cruciale pour comprendre ce qui doit être amélioré dans le projet.
+Le MVP permettra de s’abonner à des sujets liés à la programmation (comme JavaScript, TypeScript, Python, Web3, etc.). Son fil d’actualité affichera chronologiquement les articles correspondants. L’utilisateur pourra également écrire des articles et poster des commentaires.
 
-**Prérequis** Avoir :
+Vous êtes responsable de la réalisation du MVP, mais vous ne serez pas seul, votre équipe est prête à vous aider. Vous avez déjà rencontré trois collègues avec qui vous travaillez :
 
-* lu et compris la demande de Jeannette (votre manager chez TéléSport)  
-* cloné et ouvert le starter code dans votre environnement de travail  
-* lancé l’application avec `npm run dev` pour confirmer qu’elle démarre.
+* Heidi, une de vos collègues développeurs ;  
+* Orlando, votre responsable ;  
+* Juana, la designer UX.
+
+Voici l’enregistrement vidéo d’une réunion entre ces trois collègues qui est mis à votre disposition ainsi que \[[assets.md](http://assets.md) : 1.transcription\] de la réunion.
+
+Heidi a très brièvement commencé le projet ; voici \[codebase à générer\].
+
+Orlando vous fournit ces fondations de l’application MDD : les \[[assets.md](http://assets.md) : 2.spécifications\] et les \[[assets.md](http://assets.md) 3\. contraintes\].
+
+Cependant, vous devez décider des librairies, frameworks, design patterns, API et outils à utiliser pour ce projet. À noter que vos choix pourraient impacter ce qu’Heidi a commencé à faire.
+
+Juana qui a préparé \[./maquette files\] à implémenter dans le frontend. Il doit être respecté.
+
+Concrètement, sur la base de ce qui est fourni par Orlando, Heidi et Juana, vous devez développer le MVP, ce qui implique de :
+
+* Prendre des décisions concernant tout ce qui n’a pas été confirmé (librairies, frameworks, design patterns, outils, etc.) et les justifier. Voici \[template-etudiant.md\] à remplir. Vous pourrez y ajouter en annexes les éléments permettant de documenter votre travail.  
+* Développer le front-end, le back-end (via Server Components/Actions) et relier les deux. Dans la lignée de votre habitude de travailler en équipe, adoptez une **posture de supervision** : identifiez des tâches simples dans votre code pouvant être déléguées à un collègue junior ou à l’IA, puis relisez et validez le code produit.  
+* Mettre en place une base de données adaptée avec un système d’authentification sécurisé.  
+* Rédiger une documentation technique claire et une FAQ utilisateur.
+
+Le MVP sera présenté à Orlando. Afin qu’il puisse préparer cette réunion, vous lui transmettrez en amont la **documentation** accompagnée de ses **annexes justifiant vos choix techniques** et le **repository GitHub** avec une version stable contenant :
+
+* L’architecture et le code front-end (Next.js)  
+* L’architecture back-end \+ API (Server Actions/Prisma)  
+* Code back-end et les données sécurisées  
+* Code et instructions des tests  
+* Code amélioré en suivant des conventions  
+* README technique \+ configuration.
+
+Gardez à l’esprit qu’il s’agit d’une application de type **MVP (Minimum Viable Product)**, ce qui implique des fonctionnalités basiques. Soyez vigilant à ne pas partir dans des considérations fonctionnelles trop complexes.
+
+En plus de vos compétences en programmation, il y a une forte attente sur vos capacités à :
+
+* Définir votre architecture,  
+* Justifier vos choix techniques,  
+* Adopter une posture de supervision en assignant à l’IA des tâches,  
+* Réaliser une revue technique,  
+* Documenter votre travail pour vos collègues et les utilisateurs.
+
+Développez un argumentaire pertinent pour la soutenance qui mettra en valeur ces capacités.
+
+Suivez les étapes ci-dessous :
+
+**Étape 1 – Examinez les spécifications et le code existant**
+
+Prenez connaissance des documents fournis par l’entreprise ORION : les spécifications fonctionnelles, les contraintes techniques, la réunion de lancement et le dépôt initial du projet MDD.
+
+Analysez le code existant, le design des maquettes et les besoins du MVP pour comprendre la structure générale de l’application.
 
 **Résultat attendu**
 
-* Une liste structurée des problèmes identifiés, accompagnée de commentaires personnels, sauvegardée dans un fichier [`notes-architecture.md`](https://www.google.com/search?q=%5Bhttp://notes-architecture.md%5D\(http://notes-architecture.md\))
+* Avoir pris connaissance du contexte de l'entreprise, exploré le repository et consulté la vidéo et les maquettes.  
+* Avoir compris les attentes fonctionnelles et techniques.  
+* Avoir analysé le code fourni.
 
 **Recommandations**
 
-* D’abord, lancez l’application (`npm run dev`) et explorez son rendu.  
-* Prenez le temps d’ouvrir chaque fichier et de repérer les éléments confus ou problématiques. Ouvrez `src` et repérez :  
-  * des fichiers trop volumineux,  
-  * du code dupliqué ou obsolète,  
-  * des appels HTTP dans les composants,  
-  * l’absence de typage strict (`any`),  
-  * les bouts de code à supprimer (console.log par exemple)  
-  * la mauvaise gestion des **Side Effects (useEffect)**  
-* Vérifiez si des **données sont gérées directement dans un composant** → notez-le comme anti-pattern.  
-* Repérez des fichiers mal placés (ex. un hook dans `components`).  
-* Rédigez vos observations dans un fichier `notes-architecture.md`.  
-  * Ce fichier sera un sous-livrable inclut dans votre répository GitHub
+* Identifier les modules et composants déjà amorcés.  
+* Lister les éléments à compléter ou à corriger dans le code existant.  
+* Vérifiez la mise à jour de votre environnement aux versions actuelles : Next.js 15, TypeScript 5.4, Node.js 22, Tailwind CSS 4.0, Prisma.
 
 **Points de vigilance**
 
-* Même si ici les données proviennent d’un tableau statique, rappelez-vous que dans un vrai projet, elles viendraient d’une API back-end.  
-  * Vous préparez donc déjà le terrain pour faire du code front-end qui va interagir avec une API aux projets suivants.  
-* Ne modifiez pas encore le code à cette étape.  
-* N’arrêtez-vous pas seulement à la structure des fichiers : regardez aussi le contenu logique.  
-* Vérifiez le comportement visuel (même si c’est encore simple).
+* Attention aux mauvaises conclusions sur les attentes fonctionnelles, il faut s’en tenir aux spécifications rédigées.
 
-**Outils**
+**Étape 2 \- Définissez l’architecture logicielle et l’API**
 
-* VS Code  
-* Vite (`npm run dev`, `eslint`)  
-* Bloc-notes ou Markdown (pour le fichier `notes-architecture.md`)
+Concevez l’architecture complète du MVP, côté front-end et back-end (Server Components et Server Actions).
 
-**Ressources**
-
-* Dans le cours \[PLACEHOLDER COURS\], le chapitre \[PLACEHOLDER COURS\] dans la partie 1\.  
-* Dans le cours \[PLACEHOLDER COURS\] :  
-  * le chapitre *\[PLACEHOLDER COURS\]* dans la partie 1\.  
-  * le chapitre *\[PLACEHOLDER COURS\]* dans la partie 2\.  
-* [React Style Guide](https://www.google.com/search?q=https://react.dev/learn)
-
-### **Étape 2 –​ Concevez une nouvelle architecture adaptée**
-
-Vous allez proposer une organisation plus claire et évolutive du code, en vous basant sur des principes de design patterns. Vous réorganisez la structure de dossiers et de fichiers de l’application pour respecter une architecture **React** claire. Cette architecture guidera toutes vos prochaines implémentations.
+Choisissez les librairies, frameworks, design patterns et outils à utiliser, puis définissez la structure de l’API (Route Handlers ou Server Actions) qui connectera les deux parties.
 
 **Prérequis**
 
-Avoir :
-
-* exploré et analysé le starter code  
-* dressé la liste des problèmes identifiés dans `notes-architecture.md`.
+* Avoir compris les attentes fonctionnelles et contraintes techniques.
 
 **Résultat attendu**
 
-* Un schéma simple ou même une liste décrivant la nouvelle structure du front-end, accompagné d’explications dans `notes-architecture.md`.
+* Avoir complété le template expliquant les **choix techniques** faits permettant d’aboutir à la définition de votre architecture et décrivant **l’API** (Server Actions, schéma de données Prisma, logique de communication Client/Serveur).
 
 **Recommandations**
 
-* Démarrez par identifier les blocs logiques et par créer un plan de composants, **hooks** et fichiers de types `models, pages`, etc.  
-* Puis proposez une arborescence comme ci-dessous : `src/`  
-  `├── components/` `├── pages/` `├── hooks/` `├── models/`  
-* Déplacez virtuellement (c’est-à-dire, dans vos notes) les fichiers vers la bonne catégorie.  
-* Choisissez les patterns adaptés à votre besoin (**Custom Hooks** pour la logique, séparation component/hook, etc.) et indiquez comment cela va améliorer le projet.  
-  * Notez comment cette organisation faciliterait l’intégration future d’un back-end (les hooks deviennent des points de contact avec l’API).  
-* Ajoutez ce schéma dans votre fichier `notes-architecture.md`.
+* Établir des comparatifs entre plusieurs choix dans un tableau avantages / inconvénients.  
+* Explorer les :  
+  * choix d’architectures logicielles standard : Server Components, Feature-based architecture, etc. ;  
+  * librairies utilisées avec Next.js et React (exemple : Zod pour la validation remplaçant les DTOs) ;  
+  * designs patterns ou bonnes pratiques pertinents (exemple : Composition de composants).  
+  * endpoints (ou Actions).  
+* Justifier les choix techniques.
 
 **Points de vigilance**
 
-* Prévoyez que tous les accès aux données passent par un dossier `hooks/`.  
-  * Dans ce projet, les réponses du backend seront mockées dans des fichiers JSON, mais dans les prochains projets, ce sera une **API REST réelle**.  
-* Ne refactoriser pas encore le code : contentez-vous de préparer la nouvelle structure.  
-* Évitez de sur-complexifier la structure ou de multiplier inutilement les sous-dossiers : la clarté prime.  
-* Ne copiez pas une architecture sans lien avec le projet.
-
-**Outils**
-
-* Outils de schéma, comme draw.io, Whimsical, Figma  
-* VS Code
+* Se limiter à un choix cohérent pour la stack Next.js Full Stack.  
+* Vous allez probablement compléter ce document au fil de l'eau et surtout à la fin de votre projet. Gardez en tête que les choix techniques ne se font pas toujours au début, en une seule fois.
 
 **Ressources**
 
-* Dans le cours \[PLACEHOLDER COURS\], le chapitre \[PLACEHOLDER COURS\] dans la partie 2\.  
-* Le cours \[PLACEHOLDER COURS\], dans la Partie 5 :  
-  * le chapitre *\[PLACEHOLDER COURS\]*  
-  * le chapitre *\[PLACEHOLDER COURS\]*  
-* [React Hooks Documentation](https://www.google.com/search?q=https://react.dev/reference/react)
+* \[PLACEHOLDER COURS\].  
+* \[PLACEHOLDER COURS\] :  
+  * \[PLACEHOLDER COURS\]  
+  * \[PLACEHOLDER COURS\]
 
-### **Étape 3 – Refactorez les composants existants en appliquant l’architecture**
+**Étape 3 – Préparez l'environnement de développement**
 
-Vous allez restructurer le projet en suivant votre plan. Vous appliquerez l’architecture définie lors de l’étape précédente en créant les bons composants, en séparant les responsabilités, et en typant correctement les données.
+Description
+
+Mettez en place l’environnement du projet MDD : repository GitHub, base de données, configuration de l’IDE et intégration des maquettes Figma.
+
+Assurez-vous que le projet fonctionne avec des versions récentes des outils et dépendances.
 
 **Prérequis**
 
-Avoir :
-
-* conçu votre nouvelle structure d’architecture (et la valider si vous avez des doutes)  
-* identifié les composants et hooks à créer ou modifier
+* Avoir défini l’architecture et fait tous les choix techniques nécessaires au projet.
 
 **Résultat attendu**
 
-* Une nouvelle base **React** propre et modulaire, avec des **Functional Components** spécialisés, chacun dans son fichier dédié (`.tsx`), compilable et prête pour les développements.
+* Un repository GitHub opérationnel.  
+* Un IDE opérationnel avec les projets importés et configurés.  
+* Une base de données installée, cohérente par rapport à la couche Model (Prisma Schema).
 
 **Recommandations**
 
-* Commencez par identifier un gros composant dans le starter code.  
-  * Découpez-le en composants enfants (par exemple : `MedalChart`, `CountryCard`).  
-* Refactoriser le reste du code :  
-  * Déplacez les fichiers dans les bons dossiers (`components/` ou `pages/`).  
-  * Déplacez les appels API dans un **Custom Hook**,  
-  * Créez manuellement les fichiers (`.tsx`, `.ts`).  
-  * Créez des interfaces pour typer les données,  
-  * Nettoyez les composants.  
-* Testez au fur et à mesure avec `npm run dev` pour vérifier que l’application compile après vos changements.  
-* Ajoutez un commit Git clair : *Refactor: séparation des composants*.
+* Forker le repository existant et s’en servir comme base pour la suite.  
+* Mettre en place les premières branches du workflow GitHub Flow.  
+* Configurer les projets avec toutes les dépendances nécessaires et tout élément de configuration déjà disponible (exemple : connexion à la base de données via Prisma).  
+* Peupler la base de données avec des données de test.  
+* Créer la base de données via l’ORM (Prisma Migrate).
 
 **Points de vigilance**
 
-* Vérifiez le **nom** des composants enfants après refactor.  
-* Mettez à jour les imports dans `App.tsx` (ou le fichier principal).  
-* Ne laissez pas de code orphelin (console.log, variables inutilisées).  
-* Ne supprimez ni renommez les fichiers sans mettre à jour les imports  
-* Typez votre code (aucun `any` ne doit subsister)  
-* Gardez en tête pour le futur l’importance de découper les composants : ceci permettra d’afficher des données venues d’un **back-end**, sans que tout repose sur un seul fichier.
-
-**Outils**
-
-* Vite / Node (`npm run dev`, `eslint`)  
-* VS Code  
-* Git & GitHub
+* Faire des commits réguliers dès le début.  
+* Anticiper l’impact sur le code des choix techniques réalisés.
 
 **Ressources**
 
-* Dans le cours \[PLACEHOLDER COURS\], le chapitre \[PLACEHOLDER COURS\] dans la partie 3\.  
-* Dans le cours \[PLACEHOLDER COURS\], partie 2 :  
-  * le chapitre *\[PLACEHOLDER COURS\]*  
-  * le chapitre *\[PLACEHOLDER COURS\]*  
-* [Vite Documentation](https://www.google.com/search?q=https://vitejs.dev/guide/)
+* \[PLACEHOLDER COURS\].
 
----
+**Étape 4 – Implémentez une action simple end to end pour valider les choix techniques**
 
-### **Étape 4 – Externalisez la gestion des données dans un Custom Hook**
-
-Déplacez la logique de données (tableaux, JSON) des composants vers un **Custom Hook**.
-
-**Prérequis** Avoir :
-
-* refactoré les composants  
-* identifié où les données étaient codées en dur.
+Implémentez une fonctionnalité simple qui traverse l’ensemble de la chaîne front-end / back-end / base de données pour valider vos choix techniques et la stabilité de l’architecture. Assignez des tâches du code pour des devs juniors / pour l'IA à implémenter (et que vous relirez)
 
 **Résultat attendu**
 
-* Un hook `useData` unique gérant les données, importé dans les composants.
+* Une application web exécutable, avec une fonctionnalité qui traverse le front-end puis le back-end jusqu’à la base de données.  
+* Le document PDF résumant les choix techniques mis à jour.
 
-**Recommandations pas à pas**
+**Recommandations**
 
-* D’abord, créez un hook dans le dossier hooks : `src/hooks/useData.ts`.  
-* Déplacez-y le tableau statique des pays/médailles.  
-* Importez et utilisez ce hook dans vos composants.  
-* Testez que l’application fonctionne toujours.  
-  * Pour ce projet, il s’agit de tests faits à la main ; aucun test automatisé n’est attendu.  
-* Committez avec un message clair, comme *Refactor: centralisation des données dans useData*.
+* Implémenter une première action simple, ce qui implique un front-end fonctionnel (Composant Client) en capacité de contacter le back-end (Server Action) qui doit être capable d’interagir avec la base de données.  
+* Adopter une **posture de supervision** : identifiez des tâches simples de code pouvant être **déléguées à un collègue junior ou à l’IA**, puis relisez et validez le code produit.  
+* Tester le code et effectuer une revue technique puis finaliser le code et rédiger la documentation.
 
 **Points de vigilance**
 
-* Ne laissez aucun tableau en dur dans les composants.  
-* Vérifiez que le hook est bien exporté.  
-* Testez l’affichage du dashboard et de la page détail.  
-* Même si dans ce projet, votre `useData` retourne un tableau statique, mais dans des projets futurs, il pointera vers une **API REST** pour récupérer des données réelles.
-
-**Outils**
-
-* Vite / Node  
-* VS Code  
-* Git & GitHub
+* Choisir une fonctionnalité simple pour valider votre architecture et vos différents choix techniques – le but de cette étape est de ne pas avoir de surprise par la suite.  
+* Si vous avez du mal à réaliser cette étape en une seule fois, vous pouvez la décomposer en plusieurs étapes plus courtes :  
+* Implémenter le back-end (Server Action / Prisma),  
+* Configurer le modèle de données,  
+* Connecter le front-end.  
+* corriger le code si nécessaire.
 
 **Ressources**
 
-* Dans le cours \[PLACEHOLDER COURS\], la partie 2, le chapitre \[PLACEHOLDER COURS\]  
-* Dans le cours \[PLACEHOLDER COURS\], Partie 5, le chapitre \[PLACEHOLDER COURS\]
+* \[PLACEHOLDER COURS\] :  
+  * \[PLACEHOLDER COURS\] ;  
+  * \[PLACEHOLDER COURS\] ;  
+  * \[PLACEHOLDER COURS\].  
+* En plus des cours fournis au début de ce projet, vous pouvez consulter les cours OpenClassrooms sur Next.js/React :  
+  * \[PLACEHOLDER COURS\]  
+  * \[PLACEHOLDER COURS\].
 
----
+Rappelez-vous de mettre à jour le document template expliquant les choix techniques, à chaque fois que vous ajoutez ou modifiez un choix technique.
 
-### **Étape 5 – Documentez l’architecture et validez-la**
+Étape 5 – Implémentez les fonctionnalités principales
 
-Rédigez une documentation simple de votre nouvelle architecture front-end. Si vous n’êtes pas assez confiant, validez-la avec votre mentor avant de passer à l’implémentation UI lors de l’exercice prochain.
-
-**Prérequis** Avoir :
-
-* externalisé les données dans un hook ;  
-* testé à la main l’application refactorée.
+Développez l’ensemble des fonctionnalités décrites dans les spécifications fonctionnelles : abonnement à des sujets, création d’articles, publication de commentaires, affichage du fil d’actualité.
 
 **Résultat attendu**
 
-* Un fichier `ARCHITECTURE.md` décrivant la structure, les composants, et l’usage du hook.
+* Une application web permettant toutes les actions décrites dans les spécifications fonctionnelles sans mise en forme graphique.
 
-**Recommandations pas à pas**
+**Recommandations**
 
-* Dans `ARCHITECTURE.md`, décrivez :  
-  * l’arborescence des dossiers ;  
-  * les composants et leurs rôles ;  
-  * le Custom Hook et son rôle.  
-* Vous pouvez utiliser vos notes dans le fichier `notes-architecture.md` pour servir comme base de texte du fichier `ARCHITECTURE.md`.  
-* Mentionnez comment cette architecture prépare à une future connexion back-end/API.  
-* Relisez-vous : si un nouveau développeur arrive, doit-il comprendre votre projet ?  
-* Committez votre fichier.
+* Se concentrer sur l’implémentation des fonctionnalités d’un point de vue traitement des données (via Server Actions et Prisma).  
+* Si vous en avez besoin, vous pouvez suivre quelques-uns des cours OpenClassrooms (sur Next.js et React) de l’étape précédente.
 
 **Points de vigilance**
 
-* Ne recopiez pas tout le code : restez synthétique.  
-* Vérifiez la cohérence entre vos notes, votre code, et la doc.
+* Ne pas s’écarter des spécifications fonctionnelles.  
+* Mettre toujours en œuvre des bonnes pratiques de code (Clean Code, DRY).  
+* Rappelez-vous d’utiliser TSDoc tout le temps que vous faites le code.
 
-**Outils**
+**Ressources :**
 
-* VS Code (Markdown)  
-* Git & GitHub
-
-**Ressources**
-
-* Dans le cours \[PLACEHOLDER COURS\], Partie 4, le chapitre \[PLACEHOLDER COURS\]  
-* Dans le cours \[PLACEHOLDER COURS\], Partie 5, le chapitre \[PLACEHOLDER COURS\]
-
-*⬇️* Vérifiez votre travail et faites le point avec votre mentor
-
-Pour vérifier que vous n’avez rien oublié dans la réalisation de votre exercice, téléchargez et complétez la fiche d’autoévaluation \[PLACEHOLDER ASSETS\]
-
-Parlez-en avec votre mentor durant votre dernière session de mentorat.
-
-# Exercice 2
-
-Prêt à résoudre l’exercice ?
-
-Dans cet exercice, vous allez poursuivre votre travail sur le projet **TéléSport** en suivant les spécifications techniques fournies par votre responsable, Jeannette : \[PLACEHOLDER ASSETS\]
-
-Après avoir défini une architecture claire, vous êtes désormais chargé·e d’**implémenter l’interface complète** avec **React 19**. Cette interface permettra aux utilisateurs de visualiser les médailles olympiques et d’interagir avec les données.
-
-Votre objectif est de rendre l’application **fonctionnelle, responsive et maintenable** :
-
-* intégrer les **maquettes fournies des deux pages** en composants **React** :  
-  * un **dashboard** affichant le nombre de médailles par pays ;  
-  * une **page détail** présentant les statistiques d’un pays sélectionné ;  
-* assurer la qualité **de l’expérience utilisateur** :  
-  * la **navigation fluide** entre les pages (SPA) ;  
-  * la **responsivité** sur différents appareils ;  
-* et gérer les **cas d’erreur** côté front.
-
-Cet exercice est entièrement guidé. Vous pouvez suivre les étapes ci-dessous.
-
----
-
-### **Étape 1 – Améliorez le dashboard existant**
-
-Vous commencez par construire le dashboard **React** fonctionnel à partir des maquettes, en utilisant les composants structurés que vous avez définis précédemment.
+* Ces cours OpenClassrooms courts sur Next.js / React :  
+  * \[PLACEHOLDER COURS\]  
+  * \[PLACEHOLDER COURS\]
 
 **Prérequis**
 
-* avoir mis en place l’architecture front-end dans l’exercice précédent  
-* avoir lu à nouveau les spécifications techniques
+* Une application web permettant toutes les actions décrites dans les spécifications fonctionnelles, sans mise en forme graphique (voir étape 1).
 
 **Résultat attendu**
 
-* Un dashboard responsive qui affiche correctement :  
-  * un texte introductif  
-  * un graphique interactif avec les données prévues  
-  * une redirection vers la page détail lorsqu’on clique sur un pays
+* Une application web permettant toutes les actions décrites dans les spécifications fonctionnelles, et respectant les wireframes.
 
 **Recommandations**
 
-* D’abord, améliorez le composant `Home` dans `pages/`.  
-  * Importez le hook `useData` (créé lors de l’exercice 1\) pour récupérer la liste des pays et leurs médailles.  
-* Utilisez **Chart.js** (ou une librairie React compatible comme `react-chartjs-2`) pour affiner le pie chart.  
-* Ajoutez un événement `onClick` sur les segments du graphique → navigation vers `/country/:id` via `useNavigate`.  
-* Créez un composant réutilisable dans `components/` qui affiche :  
-  * le titre de la page  
-  * les indicateurs/statistiques en tête de page.  
-  * Utilisez `.map()` pour itérer et afficher la liste des indicateurs.  
-* Réutilisez ce composant dans la page `Home`.
+* Respecter les wireframes tout en suivant les tendances de l’UI et de l’UX pour les applications web (utilisation de Tailwind CSS).  
+* Suivre une logique “par fonctionnalité” (architecture feature-based).  
+* Utiliser les principes de programmation propre.  
+* Maintenir à jour la documentation des Server Actions/API.  
+* Déléguer certaines tâches répétitives à l’IA (génération de tests, commentaires, doc).
+
+### **Étape 6 – Appliquez la mise en forme graphique et la sécurité**
+
+Intégrez les maquettes Figma de Juana et mettez en place la sécurité de l’application.
+
+Assurez-vous que le front-end respecte les tendances UI/UX et que les échanges avec le back-end sont sécurisés.
+
+Figma est un outil de design très utilisé pour créer des maquettes d’interfaces web et mobiles. Il permet aux designers de concevoir des visuels de sites ou d’applications, et à vous, développeurs, de récupérer ces éléments pour les intégrer dans vos projets. On ne recherche pas dans ce projet un rendu « pixel perfect ». Votre objectif est plutôt de respecter globalement les écrans proposés.
+
+Dans \[PLACEHOLDER COURS\], vous apprendrez à extraire facilement les informations d'une maquette Figma pour les utiliser dans vos projets de développement.
+
+Prérequis
+
+Avoir terminé les fonctionnalités principales.
+
+Résultat attendu
+
+Une application conforme aux maquettes, responsive, avec un système d’authentification sécurisé.
+
+**Recommandations**
+
+* Implémenter la sécurité à l’aide d'une solution adaptée à Next.js (ex: Auth.js / NextAuth).  
+* Choisir entre une authentification par session sécurisée ou JWT selon la complexité souhaitée.  
+* Tester la navigation sur plusieurs supports.
 
 **Points de vigilance**
 
-* Ne mettez pas de logique métier complexe dans le JSX (préférez les Hooks).  
-* N'utilisez pas `any` pour les types TypeScript.  
-* Testez la lisibilité sur mobile.  
-* Gérez correctement le cycle de vie du graphique (nettoyage dans `useEffect` si nécessaire).
+* Ne pas surcomplexifier la sécurité (le MVP reste une version interne).  
+* Garantir la cohérence graphique sur desktop et mobile.  
+* L’application doit être responsive.  
+* Bien respecter les wireframes.
 
-**Outils**
+Bien que la sécurité soit un point important du projet, elle ne doit pas devenir complexe au point d’accaparer trop d’heures sur le projet.
 
-* VS Code  
-* Vite (`npm run dev`)  
-* Chart.js
+**Ressources :**
 
-**Ressources**
+* \[PLACEHOLDER COURS\].  
+* \[PLACEHOLDER COURS\] :  
+  * \[PLACEHOLDER COURS\]  
+  * \[PLACEHOLDER COURS\]  
+* \[PLACEHOLDER COURS\].
 
-* Le cours \[PLACEHOLDER COURS\] – Partie sur les listes et les événements.  
-* [React Router Documentation](https://www.google.com/search?q=https://reactrouter.com/)
+**Étape 7 – Testez, réalisez la revue technique et documentez**
 
----
-
-### **Étape 2 – Améliorez la page détail et ajoutez la navigation**
-
-Vous allez améliorer la page de détail qui affiche les informations d’un pays et l’évolution de ses performances. Vous assurerez la navigation entre le dashboard et cette page via **React Router**.
+Testez votre application à tous les niveaux, réalisez une revue technique complète et produisez la documentation finale du projet.
 
 **Prérequis**
 
-* avoir développé le dashboard principal  
-* avoir identifié les données à afficher par pays
+* Une application web exécutable avec une fonctionnalité qui traverse le front-end puis le back-end jusqu’à la base de données.  
+* Avoir finalisé le développement complet et la sécurité.
 
 **Résultat attendu**
 
-* Une page de détail responsive affichant :  
-  * les infos clés (participations, médailles, athlètes)  
-  * un graphique d’évolution.  
-* Une navigation fluide sans rechargement de page.
+Un repository GitHub à jour, avec :
+
+* un rapport de tests (résultats, couverture, outils utilisés),  
+* un rapport de revue technique (forces, axes d’amélioration, recommandations),  
+* une documentation technique claire et une FAQ utilisateur.
 
 **Recommandations**
 
-* Améliorez le composant `Country` dans `pages/`.  
-* Utilisez le hook `useParams` de `react-router-dom` pour récupérer l’ID du pays depuis l'URL.  
-* Utilisez votre hook `useData` pour trouver le pays correspondant à cet ID.  
-* Réutilisez le composant d'indicateurs développé précédemment.  
-* Vérifiez la navigation :  
-  * Le clic sur le dashboard mène à la bonne page.  
-  * Ajoutez un lien ou bouton "Retour" vers le dashboard (`<Link to="/">`).  
-* Gérez les cas d'erreurs : ID inexistant ou données introuvables.
+* Utiliser les outils de test recommandés : **Vitest, Jest, Playwright**.  
+* Documenter chaque Server Action / Endpoint dans le README.  
+* Rédiger une **FAQ utilisateur** expliquant les cas d’usage, erreurs courantes et solutions.  
+* Nettoyer le code : suppression des doublons, indentation, commentaires TSDoc.  
+* Respecter les conventions Git : merge, release finale, tags.
 
-**Points de vigilance**
-
-* Testez la navigation comme un utilisateur final.  
-* Ne dupliquez pas la logique de récupération de données (tout doit venir du hook `useData`).
-
-**Outils**
-
-* React Router (`react-router-dom`)  
-* React DevTools
-
-**Ressources**
-
-* Le cours \[PLACEHOLDER COURS\] – Partie sur le Routing.  
-* [React Router Hooks](https://www.google.com/search?q=https://reactrouter.com/en/main/hooks/use-params)
-
----
-
-### **Étape 3 – Gérez les erreurs de navigation et d’affichage**
-
-Sécurisez votre application en gérant les erreurs : mauvaise URL, pays inexistant, etc.
+**Étape 8 – Finalisez le code**
 
 **Prérequis**
 
-* avoir mis en place la navigation  
-* avoir simulé les données
+* Avoir terminé toutes les fonctionnalités dans le respect de toutes les contraintes techniques.
 
 **Résultat attendu**
 
-* Une page d’erreur (404) explicite s'affiche en cas de problème.
+* Avoir nettoyé le code si nécessaire.  
+* Avoir vérifié l’implémentation des bonnes pratiques.  
+* Avoir documenté le code.  
+* Un repository GitHub à jour avec tout le code du projet et la documentation associée.
 
 **Recommandations**
 
-* Ajoutez une route générique `path="*"` dans votre configuration de routing (ex: dans `App.tsx` ou `main.tsx`) pour capter les URLs inconnues.  
-* Créez un composant `NotFound`.  
-* Dans la page détail, si l'ID ne correspond à aucun pays, redirigez vers cette page d'erreur (via `Maps` ou `useEffect`).
+* Suivre les bonnes pratiques du code :  
+  * nettoyer le code inutile ;  
+  * vérifier les indentations ;  
+  * commenter les zones de code complexes si cela n’a pas été fait.  
+* Suivre les bonnes pratiques de GitHub :  
+  * vérifier l’état du repository GitHub ;  
+  * nettoyer et merger les branches si nécessaire ;  
+  * créer une branche de release avec le résultat final.  
+* S’assurer que tout le code est mis en œuvre avec des principes de qualité logicielle, et qu’il est documenté en utilisant TSDoc.  
+* Les cours OpenClassrooms liés au projet servent de points de référence concernant les bonnes pratiques.
 
 **Points de vigilance**
 
-* Ne laissez jamais l'utilisateur sur un écran vide (page blanche).  
-* N'affichez pas d'erreurs techniques brutes à l'utilisateur.
+* Ne pas bâcler la finalisation par manque de temps.  
+* Penser à la personne qui va lire votre code et votre documentation – est-ce qu’elle a tous les éléments pour ne pas être perdue ?
 
-**Outils**
+# Auto evaluation Mission B
 
-* React Router
+# **Auto-évaluation**
 
-**Ressources**
+# **P5 \- Option B \- Développeur Full-Stack Next.js**
 
-* Le cours \[PLACEHOLDER COURS\] – Gestion des routes 404\.
+| Un dernier doute avant l’envoi de vos livrables ? Pour vérifier la qualité de votre travail : cochez les cases ci-dessous : elles indiquent que vous avez bien pris en compte chaque indicateur de réussite ; renseignez, si besoin, la colonne “Notes” avec des commentaires sur vos livrables / vos étapes. Ils seront des points de discussion avec votre mentor pendant votre session de bilan / soutenance. Quand toutes les cases de ce document seront cochées, vous pourrez déposer vos livrables sur la plateforme. Bonne réussite \! |
+| :---- |
 
----
-
-### **Étape 4 – Finalisez l’application et documentez-la sur GitHub**
-
-Testez l’ensemble de votre application **React** et vérifiez la gestion des erreurs. Assurez-vous que l’application est responsive et suit les bonnes pratiques.
-
-**Prérequis**
-
-* avoir terminé les fonctionnalités  
-* avoir validé le fonctionnement desktop/mobile
-
-**Résultat attendu**
-
-* Un dépôt GitHub propre, public, contenant le code final.  
-* Un fichier `README.md` complet.  
-* Captures d’écran de l'UI (desktop et mobile).
-
-**Recommandations**
-
-* Vérifiez le parcours complet : Dashboard → Détail → Retour.  
-* Testez la responsivité via les DevTools.  
-* Nettoyez le code : supprimez les fichiers non utilisés, les `console.log` et les types `any`.  
-* Organisez le `README.md` : instructions d'installation (`npm install`, `npm run dev`), structure du projet, choix techniques.
-
-**Points de vigilance**
-
-* L'objectif est le bon fonctionnement et la prise en main de **React** et **TypeScript**, pas le "pixel perfect".  
-* Le dépôt doit être propre (pas de code mort).  
-* Indiquez les prérequis (Node.js, Vite).
-
-**Outils**
-
-* Git & GitHub  
-* VS Code
-
-**Ressources**
-
-* Le cours \[PLACEHOLDER COURS\] – Devenez un expert de Git & GitHub.  
-* [Vite Guide](https://www.google.com/search?q=https://vitejs.dev/guide/)
-
----
-
-*⬇️ Toggle.* Vérifiez votre travail et faites le point avec votre mentor
-
-Pour vérifier que vous n’avez rien oublié, téléchargez et complétez la fiche d’autoévaluation \[PLACEHOLDER ASSETS\].
-
-Parlez-en avec votre mentor durant votre dernière session de mentorat.
+| Compétences | Livrables | Indicateurs de réussite de l’activité | Notes |
+| :---- | :---- | :---- | :---- |
+| Définir l’architecture Front-end d’une application et Développer les composants et les interfaces d’une application | Repo GitHub et documentation | Je me suis assuré que l’architecture front-end du projet MDD est claire, modulaire et structurée (App Router). J’ai vérifié que les conventions Next.js 15 (nomenclature, arborescence, bonnes pratiques) sont respectées. J’ai veillé à ce que les composants développés correspondent aux maquettes Figma fournies par Juana et aux spécifications fonctionnelles de MDD. J’ai défini les liaisons front/back nécessaires à l’intégration (Server Actions, fetchers, hooks). J’ai vérifié que l’interface utilisateur est responsive, ergonomique et fonctionnelle sur desktop et mobile. J’ai documenté les composants clés et l’architecture UI dans la documentation du projet, avec des captures d’écran. |  |
+| Analyser et concevoir une API pour intégrer le front-end et le back-end d’une application | Repo GitHub et documentation | J’ai conçu une logique d'interaction (Server Actions / Route Handlers) conforme aux standards, avec une structure claire. J’ai documenté les Server Actions, schémas de données (Zod/Prisma) et formats d’échange. J’ai vérifié que la communication Client/Serveur est fluide et sécurisée, grâce à une gestion correcte de l’authentification et des erreurs. |  |
+| Prendre en charge l’implémentation de l’architecture back-end | Repo GitHub et documentation | J’ai structuré le back-end selon les bonnes pratiques de Next.js (Server Components). J’ai mis en place une authentification et une autorisation sécurisées (Auth.js / NextAuth). J’ai validé la protection des accès aux données. J’ai conçu une architecture évolutive et scalable, capable de supporter la montée en charge. J’ai respecté les conventions TypeScript : nommage, formatage, typage strict, commentaires TSDoc. J’ai vérifié que les logs et exceptions ne divulguent pas d’informations sensibles. J’ai veillé à prévenir les failles courantes via l’usage des outils sécurisés (Zod). |  |
+| Mettre en œuvre les tests pour améliorer une solution | Repo GitHub et documentation | J’ai rédigé des tests unitaires couvrant les composants critiques du front-end et du back-end (Vitest/Jest). J’ai mis en œuvre des tests d’intégration et end-to-end pour valider le parcours utilisateur complet. J’ai vérifié que la couverture de test est suffisante et que les rapports sont clairs et lisibles. J’ai veillé à ce que mes tests respectent les bonnes pratiques (nommage, isolation, pattern Arrange–Act–Assert). J’ai corrigé les anomalies détectées et expliqué les actions correctives dans la documentation. J’ai utilisé des outils d’analyse et d’optimisation du code pour identifier et corriger les points faibles. |  |
+| Assurer la performance, la conformité et la maintenance du code | Repo GitHub et documentation | J’ai veillé à ce que le code soit clair, lisible et bien documenté, pour faciliter la maintenance. J’ai corrigé les anomalies relevées lors de la revue technique ou des tests. J’ai intégré les outils de qualité et d’analyse et compris leur impact sur la maintenabilité. J’ai amélioré la cohérence, la modularité et la robustesse du projet via des ajustements ciblés. J’ai appliqué les principes SOLID et les bonnes pratiques de refactoring. J’ai optimisé la performance du front et du back (Image Optimization, Server Components). J’ai pris en compte les règles de conformité (mentions légales, politique de confidentialité, sécurité des logs). J’ai mentionné les axes d’amélioration pour atteindre un niveau de qualité professionnel. |  |
+| Rédiger la documentation technique | Documentation | J’ai rédigé une documentation complète en complétant le template fourni et en décrivant la structure du projet, les technologies et les étapes d’installation. J’ai détaillé les Server Actions, les schémas de données et les dépendances techniques. J’ai intégré les informations essentielles sur la configuration de l’environnement et le déploiement. J’ai structuré la documentation pour qu’elle soit claire, synthétique et accessible à un autre développeur. J’ai inclus une FAQ utilisateur expliquant les actions principales du MVP (connexion, publication, abonnement, profil). J’ai veillé à ce que la documentation respecte les principes de sécurité et de confidentialité. J’ai vérifié que la documentation est visuellement claire et accessible (mise en page, contrastes, lisibilité). |  |
 

@@ -156,6 +156,23 @@ Avant de poser une seule question, tu DOIS lire et extraire toutes les informati
    - Configuration environnement
    - Contraintes techniques
 
+4. **`./maquette`** (si existe) :
+   - Dossier contenant les captures d'écran de maquettes Figma
+   - Images PNG/JPG des écrans de l'application
+   - Permet de comprendre visuellement le design attendu
+   - L'assistant peut lire et analyser ces images pour identifier :
+     - Les composants UI (boutons, formulaires, cartes, etc.)
+     - La structure des pages
+     - Les couleurs et la typographie
+     - Le layout et l'organisation visuelle
+
+5. **`template-etudiant.md`** (si existe) :
+   - Template de document à remplir par les étudiants
+   - Contient la structure attendue pour les livrables écrits
+   - Peut inclure des questions de justification, d'architecture, etc.
+   - Doit être copié dans le code starter pour que les étudiants le remplissent
+   - La version corrigée (remplie) peut servir d'exemple dans la solution
+
 #### Étape 1.2 : Identification des informations manquantes
 
 Faire la liste des informations **réellement manquantes** :
@@ -263,6 +280,37 @@ Une fois `stack.md` défini :
    - Commentaires pédagogiques si niveau débutant
    - Respecter les best practices définies dans `stack.md`
    - Adapter la complexité selon le niveau de séniorité
+   - **Copier `template-etudiant.md`** (si existe) dans le dossier starter pour que l'étudiant le remplisse
+
+3. **🚨 RÈGLE CRITIQUE - DOCUMENTATION STARTER** :
+
+   **LE CODE STARTER DOIT RESSEMBLER À UN PROJET PROFESSIONNEL RÉEL.**
+
+   **INTERDICTIONS ABSOLUES dans le starter** :
+   - ❌ JAMAIS de fichiers START_HERE.md, QUICK_START.md, VERIFICATION.md
+   - ❌ JAMAIS de fichiers ANTI-PATTERNS.md, TESTING_GUIDE.md, MANIFEST.md
+   - ❌ JAMAIS de fichiers INSTRUCTOR_NOTES.md, DEPENDENCIES.md, PROJECT_STRUCTURE.md
+   - ❌ JAMAIS de fichiers PROJECT_SUMMARY.txt, FILES_LIST.txt
+   - ❌ AUCUN guide pédagogique explicite dans le starter
+
+   **UNIQUEMENT AUTORISÉ dans le starter** :
+   - ✅ README.md (documentation technique standard, comme un vrai projet)
+   - ✅ Code source (backend, frontend)
+   - ✅ Fichiers de configuration (package.json, tsconfig.json, docker-compose.yml, etc.)
+   - ✅ .env.example
+   - ✅ .gitignore
+
+   **OÙ METTRE LES GUIDES PÉDAGOGIQUES** :
+   - 📚 Tous les guides pédagogiques vont dans `[PROJECT_NAME]-setup/` (repo privé mentors)
+   - 📚 Liste des anti-patterns → setup/ANTI-PATTERNS.md
+   - 📚 Guides de correction → setup/corrige-*.md
+   - 📚 Guide mentor → setup/GUIDE_MENTOR.md
+
+   **POURQUOI** :
+   - Le starter doit simuler une vraie codebase professionnelle héritée
+   - Les étudiants doivent analyser le code comme dans la vraie vie (sans guide)
+   - Les anti-patterns doivent être découverts par l'étudiant, pas listés
+   - La documentation pédagogique est pour les MENTORS uniquement
 
 ---
 
@@ -401,12 +449,14 @@ Créer un dossier `[PROJECT_NAME]-solution/` qui contient :
    - Refléter le niveau de séniorité attendu (ni trop simple, ni trop complexe)
    - Inclure des commentaires pédagogiques aux endroits clés
    - S'assurer que le code compile et fonctionne parfaitement
+   - **Remplir `template-etudiant.md`** (si existe) avec les réponses complètes et détaillées comme exemple de livrable attendu
 
 3. **Structure du dossier solution** :
    ```
    [PROJECT_NAME]-solution/
    ├── [même structure que le starter]
    ├── README_SOLUTION.md      # Explication de l'architecture de la solution
+   ├── template-etudiant.md    # Version remplie (si le template existe)
    └── [code complet et fonctionnel]
    ```
 
@@ -420,6 +470,7 @@ Avant de passer à la Phase 6.2, vérifier que :
 - [ ] Code solution respecte toutes les best practices de stack.md
 - [ ] Architecture propre et professionnelle
 - [ ] Fichier README_SOLUTION.md présent
+- [ ] Fichier template-etudiant.md rempli (si le template existe à la racine)
 - [ ] Code testé : `npm install`, `npm run dev`, `npm run build`, `npm run lint` OK
 - [ ] Pas d'erreurs, pas de console.log oubliés
 - [ ] Solution documentée dans rex.md
@@ -1501,6 +1552,199 @@ Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà
 
 ---
 
+## Phase 8 : Nettoyage du repository template (OBLIGATOIRE)
+
+**🔴 PHASE CRITIQUE** : Cette phase est OBLIGATOIRE et doit TOUJOURS être exécutée après la Phase 7.
+
+### Objectif
+
+Nettoyer le repository template (CodebaseFactory) pour qu'il reste propre et réutilisable pour les prochains projets. Le repository ne doit contenir QUE les fichiers templates génériques.
+
+### Pourquoi cette phase est critique
+
+Sans cette phase, le repository template devient progressivement un "bordel" avec tous les fichiers générés des projets précédents. Cela rend :
+- Difficile de savoir quels fichiers sont des templates vs des fichiers générés
+- Impossible de réutiliser le repository proprement pour un nouveau projet
+- Risqué de publier accidentellement des fichiers d'un ancien projet
+
+### 8.1 Lister les fichiers à supprimer
+
+Avant de supprimer quoi que ce soit, générer la liste complète des fichiers à nettoyer :
+
+```bash
+cd /chemin/vers/CodebaseFactory
+ls -la
+```
+
+**Fichiers à SUPPRIMER** (tout ce qui est spécifique au projet) :
+- ✅ Dossiers `[PROJECT_NAME]-starter/`
+- ✅ Dossiers `[PROJECT_NAME]-solution/`
+- ✅ Fichiers `rex.md` (déjà copié dans le repository setup)
+- ✅ Fichiers `corrige-*.md` (déjà dans le repository setup)
+- ✅ Fichiers `grille-evaluation.md` (déjà dans le repository setup)
+- ✅ Fichiers `erreurs-frequentes.md` (déjà dans le repository setup)
+- ✅ Fichiers `faq-etudiants.md` (déjà dans le repository setup)
+- ✅ Fichiers `ressources-complementaires.md` (déjà dans le repository setup)
+- ✅ Fichiers `README_ETUDIANTS.md` (déjà utilisé dans le repository étudiant)
+- ✅ Fichiers `README_SOLUTION.md` (déjà utilisé dans le repository solution)
+- ✅ Fichiers `README_SETUP.md` (déjà utilisé dans le repository setup)
+- ✅ Fichiers `SETUP-GITHUB-[PROJECT_NAME].md` (déjà exécuté)
+- ✅ Dossiers temporaires (`/tmp/*`, `.DS_Store`, etc.)
+
+**Fichiers à CONSERVER** (templates génériques réutilisables) :
+- ❌ `AGENTS.md` - Workflow générique
+- ❌ `project.md` - Template instructions projet (peut être template vide ou exemple)
+- ❌ `stack.md` - Template stack technique (peut être template vide ou exemple)
+- ❌ `assets.md` - Template spécifications (peut être template vide ou exemple)
+- ❌ `guide-mentor.md` - Guide mentor générique réutilisable
+- ❌ `template-etudiant.md` - Template DOCUMENTATION.md pour étudiants
+- ❌ `README.md` - Documentation du repository CodebaseFactory lui-même
+- ❌ `.git/` - Historique Git
+- ❌ `.gitignore` - Configuration Git
+- ❌ Dossiers de configuration (`.claude/`, etc.)
+
+### 8.2 Exécuter le nettoyage
+
+```bash
+cd /chemin/vers/CodebaseFactory
+
+# Supprimer les dossiers de code générés
+rm -rf [PROJECT_NAME]-starter/
+rm -rf [PROJECT_NAME]-solution/
+
+# Supprimer les fichiers de documentation spécifiques au projet
+rm -f rex.md
+rm -f corrige-*.md
+rm -f grille-evaluation.md
+rm -f erreurs-frequentes.md
+rm -f faq-etudiants.md
+rm -f ressources-complementaires.md
+rm -f README_ETUDIANTS.md
+rm -f README_SOLUTION.md
+rm -f README_SETUP.md
+rm -f SETUP-GITHUB-*.md
+
+# Supprimer les fichiers temporaires
+rm -f .DS_Store
+rm -rf maquette/ # Si c'était spécifique au projet
+
+# Vérifier l'état final
+ls -la
+```
+
+**Exemple concret pour P5-DFSJS** :
+```bash
+cd /Users/simon.stoll/Documents/CodebaseFactory
+
+rm -rf P5-DFSJS-starter/
+rm -rf P5-DFSJS-solution/
+rm -f rex.md
+rm -f corrige-*.md
+rm -f grille-evaluation.md
+rm -f erreurs-frequentes.md
+rm -f faq-etudiants.md
+rm -f ressources-complementaires.md
+rm -f README_ETUDIANTS.md
+rm -f README_SOLUTION.md
+rm -f README_SETUP.md
+rm -f SETUP-GITHUB-P5.md
+rm -f .DS_Store
+rm -rf maquette/
+
+# Vérifier
+ls -la
+```
+
+### 8.3 Vérifier l'état final du repository template
+
+Après le nettoyage, le repository doit ressembler à ceci :
+
+```bash
+CodebaseFactory/
+├── .git/                    # Historique Git
+├── .gitignore               # Configuration Git
+├── .claude/                 # Configuration Claude (optionnel)
+├── AGENTS.md                # ✅ Workflow générique
+├── project.md               # ✅ Template instructions (peut être vide)
+├── stack.md                 # ✅ Template stack (peut être vide)
+├── assets.md                # ✅ Template assets (peut être vide)
+├── guide-mentor.md          # ✅ Guide mentor générique
+├── template-etudiant.md     # ✅ Template DOCUMENTATION.md
+└── README.md                # ✅ Documentation CodebaseFactory
+```
+
+**Vérifications** :
+- [ ] Aucun dossier `[PROJECT_NAME]-starter/` ou `[PROJECT_NAME]-solution/` présent
+- [ ] Aucun fichier `rex.md`, `corrige-*.md`, `grille-evaluation.md`, etc.
+- [ ] Aucun fichier `README_ETUDIANTS.md`, `README_SOLUTION.md`, `README_SETUP.md`
+- [ ] Aucun fichier `SETUP-GITHUB-*.md`
+- [ ] Tous les templates génériques (AGENTS.md, project.md, etc.) présents
+- [ ] Repository propre et prêt pour le prochain projet
+
+### 8.4 Documenter le nettoyage
+
+Créer un commit Git pour documenter le nettoyage :
+
+```bash
+cd /Users/simon.stoll/Documents/CodebaseFactory
+
+git add .
+git status  # Vérifier les fichiers supprimés
+
+git commit -m "chore: Clean up after P5-DFSJS project publication
+
+- Remove P5-DFSJS-starter/ and P5-DFSJS-solution/ directories
+- Remove project-specific documentation files
+- Repository ready for next project
+
+All project files now in GitHub:
+- Public: https://github.com/simonstoll-sudo/P5-DFSJS
+- Private solution: https://github.com/simonstoll-sudo/P5-DFSJS-corrige
+- Private setup: https://github.com/simonstoll-sudo/P5-DFSJS-setup"
+```
+
+### 8.5 Optionnel : Mettre à jour les templates si nécessaire
+
+Si vous avez amélioré les templates pendant ce projet, c'est le moment de les mettre à jour :
+
+```bash
+# Exemple : si vous avez une meilleure version de guide-mentor.md
+cp /path/to/improved-guide-mentor.md guide-mentor.md
+
+git add guide-mentor.md
+git commit -m "feat: Improve guide-mentor.md template based on P5-DFSJS learnings"
+```
+
+---
+
+✅ **CHECKPOINT PHASE 8 - VALIDATION FINALE OBLIGATOIRE**
+
+**🔴 VALIDATION DU NETTOYAGE** - Avant de considérer le projet terminé :
+
+**Repository template nettoyé** :
+- [ ] Tous les dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/` supprimés
+- [ ] Tous les fichiers spécifiques au projet supprimés (rex.md, corrige-*.md, README_*.md, etc.)
+- [ ] Tous les fichiers temporaires supprimés (.DS_Store, maquette/, etc.)
+- [ ] UNIQUEMENT les templates génériques présents (AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, template-etudiant.md, README.md)
+- [ ] Commit de nettoyage créé et documenté
+
+**Vérifications finales** :
+- [ ] `ls -la` montre uniquement les templates génériques
+- [ ] `git status` ne montre aucun fichier non tracké lié au projet
+- [ ] Repository prêt pour le prochain projet
+
+**Documentation** :
+- [ ] Commit de nettoyage créé avec message clair
+- [ ] URLs des 3 repositories GitHub documentées dans le message de commit
+
+**🎉 SI TOUS LES POINTS SONT VALIDÉS** : Le repository template est propre et prêt pour le prochain projet. Le projet [PROJECT_NAME] est 100% terminé.
+
+---
+
+**Note critique** : Cette phase 8 est la raison pour laquelle le repository template reste propre et réutilisable projet après projet. Ne JAMAIS la sauter.
+
+---
+
 ## Instructions spécifiques
 
 ### Comment analyser `project.md`
@@ -1671,24 +1915,32 @@ Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà
 - [ ] Guide mentor validé
 - [ ] rex.md mis à jour
 
-### Phase 7 : Organisation Git (CRITIQUE)
-- [ ] Structure `[PROJECT_NAME]-archive/` créée
-- [ ] Sous-dossier `fichiers-de-configuration/` avec 5 fichiers
-- [ ] Sous-dossier `ressources-mentors-learning-designers/` avec guide-mentor.md et corrige.md
-- [ ] Starter et solution à la racine de l'archive
-- [ ] README.md UNIQUEMENT à la racine (pas de doublons)
-- [ ] Branche étudiants créée et testée
-- [ ] Aucune fuite corrections vers branche étudiants
-- [ ] Tests en mode incognito effectués
-- [ ] Branche par défaut configurée sur GitHub
+### Phase 7 : Publication GitHub (CRITIQUE)
+- [ ] 3 READMEs professionnels créés (README_ETUDIANTS.md, README_SOLUTION.md, README_SETUP.md)
+- [ ] Repository PUBLIC `[ORGANIZATION]/[PROJECT_NAME]` créé avec starter
+- [ ] Repository PRIVÉ `[ORGANIZATION]/[PROJECT_NAME]-corrige` créé avec solution
+- [ ] Repository PRIVÉ `[ORGANIZATION]/[PROJECT_NAME]-setup` créé avec ressources
+- [ ] Dossier `fichiers-de-configuration/` dans setup avec 4+ fichiers
+- [ ] Dossier `ressources-mentors-learning-designers/` dans setup avec tous les corrige-*.md
+- [ ] Aucune fuite corrections vers repository étudiant PUBLIC
+- [ ] Tests en mode incognito effectués sur repository PUBLIC
+- [ ] URLs des 3 repositories documentées
 
-**🎉 SI TOUS LES POINTS VALIDÉS** : Projet complet et prêt !
+### Phase 8 : Nettoyage repository template (OBLIGATOIRE)
+- [ ] Dossiers `[PROJECT_NAME]-starter/` et `[PROJECT_NAME]-solution/` supprimés
+- [ ] Fichiers spécifiques au projet supprimés (rex.md, corrige-*.md, README_*.md, SETUP-GITHUB-*.md)
+- [ ] Fichiers temporaires supprimés (.DS_Store, maquette/, etc.)
+- [ ] UNIQUEMENT templates génériques présents (AGENTS.md, project.md, stack.md, assets.md, guide-mentor.md, template-etudiant.md, README.md)
+- [ ] Commit de nettoyage créé avec URLs des 3 repositories
+- [ ] Repository template propre et prêt pour le prochain projet
+
+**🎉 SI TOUS LES POINTS VALIDÉS** : Projet 100% complet et repository template propre !
 
 ---
 
 ## Règles importantes
 
-1. **🚫 JAMAIS sauter une phase** : Respecter l'ordre strict des phases 0 → 0.5 → 1 → 2 → 3 → 4 → 5 → 6 → 7
+1. **🚫 JAMAIS sauter une phase** : Respecter l'ordre strict des phases 0 → 0.5 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 2. **✅ TOUJOURS valider les checkpoints** : Ne pas passer à la phase suivante sans valider le checkpoint
 3. **📋 TOUJOURS documenter dans rex.md** : Chaque interaction, décision et action doit être documentée
 4. **❌ JAMAIS supposer** : Lire les fichiers fournis avant de poser des questions
@@ -1700,3 +1952,4 @@ Le `README.md` du repository étudiant doit être adapté aux étudiants (déjà
 10. **🔴 Phase 7 CRITIQUE** : Respecter EXACTEMENT la structure d'archive définie (voir section 7.2)
 11. **🔍 Valider avant publication** : Tester en mode incognito, vérifier aucune fuite de corrections
 12. **🌲 Stratégie branches** : Branche actuelle = ressources formateurs, branche étudiants = code starter uniquement
+13. **🧹 Phase 8 OBLIGATOIRE** : TOUJOURS nettoyer la racine du repository template après publication (voir Phase 8)
